@@ -1,16 +1,12 @@
-﻿using System;
+﻿using Business.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Business.Entities;
 
 namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
         Data.Database.UsuarioAdapter UsuarioData { get; set; }
-        UsuarioLogic()
+        public UsuarioLogic()
         {
             UsuarioData = new Data.Database.UsuarioAdapter();
         }
