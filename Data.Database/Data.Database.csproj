@@ -69,7 +69,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business.Entities\Business.Entities.csproj">
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{4fe53a72-a1ed-49fb-b2f4-5ecbd278b8f9}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
