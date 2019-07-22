@@ -23,8 +23,8 @@ namespace Data.Database
                     usr.State = Business.Entities.BusinessEntity.States.Unmodified;
                     usr.Nombre = "Casimiro";
                     usr.Apellido = "Cegado";
-                    usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
+                    usr.NombreUsuario = "fkatz";
+                    usr.Clave = "fedefede";
                     usr.Email = "casimirocegado@gmail.com";
                     usr.Habilitado = true;
                     _Usuarios.Add(usr);
@@ -66,6 +66,13 @@ namespace Data.Database
         {
             return Usuarios.Find(delegate (Usuario u) { return u.ID == ID; });
         }
+
+
+        public Business.Entities.Usuario GetByUsername(string username)
+        {
+            return Usuarios.Find(delegate (Usuario u) { return u.NombreUsuario == username; });
+        }
+
 
         public void Delete(int ID)
         {

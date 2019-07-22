@@ -34,7 +34,13 @@ namespace UI.Desktop
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            Listar();
+            Login login = new Login();
+            login.ShowDialog();
+            if (!login.logged)
+            {
+                this.Dispose();
+            }
+            else Listar();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
