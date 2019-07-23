@@ -12,18 +12,31 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
         public Boolean logged = false;
         public Usuario loggedUser;
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;
+            this.CancelButton = btnCancelar;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           UsuarioAdapter usuarios = new UsuarioAdapter();
+            this.Login();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Dispose();
+        }
+
+        private void Login()
+        {
+            UsuarioAdapter usuarios = new UsuarioAdapter();
             Usuario user = usuarios.GetByUsername(txtUser.Text);
             if (user == null || user.Clave != txtPassword.Text)
             {
@@ -36,12 +49,6 @@ namespace UI.Desktop
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Dispose();
         }
     }
 }

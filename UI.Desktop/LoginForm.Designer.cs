@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,8 +99,8 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnLogin);
             this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogin);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 133);
@@ -108,19 +108,9 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(320, 34);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(242, 3);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(161, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(242, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -128,13 +118,23 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // Login
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(161, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Ingresar";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 171);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
