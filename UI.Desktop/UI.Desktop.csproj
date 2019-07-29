@@ -52,6 +52,42 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionesForm.Designer.cs">
+      <DependentUpon>ComisionesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspecialidadesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EspecialidadesForm.Designer.cs">
+      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MateriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriasForm.Designer.cs">
+      <DependentUpon>MateriasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModulosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModulosForm.Designer.cs">
+      <DependentUpon>ModulosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonasForm.Designer.cs">
+      <DependentUpon>PersonasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanesForm.Designer.cs">
+      <DependentUpon>PlanesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +110,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComisionesForm.resx">
+      <DependentUpon>ComisionesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspecialidadesForm.resx">
+      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriasForm.resx">
+      <DependentUpon>MateriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModulosForm.resx">
+      <DependentUpon>ModulosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonasForm.resx">
+      <DependentUpon>PersonasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanesForm.resx">
+      <DependentUpon>PlanesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

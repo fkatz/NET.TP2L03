@@ -12,11 +12,11 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class UsuariosList : Form
+    public partial class PersonasList : Form
     {
         private UsuarioLogic usuarios = new UsuarioLogic();
 
-        public UsuariosList()
+        public PersonasList()
         {
             InitializeComponent();
             dgvUsuarios.AutoGenerateColumns = false;
