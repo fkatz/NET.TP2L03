@@ -5,7 +5,7 @@
         public enum TiposCargos { }
 
         public TiposCargos TipoCargo { get; set; }
-        public int IDCurso { get; set; }
-        public int IDDocente { get; set; }
+        public Curso Curso { get; set; }
+        public Persona Docente { get; set; }
     }
 }

@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,53 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationForm.cs">
+    <Compile Include="IEntityForm.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationForm.Designer.cs">
-      <DependentUpon>ApplicationForm.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComisionesForm.cs">
+    <Compile Include="PersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComisionesForm.Designer.cs">
-      <DependentUpon>ComisionesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EspecialidadesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EspecialidadesForm.Designer.cs">
-      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MateriasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MateriasForm.Designer.cs">
-      <DependentUpon>MateriasForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModulosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModulosForm.Designer.cs">
-      <DependentUpon>ModulosForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PersonasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PersonasForm.Designer.cs">
-      <DependentUpon>PersonasForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PlanesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PlanesForm.Designer.cs">
-      <DependentUpon>PlanesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="PersonaForm.Designer.cs">
+      <DependentUpon>PersonaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioForm.cs">
       <SubType>Form</SubType>
@@ -100,43 +72,25 @@
     <Compile Include="UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuariosList.cs">
+    <Compile Include="List.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuariosList.Designer.cs">
-      <DependentUpon>UsuariosList.cs</DependentUpon>
+    <Compile Include="List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ApplicationForm.resx">
-      <DependentUpon>ApplicationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComisionesForm.resx">
-      <DependentUpon>ComisionesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EspecialidadesForm.resx">
-      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MateriasForm.resx">
-      <DependentUpon>MateriasForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModulosForm.resx">
-      <DependentUpon>ModulosForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PersonasForm.resx">
-      <DependentUpon>PersonasForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PlanesForm.resx">
-      <DependentUpon>PlanesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="PersonaForm.resx">
+      <DependentUpon>PersonaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuariosList.resx">
-      <DependentUpon>UsuariosList.cs</DependentUpon>
+    <EmbeddedResource Include="List.resx">
+      <DependentUpon>List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +101,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

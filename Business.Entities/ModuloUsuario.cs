@@ -1,12 +1,19 @@
-﻿namespace Business.Entities
+﻿using System;
+
+namespace Business.Entities
 {
     public class ModuloUsuario : BusinessEntity
     {
-        public int IDModulo { get; set; }
-        public int IDUsuario { get; set; }
-        public bool PermiteAlta { get; set; }
-        public bool PermiteBaja { get; set; }
-        public bool PermiteModificacion { get; set; }
-        public bool PermiteConsulta { get; set; }
+        [Flags]
+        public enum PermisosModulos
+        {
+            Alta = 0b1,
+            Baja = 0b10,
+            Modificación = 0b100,
+            Consulta = 0b1000
+        }
+        public Modulo Modulo { get; set; }
+        public Usuario Usuario { get; set; }
+        public PermisosModulos Permisos  { get; set; }
     }
 }

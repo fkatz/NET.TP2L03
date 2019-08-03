@@ -4,7 +4,7 @@
     {
         public int HSSemanales { get; set; }
         public int HSTotales { get; set; }
-        public int IDPlan { get; set; }
+        public Plan Plan { get; set; }
         public string Descripcion { get; set; }
 
     }

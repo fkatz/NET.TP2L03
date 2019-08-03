@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class LoginForm : Form
+    public partial class Login : Form
     {
         public Boolean logged = false;
         public Usuario loggedUser;
-        public LoginForm()
+        public Login()
         {
             InitializeComponent();
             this.AcceptButton = btnLogin;
@@ -25,7 +25,7 @@ namespace UI.Desktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Login();
+            this.DoLogin();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace UI.Desktop
             this.Dispose();
         }
 
-        private void Login()
+        private void DoLogin()
         {
             UsuarioAdapter usuarios = new UsuarioAdapter();
             Usuario user = usuarios.GetByUsername(txtUser.Text);

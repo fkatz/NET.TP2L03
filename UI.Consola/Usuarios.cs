@@ -79,7 +79,6 @@ namespace UI.Consola
         private void MostrarDatos(Usuario usr)
         {
             Console.WriteLine("Usuario: " + usr.ID);
-            Console.WriteLine("\t\tNombre: " + usr.Apellido + ", " + usr.Nombre);
             Console.WriteLine("\t\tNombre de Usuario: " + usr.NombreUsuario);
             Console.WriteLine("\t\tClave: " + usr.Clave);
             Console.WriteLine("\t\tHabilitado: " + usr.Habilitado);
@@ -117,10 +116,6 @@ namespace UI.Consola
                 Console.Write("Ingrese el ID del usuario a modificar: ");
                 int ID = int.Parse(Console.ReadLine());
                 Usuario usuario = UsuarioNegocio.GetOne(ID);
-                Console.Write("Ingrese Nombre: ");
-                usuario.Nombre = Console.ReadLine();
-                Console.Write("Ingrese Apellido: ");
-                usuario.Apellido = Console.ReadLine();
                 Console.Write("Ingrese Nombre de Usuario: ");
                 usuario.NombreUsuario = Console.ReadLine();
                 Console.Write("Ingrese Clave: ");
@@ -151,10 +146,6 @@ namespace UI.Consola
             {
                 Console.Clear();
                 Usuario usuario = new Usuario();
-                Console.Write("Ingrese Nombre: ");
-                usuario.Nombre = Console.ReadLine();
-                Console.Write("Ingrese Apellido: ");
-                usuario.Apellido = Console.ReadLine();
                 Console.Write("Ingrese Nombre de Usuario: ");
                 usuario.NombreUsuario = Console.ReadLine();
                 Console.Write("Ingrese Clave: ");

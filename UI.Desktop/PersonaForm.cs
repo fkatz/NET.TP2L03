@@ -14,22 +14,25 @@ using Data.Database;
 
 namespace UI.Desktop
 {
-    public partial class UsuarioForm : Form, IEntityForm<Usuario>
+    public partial class PersonaForm : Form, IEntityForm<Persona>
     {
-        public Usuario EntidadActual { get; set; }
+        public Persona EntidadActual { get; set; }
         FormMode formMode;
-        UsuarioLogic entities = new UsuarioLogic();
-        private UsuarioForm()
+        PersonaLogic entities = new PersonaLogic();
+        private PersonaForm()
         {
             InitializeComponent();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
+            UsuarioLogic usrLogic = new UsuarioLogic();
+            this.cmbUsuario.DataSource = usrLogic.GetAll();
+            this.cmbUsuario.DisplayMember = "NombreUsuario";
         }
-        public UsuarioForm(FormMode formMode) : this()
+        public PersonaForm(FormMode formMode) : this()
         {
             this.formMode = formMode;
         }
-        public UsuarioForm(int id, FormMode formMode) : this()
+        public PersonaForm(int id, FormMode formMode) : this()
         {
             this.EntidadActual = entities.GetOne(id);
             this.MapearDeDatos();
@@ -37,22 +40,41 @@ namespace UI.Desktop
         }
         public void MapearADatos()
         {
-            Usuario oldUsr = this.EntidadActual;
-            this.EntidadActual = new Usuario()
+            Persona oldEntity = this.EntidadActual;
+            Persona.TipoPersona tp = 0;
+            if (chkTipoAlumno.Checked) tp |= Persona.TipoPersona.Alumno;
+            if (chkTipoDocente.Checked) tp |= Persona.TipoPersona.Docente;
+            if (chkTipoNoDocente.Checked) tp |= Persona.TipoPersona.NoDocente;
+            UsuarioLogic users = new UsuarioLogic();
+            this.EntidadActual = new Persona()
             {
-                NombreUsuario = this.txtUsuario.Text,
-                Email = this.txtEmail.Text,
-                Habilitado = this.chkHabilitado.Checked
+                Tipo = tp,
+                Legajo = int.Parse(txtLegajo.Text),
+                Usuario = users.GetOne(((Usuario)cmbUsuario.SelectedItem).ID),
+                Apellido = txtApellido.Text,
+                Nombre = txtNombre.Text,
+                Telefono = txtTelefono.Text,
+                Direccion = txtDireccion.Text,
+                FechaNacimiento = dtpFechaNac.Value.Date
             };
-            EntidadActual.Clave = (this.txtClave.Text.Length > 0) ? this.txtClave.Text : oldUsr.Clave;
-            if (this.formMode == FormMode.Modificación) this.EntidadActual.ID = Int32.Parse(this.txtId.Text);
+            if(oldEntity != null)
+            {
+                this.EntidadActual.ID = oldEntity.ID;
+            }
         }
         public void MapearDeDatos()
         {
-            this.txtEmail.Text = EntidadActual.Email;
-            this.txtUsuario.Text = EntidadActual.NombreUsuario;
-            this.txtId.Text = EntidadActual.ID.ToString();
-            this.chkHabilitado.Checked = EntidadActual.Habilitado;
+            // mapping
+            chkTipoAlumno.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno;
+            chkTipoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente;
+            chkTipoNoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.NoDocente) == Persona.TipoPersona.NoDocente;
+            txtLegajo.Text = EntidadActual.Legajo.ToString();
+            cmbUsuario.SelectedIndex = cmbUsuario.FindString(EntidadActual.Usuario.NombreUsuario);
+            txtApellido.Text = EntidadActual.Apellido;
+            txtNombre.Text = EntidadActual.Nombre;
+            txtTelefono.Text = EntidadActual.Telefono;
+            txtDireccion.Text = EntidadActual.Direccion;
+            dtpFechaNac.Value = EntidadActual.FechaNacimiento;
             switch (this.formMode)
             {
                 case FormMode.Modificación:
@@ -63,9 +85,6 @@ namespace UI.Desktop
                     this.btnAceptar.Text = "Eliminar";
                     break;
             }
-
-
-
         }
         public void GuardarDatos()
         {
@@ -91,39 +110,6 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
-            if (!Regex.IsMatch(txtEmail.Text, "^[a-zA-Z0-9]+([a-zA-Z0-9_]+[a-zA-Z0-9])@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"))
-            {
-                valid = false;
-                message += "\nEmail inválido.";
-            }
-            if (!Regex.IsMatch(txtUsuario.Text, "^[a-zA-Z0-9][a-zA-Z0-9_]{2,}[a-zA-Z0-9]$"))
-            {
-                valid = false;
-                message += "\nNombre de usuario inválido.";
-            }
-            else
-            {
-                Usuario savedUser = entities.GetByUsername(txtUsuario.Text);
-                if (savedUser != null && EntidadActual != null && EntidadActual.ID != savedUser.ID)
-                {
-                    valid = false;
-                    message += "\nYa existe un usuario con ese nombre de usuario.";
-                }
-            }
-            if (this.formMode == FormMode.Alta && txtClave.Text.Length == 0)
-            {
-                valid = false;
-                message += "\nContraseña requerida.";
-            }
-            if (txtClave.Text.Length > 0 && txtConfirmarClave.Text != txtClave.Text)
-            {
-                valid = false;
-                message += "\nLas contraseñas ingresadas no coinciden.";
-            }
-            if (!valid)
-            {
-                MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             return valid;
         }
 
