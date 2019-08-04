@@ -344,3 +344,4 @@ healthchecksdb
 MigrationBackup/
 UI.Desktop/PlanForm.cs
 UI.Desktop/PlanForm.Designer.cs
+UI.Desktop/PlanForm.resx
