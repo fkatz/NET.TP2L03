@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
         private UsuarioLogic usuarios = new UsuarioLogic();
         private PersonaLogic personas = new PersonaLogic();
+        private EspecialidadLogic especialidades = new EspecialidadLogic();
         private ComisionLogic comisiones = new ComisionLogic();
         private CursoLogic cursos = new CursoLogic();
         // COMPLETAR
@@ -46,6 +47,7 @@ namespace UI.Desktop
         {
             this.dgvPersonas.DataSource = personas.GetAll();
             this.dgvUsuarios.DataSource = usuarios.GetAll();
+            this.dgvEspecialidades.DataSource = especialidades.GetAll();
             //COMPLETAR
         }
 
@@ -76,6 +78,9 @@ namespace UI.Desktop
                 case "tabPersonas":
                     entityForm = new PersonaForm(FormMode.Alta);
                     break;
+                case "tabEspecialidades":
+                    entityForm = new EspecialidadForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -94,6 +99,9 @@ namespace UI.Desktop
                     break;
                 case "tabPersonas":
                     entityForm = new PersonaForm(((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabEspecialidades":
+                    entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");

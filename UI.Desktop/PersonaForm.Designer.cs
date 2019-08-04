@@ -30,11 +30,11 @@
         {
             this.lblID = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNac = new System.Windows.Forms.Label();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -48,9 +48,9 @@
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.chkTipoNoDocente = new System.Windows.Forms.CheckBox();
-            this.chkTipoDocente = new System.Windows.Forms.CheckBox();
             this.chkTipoAlumno = new System.Windows.Forms.CheckBox();
+            this.chkTipoDocente = new System.Windows.Forms.CheckBox();
+            this.chkTipoNoDocente = new System.Windows.Forms.CheckBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -81,14 +81,6 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(427, 34);
             this.flowLayoutPanel3.TabIndex = 31;
             // 
-            // dtpFechaNac
-            // 
-            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNac.Location = new System.Drawing.Point(117, 3);
-            this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaNac.TabIndex = 29;
-            // 
             // lblFechaNac
             // 
             this.lblFechaNac.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -98,6 +90,14 @@
             this.lblFechaNac.Size = new System.Drawing.Size(108, 13);
             this.lblFechaNac.TabIndex = 30;
             this.lblFechaNac.Text = "Fecha de Nacimiento";
+            // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNac.Location = new System.Drawing.Point(117, 3);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaNac.TabIndex = 29;
             // 
             // flowLayoutPanel1
             // 
@@ -111,16 +111,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 31);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(268, 3);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 1;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(349, 3);
@@ -130,6 +120,16 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(268, 3);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 1;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // txtDireccion
             // 
@@ -252,15 +252,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(371, 22);
             this.flowLayoutPanel2.TabIndex = 26;
             // 
-            // chkTipoNoDocente
+            // chkTipoAlumno
             // 
-            this.chkTipoNoDocente.AutoSize = true;
-            this.chkTipoNoDocente.Location = new System.Drawing.Point(143, 3);
-            this.chkTipoNoDocente.Name = "chkTipoNoDocente";
-            this.chkTipoNoDocente.Size = new System.Drawing.Size(84, 17);
-            this.chkTipoNoDocente.TabIndex = 2;
-            this.chkTipoNoDocente.Text = "No Docente";
-            this.chkTipoNoDocente.UseVisualStyleBackColor = true;
+            this.chkTipoAlumno.AutoSize = true;
+            this.chkTipoAlumno.Location = new System.Drawing.Point(3, 3);
+            this.chkTipoAlumno.Name = "chkTipoAlumno";
+            this.chkTipoAlumno.Size = new System.Drawing.Size(61, 17);
+            this.chkTipoAlumno.TabIndex = 0;
+            this.chkTipoAlumno.Text = "Alumno";
+            this.chkTipoAlumno.UseVisualStyleBackColor = true;
             // 
             // chkTipoDocente
             // 
@@ -272,15 +272,15 @@
             this.chkTipoDocente.Text = "Docente";
             this.chkTipoDocente.UseVisualStyleBackColor = true;
             // 
-            // chkTipoAlumno
+            // chkTipoNoDocente
             // 
-            this.chkTipoAlumno.AutoSize = true;
-            this.chkTipoAlumno.Location = new System.Drawing.Point(3, 3);
-            this.chkTipoAlumno.Name = "chkTipoAlumno";
-            this.chkTipoAlumno.Size = new System.Drawing.Size(61, 17);
-            this.chkTipoAlumno.TabIndex = 0;
-            this.chkTipoAlumno.Text = "Alumno";
-            this.chkTipoAlumno.UseVisualStyleBackColor = true;
+            this.chkTipoNoDocente.AutoSize = true;
+            this.chkTipoNoDocente.Location = new System.Drawing.Point(143, 3);
+            this.chkTipoNoDocente.Name = "chkTipoNoDocente";
+            this.chkTipoNoDocente.Size = new System.Drawing.Size(84, 17);
+            this.chkTipoNoDocente.TabIndex = 2;
+            this.chkTipoNoDocente.Text = "No Docente";
+            this.chkTipoNoDocente.UseVisualStyleBackColor = true;
             // 
             // lblTipo
             // 

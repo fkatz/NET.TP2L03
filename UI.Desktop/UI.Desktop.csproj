@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EspecialidadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EspecialidadForm.Designer.cs">
+      <DependentUpon>EspecialidadForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IEntityForm.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EspecialidadForm.resx">
+      <DependentUpon>EspecialidadForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
