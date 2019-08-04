@@ -109,7 +109,7 @@ namespace UI.Desktop
                     entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabMaterias":
-                    entityForm = new EspecialidadForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
