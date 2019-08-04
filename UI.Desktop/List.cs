@@ -49,6 +49,7 @@ namespace UI.Desktop
             this.dgvPersonas.DataSource = personas.GetAll();
             this.dgvUsuarios.DataSource = usuarios.GetAll();
             this.dgvEspecialidades.DataSource = especialidades.GetAll();
+            this.dgvMaterias.DataSource = materias.GetAll();
             //COMPLETAR
         }
 
