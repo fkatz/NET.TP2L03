@@ -130,60 +130,74 @@ namespace UI.Desktop
             DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar los elementos seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (confirm == DialogResult.Yes)
             {
-                if (tabControl.SelectedTab == tabUsuarios)
-                {
-                    List<Usuario> array = new List<Usuario>();
-                    foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
+                try {
+                    if (tabControl.SelectedTab == tabUsuarios)
                     {
-                        Usuario entity = (Usuario)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        usuarios.Save(entity);
+                        List<Usuario> array = new List<Usuario>();
+                        foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
+                        {
+                            Usuario entity = (Usuario)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            usuarios.Save(entity);
+                        }
                     }
-                }
-                else if (tabControl.SelectedTab == tabPersonas)
-                {
-                    List<Persona> array = new List<Persona>();
-                    foreach (DataGridViewRow row in dgvPersonas.SelectedRows)
+                    else if (tabControl.SelectedTab == tabPersonas)
                     {
-                        Persona entity = (Persona)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        personas.Save(entity);
+                        List<Persona> array = new List<Persona>();
+                        foreach (DataGridViewRow row in dgvPersonas.SelectedRows)
+                        {
+                            Persona entity = (Persona)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            personas.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabEspecialidades) {
+                        List<Especialidad> array = new List<Especialidad>();
+                        foreach (DataGridViewRow row in dgvEspecialidades.SelectedRows) {
+                            Especialidad entity = (Especialidad)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            especialidades.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabMaterias) {
+                        List<Materia> array = new List<Materia>();
+                        foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                            Materia entity = (Materia)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            materias.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabMaterias) {
+                        List<Materia> array = new List<Materia>();
+                        foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                            Materia entity = (Materia)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            materias.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabComisiones) {
+                        List<Comision> array = new List<Comision>();
+                        foreach (DataGridViewRow row in dgvComisiones.SelectedRows) {
+                            Comision entity = (Comision)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            comisiones.Save(entity);
+                        }
+                    }
+                    // COMPLETAR
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+                {
+                    switch (ex.InnerException)
+                    {
+                        case System.Data.Entity.Core.UpdateException ue:
+                            MessageBox.Show("No se ha podido eliminar un elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                            break;
                     }
                 }
-                else if (tabControl.SelectedTab == tabEspecialidades) {
-                    List<Especialidad> array = new List<Especialidad>();
-                    foreach (DataGridViewRow row in dgvEspecialidades.SelectedRows) {
-                        Especialidad entity = (Especialidad)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        especialidades.Save(entity);
-                    }
+                finally
+                {
+                    Listar();
                 }
-                else if (tabControl.SelectedTab == tabMaterias) {
-                    List<Materia> array = new List<Materia>();
-                    foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
-                        Materia entity = (Materia)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        materias.Save(entity);
-                    }
-                }
-                else if (tabControl.SelectedTab == tabMaterias) {
-                    List<Materia> array = new List<Materia>();
-                    foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
-                        Materia entity = (Materia)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        materias.Save(entity);
-                    }
-                }
-                else if (tabControl.SelectedTab == tabComisiones) {
-                    List<Comision> array = new List<Comision>();
-                    foreach (DataGridViewRow row in dgvComisiones.SelectedRows) {
-                        Comision entity = (Comision)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        comisiones.Save(entity);
-                    }
-                }
-                // COMPLETAR
-                Listar();
             }
         }
 
