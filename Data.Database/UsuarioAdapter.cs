@@ -21,8 +21,6 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                Usuario usr = null;
-
                 return context.Usuario.Find(ID);
             }
         }

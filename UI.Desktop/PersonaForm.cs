@@ -75,6 +75,7 @@ namespace UI.Desktop
             txtTelefono.Text = EntidadActual.Telefono;
             txtDireccion.Text = EntidadActual.Direccion;
             dtpFechaNac.Value = EntidadActual.FechaNacimiento;
+            txtID.Text = EntidadActual.ID.ToString();
             switch (this.formMode)
             {
                 case FormMode.Modificación:

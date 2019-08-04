@@ -75,6 +75,3 @@ namespace Data.Database
             }
         }
     }
-
-}
-}
