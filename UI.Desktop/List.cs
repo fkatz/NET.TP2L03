@@ -19,6 +19,7 @@ namespace UI.Desktop
         private EspecialidadLogic especialidades = new EspecialidadLogic();
         private ComisionLogic comisiones = new ComisionLogic();
         private CursoLogic cursos = new CursoLogic();
+        private PlanLogic planes = new PlanLogic();
         // COMPLETAR
         public List()
         {
@@ -48,6 +49,7 @@ namespace UI.Desktop
             this.dgvPersonas.DataSource = personas.GetAll();
             this.dgvUsuarios.DataSource = usuarios.GetAll();
             this.dgvEspecialidades.DataSource = especialidades.GetAll();
+            this.dgvPlanes.DataSource = planes.GetAll();
             //COMPLETAR
         }
 
@@ -81,6 +83,9 @@ namespace UI.Desktop
                 case "tabEspecialidades":
                     entityForm = new EspecialidadForm(FormMode.Alta);
                     break;
+                case "tabPlanes":
+                    entityForm = new PlanForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -102,6 +107,9 @@ namespace UI.Desktop
                     break;
                 case "tabEspecialidades":
                     entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabPlanes":
+                    entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -133,6 +141,16 @@ namespace UI.Desktop
                         Persona entity = (Persona)row.DataBoundItem;
                         entity.State = BusinessEntity.States.Deleted;
                         personas.Save(entity);
+                    }
+                }
+                else if (tabControl.SelectedTab == tabPlanes)
+                {
+                    List<Plan> array = new List<Plan>();
+                    foreach (DataGridViewRow row in dgvPlanes.SelectedRows)
+                    {
+                        Plan entity = (Plan)row.DataBoundItem;
+                        entity.State = BusinessEntity.States.Deleted;
+                        planes.Save(entity);
                     }
                 }
                 // COMPLETAR
