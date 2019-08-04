@@ -12,25 +12,26 @@ using Business.Logic;
 using Data.Database;
 
 namespace UI.Desktop {
-    public partial class EspecialidadForm : Form, IEntityForm<Especialidad> {
-        public Especialidad EntidadActual { get; set; }
+    public partial class MateriaForm : Form, IEntityForm<Materia> {
+        public Materia EntidadActual { get; set; }
         FormMode formMode;
-        EspecialidadLogic entities = new EspecialidadLogic();
-        public EspecialidadForm() {
+        MateriaLogic entities = new MateriaLogic();
+        public MateriaForm() {
             InitializeComponent();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
+            PlanLogic planLogic = new PlanLogic();
+            this.cmbPlan.DataSource = planLogic.GetAll();
+            this.cmbPlan.DisplayMember = "Descripcion";
         }
-
-        public EspecialidadForm(FormMode formMode) : this() {
+        public MateriaForm(FormMode formMode) : this() {
             this.formMode = formMode;
         }
-        public EspecialidadForm(int id, FormMode formMode) : this() {
+        public MateriaForm(int id, FormMode formMode) : this() {
             this.EntidadActual = entities.GetOne(id);
             this.MapearDeDatos();
             this.formMode = formMode;
         }
-
         public void GuardarDatos() {
             if (Validar()) {
                 this.MapearADatos();
@@ -50,9 +51,13 @@ namespace UI.Desktop {
         }
 
         public void MapearADatos() {
-            Especialidad oldEntity = this.EntidadActual;
-            this.EntidadActual = new Especialidad() {
-                Descripcion=txtDescripcion.Text
+            Materia oldEntity = this.EntidadActual;
+            PlanLogic planes = new PlanLogic();
+            this.EntidadActual = new Materia() {
+                Descripcion = txtDescripcion.Text,
+                Plan = planes.GetOne(((Plan)cmbPlan.SelectedItem).ID),
+                HSSemanales = int.Parse(txtHsSemanales.Text),
+                HSTotales = int.Parse(txtHorasTotal.Text)
             };
             if (oldEntity != null) {
                 this.EntidadActual.ID = oldEntity.ID;
@@ -61,6 +66,9 @@ namespace UI.Desktop {
 
         public void MapearDeDatos() {
             txtDescripcion.Text = EntidadActual.Descripcion;
+            cmbPlan.SelectedIndex = cmbPlan.FindString(EntidadActual.Plan.Descripcion);
+            txtHorasTotal.Text = EntidadActual.HSTotales.ToString();
+            txtHsSemanales.Text = EntidadActual.HSSemanales.ToString();
             txtID.Text = EntidadActual.ID.ToString();
             switch (this.formMode) {
                 case FormMode.Modificación:
@@ -72,6 +80,8 @@ namespace UI.Desktop {
                     break;
             }
         }
+
+
 
         public bool Validar() {
             bool valid = true;
@@ -88,13 +98,13 @@ namespace UI.Desktop {
             this.Dispose();
         }
 
-        private void EspecialidadesForm_Load(object sender, EventArgs e) {
+        private void MateriaForm_Load(object sender, EventArgs e) {
             switch (this.formMode) {
                 case FormMode.Alta:
-                    this.Text = "Crear Especialidad";
+                    this.Text = "Crear Materia";
                     break;
                 case FormMode.Modificación:
-                    this.Text = "Modificar Especialidad";
+                    this.Text = "Modificar Materia";
                     break;
 
             }

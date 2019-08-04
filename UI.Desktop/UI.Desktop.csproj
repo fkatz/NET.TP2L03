@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionForm.Designer.cs">
+      <DependentUpon>ComisionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaForm.Designer.cs">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonaForm.cs">
       <SubType>Form</SubType>
@@ -92,11 +104,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ComisionForm.resx">
+      <DependentUpon>ComisionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadForm.resx">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaForm.resx">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonaForm.resx">
       <DependentUpon>PersonaForm.cs</DependentUpon>

@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
         private UsuarioLogic usuarios = new UsuarioLogic();
         private PersonaLogic personas = new PersonaLogic();
+        private MateriaLogic materias = new MateriaLogic();
         private EspecialidadLogic especialidades = new EspecialidadLogic();
         private ComisionLogic comisiones = new ComisionLogic();
         private CursoLogic cursos = new CursoLogic();
@@ -50,6 +51,8 @@ namespace UI.Desktop
             this.dgvUsuarios.DataSource = usuarios.GetAll();
             this.dgvEspecialidades.DataSource = especialidades.GetAll();
             this.dgvPlanes.DataSource = planes.GetAll();
+            this.dgvMaterias.DataSource = materias.GetAll();
+            this.dgvComisiones.DataSource = comisiones.GetAll();
             //COMPLETAR
         }
 
@@ -86,6 +89,12 @@ namespace UI.Desktop
                 case "tabPlanes":
                     entityForm = new PlanForm(FormMode.Alta);
                     break;
+                case "tabMaterias":
+                    entityForm = new MateriaForm(FormMode.Alta);
+                    break;
+                case "tabComisiones":
+                    entityForm = new ComisionForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -111,6 +120,12 @@ namespace UI.Desktop
                 case "tabPlanes":
                     entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
+                case "tabMaterias":
+                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabComisiones":
+                    entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -123,38 +138,86 @@ namespace UI.Desktop
             DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar los elementos seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (confirm == DialogResult.Yes)
             {
-                if (tabControl.SelectedTab == tabUsuarios)
-                {
-                    List<Usuario> array = new List<Usuario>();
-                    foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
+                try {
+                    if (tabControl.SelectedTab == tabUsuarios)
                     {
-                        Usuario entity = (Usuario)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        usuarios.Save(entity);
+                        List<Usuario> array = new List<Usuario>();
+                        foreach (DataGridViewRow row in dgvUsuarios.SelectedRows)
+                        {
+                            Usuario entity = (Usuario)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            usuarios.Save(entity);
+                        }
                     }
-                }
-                else if (tabControl.SelectedTab == tabPersonas)
-                {
-                    List<Persona> array = new List<Persona>();
-                    foreach (DataGridViewRow row in dgvPersonas.SelectedRows)
+                    else if (tabControl.SelectedTab == tabPersonas)
                     {
-                        Persona entity = (Persona)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        personas.Save(entity);
+                        List<Persona> array = new List<Persona>();
+                        foreach (DataGridViewRow row in dgvPersonas.SelectedRows)
+                        {
+                            Persona entity = (Persona)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            personas.Save(entity);
+                        }
                     }
-                }
-                else if (tabControl.SelectedTab == tabPlanes)
-                {
-                    List<Plan> array = new List<Plan>();
-                    foreach (DataGridViewRow row in dgvPlanes.SelectedRows)
+                    else if (tabControl.SelectedTab == tabEspecialidades) {
+                        List<Especialidad> array = new List<Especialidad>();
+                        foreach (DataGridViewRow row in dgvEspecialidades.SelectedRows) {
+                            Especialidad entity = (Especialidad)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            especialidades.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabEspecialidades)
                     {
-                        Plan entity = (Plan)row.DataBoundItem;
-                        entity.State = BusinessEntity.States.Deleted;
-                        planes.Save(entity);
+                        List<Especialidad> array = new List<Especialidad>();
+                        foreach (DataGridViewRow row in dgvEspecialidades.SelectedRows)
+                        {
+                            Especialidad entity = (Especialidad)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            especialidades.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabPlanes) {
+                        List<Plan> array = new List<Plan>();
+                        foreach (DataGridViewRow row in dgvPlanes.SelectedRows) {
+                            Plan entity = (Plan)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            planes.Save(entity);
+                        }
+                    }
+
+                    else if (tabControl.SelectedTab == tabMaterias) {
+                        List<Materia> array = new List<Materia>();
+                        foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                            Materia entity = (Materia)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            materias.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabComisiones) {
+                        List<Comision> array = new List<Comision>();
+                        foreach (DataGridViewRow row in dgvComisiones.SelectedRows) {
+                            Comision entity = (Comision)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            comisiones.Save(entity);
+                        }
+                    }
+                    // COMPLETAR
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+                {
+                    switch (ex.InnerException)
+                    {
+                        case System.Data.Entity.Core.UpdateException ue:
+                            MessageBox.Show("No se ha podido eliminar un elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                            break;
                     }
                 }
                 // COMPLETAR
-                Listar();
+                finally
+                {
+                    Listar();
+                }
             }
         }
 
