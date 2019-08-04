@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionForm.Designer.cs">
+      <DependentUpon>ComisionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ComisionForm.resx">
+      <DependentUpon>ComisionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadForm.resx">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
     </EmbeddedResource>

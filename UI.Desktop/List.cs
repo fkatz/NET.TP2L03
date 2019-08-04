@@ -50,6 +50,7 @@ namespace UI.Desktop
             this.dgvUsuarios.DataSource = usuarios.GetAll();
             this.dgvEspecialidades.DataSource = especialidades.GetAll();
             this.dgvMaterias.DataSource = materias.GetAll();
+            this.dgvComisiones.DataSource = comisiones.GetAll();
             //COMPLETAR
         }
 
@@ -86,6 +87,9 @@ namespace UI.Desktop
                 case "tabMaterias":
                     entityForm = new MateriaForm(FormMode.Alta);
                     break;
+                case "tabComisiones":
+                    entityForm = new ComisionForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -110,6 +114,9 @@ namespace UI.Desktop
                     break;
                 case "tabMaterias":
                     entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabComisiones":
+                    entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -157,6 +164,22 @@ namespace UI.Desktop
                         Materia entity = (Materia)row.DataBoundItem;
                         entity.State = BusinessEntity.States.Deleted;
                         materias.Save(entity);
+                    }
+                }
+                else if (tabControl.SelectedTab == tabMaterias) {
+                    List<Materia> array = new List<Materia>();
+                    foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                        Materia entity = (Materia)row.DataBoundItem;
+                        entity.State = BusinessEntity.States.Deleted;
+                        materias.Save(entity);
+                    }
+                }
+                else if (tabControl.SelectedTab == tabComisiones) {
+                    List<Comision> array = new List<Comision>();
+                    foreach (DataGridViewRow row in dgvComisiones.SelectedRows) {
+                        Comision entity = (Comision)row.DataBoundItem;
+                        entity.State = BusinessEntity.States.Deleted;
+                        comisiones.Save(entity);
                     }
                 }
                 // COMPLETAR
