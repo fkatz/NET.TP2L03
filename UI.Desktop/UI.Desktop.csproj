@@ -66,6 +66,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MateriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaForm.Designer.cs">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaForm.resx">
+      <DependentUpon>MateriaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonaForm.resx">
       <DependentUpon>PersonaForm.cs</DependentUpon>

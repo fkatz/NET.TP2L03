@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
         private UsuarioLogic usuarios = new UsuarioLogic();
         private PersonaLogic personas = new PersonaLogic();
+        private MateriaLogic materias = new MateriaLogic();
         private EspecialidadLogic especialidades = new EspecialidadLogic();
         private ComisionLogic comisiones = new ComisionLogic();
         private CursoLogic cursos = new CursoLogic();
@@ -81,6 +82,9 @@ namespace UI.Desktop
                 case "tabEspecialidades":
                     entityForm = new EspecialidadForm(FormMode.Alta);
                     break;
+                case "tabMaterias":
+                    entityForm = new MateriaForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -102,6 +106,9 @@ namespace UI.Desktop
                     break;
                 case "tabEspecialidades":
                     entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabMaterias":
+                    entityForm = new EspecialidadForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -133,6 +140,22 @@ namespace UI.Desktop
                         Persona entity = (Persona)row.DataBoundItem;
                         entity.State = BusinessEntity.States.Deleted;
                         personas.Save(entity);
+                    }
+                }
+                else if (tabControl.SelectedTab == tabEspecialidades) {
+                    List<Especialidad> array = new List<Especialidad>();
+                    foreach (DataGridViewRow row in dgvEspecialidades.SelectedRows) {
+                        Especialidad entity = (Especialidad)row.DataBoundItem;
+                        entity.State = BusinessEntity.States.Deleted;
+                        especialidades.Save(entity);
+                    }
+                }
+                else if (tabControl.SelectedTab == tabMaterias) {
+                    List<Materia> array = new List<Materia>();
+                    foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                        Materia entity = (Materia)row.DataBoundItem;
+                        entity.State = BusinessEntity.States.Deleted;
+                        materias.Save(entity);
                     }
                 }
                 // COMPLETAR
