@@ -105,19 +105,52 @@ namespace UI.Desktop
                         break;
                 }
                 entities.Save(EntidadActual);
+                this.Dispose();
             }
         }
         public bool Validar()
         {
             bool valid = true;
             string message = "";
+            try
+            {
+                int.Parse(txtLegajo.Text);
+            }
+            catch(FormatException ef)
+            {
+                valid = false;
+                message += "\nEl legajo debe ser un número entero.";
+            }
+            if (!Regex.IsMatch(txtNombre.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+            {
+                valid = false;
+                message += "\nNombre inválido.";
+            }
+            if (!Regex.IsMatch(txtApellido.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+            {
+                valid = false;
+                message += "\nApellido inválido.";
+            }
+            if (!Regex.IsMatch(txtTelefono.Text, "^[0-9]+$") || txtTelefono.Text.Length <1)
+            {
+                valid = false;
+                message += "\nTelefono inválido.";
+            }
+            if (txtDireccion.Text.Length < 1)
+            {
+                valid = false;
+                message += "\nDirección inválida.";
+            }
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarDatos();
-            this.Dispose();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -130,10 +163,10 @@ namespace UI.Desktop
             switch (this.formMode)
             {
                 case FormMode.Alta:
-                    this.Text = "Crear Usuario";
+                    this.Text = "Crear Persona";
                     break;
                 case FormMode.Modificación:
-                    this.Text = "Modificar Usuario";
+                    this.Text = "Modificar Persona";
                     break;
 
             }
