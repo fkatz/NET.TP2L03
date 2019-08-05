@@ -42,6 +42,7 @@ namespace Data.Database
             {
                 entity = context.Curso.Attach(entity);
                 entity.Comision = context.Comision.Attach(entity.Comision);
+                entity.Materia.Plan = entity.Comision.Plan;
                 entity.Materia = context.Materia.Attach(entity.Materia);
                 var entry = context.Entry(entity); // Gets the entry for entity inside context
                 entry.State = EntityState.Modified;
@@ -52,10 +53,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var Comision = context.Comision.Attach(entity.Comision);
-                entity.Comision = Comision;
-                var Materia = context.Materia.Attach(entity.Materia);
-                entity.Materia = Materia;
+                entity.Comision = context.Comision.Attach(entity.Comision);
+                entity.Materia.Plan = entity.Comision.Plan;
+                entity.Materia = context.Materia.Attach(entity.Materia);
                 context.Curso.Add(entity);
                 context.SaveChanges();
             }
