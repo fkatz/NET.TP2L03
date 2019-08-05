@@ -53,6 +53,7 @@ namespace UI.Desktop
             this.dgvPlanes.DataSource = planes.GetAll();
             this.dgvMaterias.DataSource = materias.GetAll();
             this.dgvComisiones.DataSource = comisiones.GetAll();
+            this.dgvCursos.DataSource = cursos.GetAll();
             //COMPLETAR
         }
 
@@ -95,6 +96,9 @@ namespace UI.Desktop
                 case "tabComisiones":
                     entityForm = new ComisionForm(FormMode.Alta);
                     break;
+                case "tabCursos":
+                    entityForm = new CursoForm(FormMode.Alta);
+                    break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
             }
@@ -125,6 +129,9 @@ namespace UI.Desktop
                     break;
                 case "tabComisiones":
                     entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    break;
+                case "tabCursos":
+                    entityForm = new CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -200,6 +207,16 @@ namespace UI.Desktop
                             Comision entity = (Comision)row.DataBoundItem;
                             entity.State = BusinessEntity.States.Deleted;
                             comisiones.Save(entity);
+                        }
+                    }
+                    else if (tabControl.SelectedTab == tabCursos)
+                    {
+                        List<Curso> array = new List<Curso>();
+                        foreach (DataGridViewRow row in dgvCursos.SelectedRows)
+                        {
+                            Curso entity = (Curso)row.DataBoundItem;
+                            entity.State = BusinessEntity.States.Deleted;
+                            cursos.Save(entity);
                         }
                     }
                     // COMPLETAR

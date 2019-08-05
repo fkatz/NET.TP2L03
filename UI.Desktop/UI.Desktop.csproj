@@ -59,6 +59,12 @@
     <Compile Include="ComisionForm.Designer.cs">
       <DependentUpon>ComisionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CursoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursoForm.Designer.cs">
+      <DependentUpon>CursoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ComisionForm.resx">
       <DependentUpon>ComisionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CursoForm.resx">
+      <DependentUpon>CursoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadForm.resx">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
