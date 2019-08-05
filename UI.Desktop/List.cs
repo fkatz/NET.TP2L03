@@ -36,6 +36,7 @@ namespace UI.Desktop
                     State = BusinessEntity.States.New
                 });
             }
+
             dgvUsuarios.AutoGenerateColumns = false;
             dgvPersonas.AutoGenerateColumns = false;
             dgvComisiones.AutoGenerateColumns = false; ;
