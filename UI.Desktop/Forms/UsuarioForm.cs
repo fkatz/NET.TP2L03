@@ -85,7 +85,7 @@ namespace UI.Desktop
                         break;
                 }
                 entities.Save(EntidadActual);
-                this.Dispose();
+                this.Close();
 
             }
         }
@@ -105,7 +105,7 @@ namespace UI.Desktop
             }
             else
             {
-                Usuario savedUser = entities.GetByUsername(txtUsuario.Text);
+                Usuario savedUser = entities.FindByUsername(txtUsuario.Text);
                 if (savedUser != null && EntidadActual != null && EntidadActual.ID != savedUser.ID)
                 {
                     valid = false;
@@ -136,7 +136,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void UsuarioForm_Load(object sender, EventArgs e)

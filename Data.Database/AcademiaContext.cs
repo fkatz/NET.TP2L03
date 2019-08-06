@@ -19,8 +19,6 @@ namespace Data.Database
             public DbSet<DocenteCurso> DocenteCurso { get; set; }
             public DbSet<Especialidad> Especialidad { get; set; }
             public DbSet<Materia> Materia { get; set; }
-            public DbSet<Modulo> Modulo { get; set; }
-            public DbSet<ModuloUsuario> ModuloUsuario { get; set; }
             public DbSet<Plan> Plan { get; set; }
 
 

@@ -45,6 +45,8 @@ namespace UI.Desktop
             if (chkTipoAlumno.Checked) tp |= Persona.TipoPersona.Alumno;
             if (chkTipoDocente.Checked) tp |= Persona.TipoPersona.Docente;
             if (chkTipoNoDocente.Checked) tp |= Persona.TipoPersona.NoDocente;
+            if (chkTipoPreceptor.Checked) tp |= Persona.TipoPersona.Preceptor;
+            if (chkTipoAdministrador.Checked) tp |= Persona.TipoPersona.Administrador;
             UsuarioLogic users = new UsuarioLogic();
             this.EntidadActual = new Persona()
             {
@@ -68,6 +70,8 @@ namespace UI.Desktop
             chkTipoAlumno.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno;
             chkTipoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente;
             chkTipoNoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.NoDocente) == Persona.TipoPersona.NoDocente;
+            chkTipoPreceptor.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Preceptor) == Persona.TipoPersona.Preceptor;
+            chkTipoAdministrador.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador;
             txtLegajo.Text = EntidadActual.Legajo.ToString();
             cmbUsuario.SelectedIndex = cmbUsuario.FindString(EntidadActual.Usuario.NombreUsuario);
             txtApellido.Text = EntidadActual.Apellido;
@@ -105,7 +109,7 @@ namespace UI.Desktop
                         break;
                 }
                 entities.Save(EntidadActual);
-                this.Dispose();
+                this.Close();
             }
         }
         public bool Validar()
@@ -155,7 +159,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void UsuarioForm_Load(object sender, EventArgs e)

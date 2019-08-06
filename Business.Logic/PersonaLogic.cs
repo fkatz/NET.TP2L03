@@ -18,6 +18,14 @@ namespace Business.Logic
         {
             return PersonaData.GetAll();
         }
+        public Persona FindByUsuario(Usuario usr)
+        {
+            return PersonaData.FindByUsuario(usr);
+        }
+        public Persona FindByLegajo(int legajo)
+        {
+            return PersonaData.FindByLegajo(legajo);
+        }
         public void Save(Persona Persona)
         {
             PersonaData.Save(Persona);

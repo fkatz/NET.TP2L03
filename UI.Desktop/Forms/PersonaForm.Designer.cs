@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be Dispose()d; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -54,6 +54,8 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.chkTipoPreceptor = new System.Windows.Forms.CheckBox();
+            this.chkTipoAdministrador = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -78,7 +80,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 143);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(427, 34);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(476, 34);
             this.flowLayoutPanel3.TabIndex = 31;
             // 
             // lblFechaNac
@@ -108,12 +110,12 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 183);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(476, 31);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(349, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(398, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 0;
@@ -123,7 +125,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(268, 3);
+            this.btnAceptar.Location = new System.Drawing.Point(317, 3);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 1;
@@ -134,16 +136,16 @@
             // txtDireccion
             // 
             this.txtDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDireccion.Location = new System.Drawing.Point(269, 114);
+            this.txtDireccion.Location = new System.Drawing.Point(297, 114);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(161, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(182, 20);
             this.txtDireccion.TabIndex = 25;
             // 
             // lblDireccion
             // 
             this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(206, 119);
+            this.lblDireccion.Location = new System.Drawing.Point(228, 119);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 7;
@@ -154,7 +156,7 @@
             this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTelefono.Location = new System.Drawing.Point(59, 114);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(141, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(163, 20);
             this.txtTelefono.TabIndex = 24;
             // 
             // lblTelefono
@@ -170,16 +172,16 @@
             // txtNombre
             // 
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombre.Location = new System.Drawing.Point(269, 85);
+            this.txtNombre.Location = new System.Drawing.Point(297, 85);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(161, 20);
+            this.txtNombre.Size = new System.Drawing.Size(182, 20);
             this.txtNombre.TabIndex = 23;
             // 
             // lblNombre
             // 
             this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(206, 90);
+            this.lblNombre.Location = new System.Drawing.Point(228, 90);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 2;
@@ -190,7 +192,7 @@
             this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Location = new System.Drawing.Point(59, 85);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(141, 20);
+            this.txtApellido.Size = new System.Drawing.Size(163, 20);
             this.txtApellido.TabIndex = 22;
             // 
             // lblApellido
@@ -207,16 +209,16 @@
             // 
             this.cmbUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(269, 59);
+            this.cmbUsuario.Location = new System.Drawing.Point(297, 59);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(161, 21);
+            this.cmbUsuario.Size = new System.Drawing.Size(182, 21);
             this.cmbUsuario.TabIndex = 28;
             // 
             // lblUsuario
             // 
             this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(206, 62);
+            this.lblUsuario.Location = new System.Drawing.Point(228, 62);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 27;
@@ -227,7 +229,7 @@
             this.txtLegajo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLegajo.Location = new System.Drawing.Point(59, 59);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(141, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(163, 20);
             this.txtLegajo.TabIndex = 21;
             // 
             // lblLegajo
@@ -246,10 +248,12 @@
             this.flowLayoutPanel2.Controls.Add(this.chkTipoAlumno);
             this.flowLayoutPanel2.Controls.Add(this.chkTipoDocente);
             this.flowLayoutPanel2.Controls.Add(this.chkTipoNoDocente);
+            this.flowLayoutPanel2.Controls.Add(this.chkTipoPreceptor);
+            this.flowLayoutPanel2.Controls.Add(this.chkTipoAdministrador);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(59, 31);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(371, 22);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(420, 22);
             this.flowLayoutPanel2.TabIndex = 26;
             // 
             // chkTipoAlumno
@@ -296,9 +300,9 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTipo, 0, 1);
@@ -330,7 +334,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(433, 217);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(482, 217);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtID
@@ -339,14 +343,34 @@
             this.txtID.Location = new System.Drawing.Point(59, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(141, 20);
+            this.txtID.Size = new System.Drawing.Size(163, 20);
             this.txtID.TabIndex = 33;
+            // 
+            // chkTipoPreceptor
+            // 
+            this.chkTipoPreceptor.AutoSize = true;
+            this.chkTipoPreceptor.Location = new System.Drawing.Point(233, 3);
+            this.chkTipoPreceptor.Name = "chkTipoPreceptor";
+            this.chkTipoPreceptor.Size = new System.Drawing.Size(72, 17);
+            this.chkTipoPreceptor.TabIndex = 3;
+            this.chkTipoPreceptor.Text = "Preceptor";
+            this.chkTipoPreceptor.UseVisualStyleBackColor = true;
+            // 
+            // chkTipoAdministrador
+            // 
+            this.chkTipoAdministrador.AutoSize = true;
+            this.chkTipoAdministrador.Location = new System.Drawing.Point(311, 3);
+            this.chkTipoAdministrador.Name = "chkTipoAdministrador";
+            this.chkTipoAdministrador.Size = new System.Drawing.Size(89, 17);
+            this.chkTipoAdministrador.TabIndex = 4;
+            this.chkTipoAdministrador.Text = "Administrador";
+            this.chkTipoAdministrador.UseVisualStyleBackColor = true;
             // 
             // PersonaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 217);
+            this.ClientSize = new System.Drawing.Size(482, 217);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PersonaForm";
             this.Text = "UsuarioDesktop";
@@ -390,5 +414,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
+        private System.Windows.Forms.CheckBox chkTipoPreceptor;
+        private System.Windows.Forms.CheckBox chkTipoAdministrador;
     }
 }

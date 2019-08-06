@@ -31,13 +31,13 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Dispose();
+            this.Close();
         }
 
         private void DoLogin()
         {
             UsuarioAdapter usuarios = new UsuarioAdapter();
-            Usuario user = usuarios.GetByUsername(txtUser.Text);
+            Usuario user = usuarios.FindByUsername(txtUser.Text);
             if (user == null || user.Clave != txtPassword.Text)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos");
@@ -47,7 +47,7 @@ namespace UI.Desktop
                 this.logged = true;
                 this.loggedUser = user;
                 this.DialogResult = DialogResult.OK;
-                this.Dispose();
+                this.Close();
             }
         }
     }

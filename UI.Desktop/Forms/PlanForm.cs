@@ -102,7 +102,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void PlanesForm_Load(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarDatos();
-            this.Dispose();
+            this.Close();
         }
     }
 }

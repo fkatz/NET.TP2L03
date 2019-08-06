@@ -25,16 +25,32 @@ namespace UI.Desktop
         public List()
         {
             InitializeComponent();
-            if (usuarios.GetByUsername("fkatz") == null)
+            if (usuarios.FindByUsername("fkatz") == null)
             {
-                usuarios.Save(new Usuario()
+                Usuario usr = new Usuario()
                 {
                     NombreUsuario = "fkatz",
                     Clave = "fedefede",
                     Email = "fkatz@gmail.com",
                     Habilitado = true,
                     State = BusinessEntity.States.New
-                });
+                };
+                usuarios.Save(usr);
+                if (personas.FindByLegajo(44744) == null)
+                {
+                    personas.Save(new Persona()
+                    {
+                        Nombre = "Federico",
+                        Apellido = "Katzaroff",
+                        Legajo = 44744,
+                        Tipo = Persona.TipoPersona.Alumno|Persona.TipoPersona.Administrador,
+                        Direccion = "Guaraní 3048",
+                        Telefono = "4398771",
+                        FechaNacimiento = new DateTime(1995,5,16),
+                        Usuario = usr,
+                        State = BusinessEntity.States.New
+                    });
+                }
             }
 
             dgvUsuarios.AutoGenerateColumns = false;
@@ -60,18 +76,12 @@ namespace UI.Desktop
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.ShowDialog();
-            if (!login.logged)
-            {
-                this.Dispose();
-            }
-            else Listar();
+            Listar();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)

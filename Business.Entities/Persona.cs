@@ -11,7 +11,9 @@ namespace Business.Entities
         {
             Alumno = 0b1,
             Docente = 0b10,
-            NoDocente = 0b100
+            NoDocente = 0b100,
+            Preceptor = 0b1000,
+            Administrador = 0b10000
         }
         public TipoPersona Tipo { get;set; }
         public int Legajo { get; set; }

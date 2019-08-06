@@ -53,89 +53,135 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComisionForm.cs">
+    <Compile Include="Forms\ComisionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComisionForm.Designer.cs">
+    <Compile Include="Forms\ComisionForm.Designer.cs">
       <DependentUpon>ComisionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CursoForm.cs">
+    <Compile Include="Forms\CursoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CursoForm.Designer.cs">
+    <Compile Include="Forms\CursoForm.Designer.cs">
       <DependentUpon>CursoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EspecialidadForm.cs">
+    <Compile Include="Forms\EspecialidadForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EspecialidadForm.Designer.cs">
+    <Compile Include="Forms\EspecialidadForm.Designer.cs">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="IEntityForm.cs" />
+    <Compile Include="List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List.designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CurriculaList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CurriculaList.Designer.cs">
+      <DependentUpon>CurriculaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CursadaList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CursadaList.Designer.cs">
+      <DependentUpon>CursadaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PersonasList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\PersonasList.Designer.cs">
+      <DependentUpon>PersonasList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UsuariosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\UsuariosList.Designer.cs">
+      <DependentUpon>UsuariosList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MateriaForm.cs">
+    <Compile Include="Forms\MateriaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MateriaForm.Designer.cs">
+    <Compile Include="Forms\MateriaForm.Designer.cs">
       <DependentUpon>MateriaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonaForm.cs">
+    <Compile Include="Forms\PersonaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonaForm.Designer.cs">
+    <Compile Include="Forms\PersonaForm.Designer.cs">
       <DependentUpon>PersonaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlanForm.cs">
+    <Compile Include="Forms\PlanForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlanForm.Designer.cs">
+    <Compile Include="Forms\PlanForm.Designer.cs">
       <DependentUpon>PlanForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioForm.cs">
+    <Compile Include="Forms\UsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuarioForm.Designer.cs">
+    <Compile Include="Forms\UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="List.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="List.Designer.cs">
-      <DependentUpon>List.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ComisionForm.resx">
+    <EmbeddedResource Include="Forms\ComisionForm.resx">
       <DependentUpon>ComisionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CursoForm.resx">
+    <EmbeddedResource Include="Forms\CursoForm.resx">
       <DependentUpon>CursoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EspecialidadForm.resx">
+    <EmbeddedResource Include="Forms\EspecialidadForm.resx">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CurriculaList.resx">
+      <DependentUpon>CurriculaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CursadaList.resx">
+      <DependentUpon>CursadaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\PersonasList.resx">
+      <DependentUpon>PersonasList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\UsuariosList.resx">
+      <DependentUpon>UsuariosList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MateriaForm.resx">
+    <EmbeddedResource Include="Forms\MateriaForm.resx">
       <DependentUpon>MateriaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonaForm.resx">
+    <EmbeddedResource Include="Forms\PersonaForm.resx">
       <DependentUpon>PersonaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlanForm.resx">
+    <EmbeddedResource Include="Forms\PlanForm.resx">
       <DependentUpon>PlanForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuarioForm.resx">
+    <EmbeddedResource Include="Forms\UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="List.resx">
-      <DependentUpon>List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

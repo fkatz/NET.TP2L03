@@ -26,7 +26,7 @@ namespace Data.Database
         }
 
 
-        public Business.Entities.Usuario GetByUsername(string username)
+        public Business.Entities.Usuario FindByUsername(string username)
         {
             using (var context = new AcademiaContext())
             {

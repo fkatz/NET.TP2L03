@@ -26,6 +26,21 @@ namespace Data.Database
             }
         }
 
+        public Persona FindByUsuario(Usuario usr)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Persona.Include("Usuario").Where(i => i.Usuario.ID == usr.ID).FirstOrDefault();
+            }
+        }
+
+        public Persona FindByLegajo(int legajo)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Persona.Include("Usuario").Where(i => i.Legajo == legajo).FirstOrDefault();
+            }
+        }
 
         public void Delete(int ID)
         {

@@ -81,11 +81,11 @@ namespace UI.Desktop {
 
         private void btnAceptar_Click(object sender, EventArgs e) {
             this.GuardarDatos();
-            this.Dispose();
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
-            this.Dispose();
+            this.Close();
         }
 
         private void EspecialidadesForm_Load(object sender, EventArgs e) {
