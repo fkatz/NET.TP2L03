@@ -47,6 +47,7 @@ namespace UI.Desktop {
                         break;
                 }
                 entities.Save(EntidadActual);
+                this.Close();
             }
         }
 
@@ -99,7 +100,6 @@ namespace UI.Desktop {
 
         private void btnAceptar_Click(object sender, EventArgs e) {
             this.GuardarDatos();
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e) {

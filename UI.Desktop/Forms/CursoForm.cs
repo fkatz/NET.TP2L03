@@ -95,6 +95,7 @@ namespace UI.Desktop
                         break;
                 }
                 entities.Save(EntidadActual);
+                this.Close();
             }
         }
         public bool Validar()
@@ -171,7 +172,7 @@ namespace UI.Desktop
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void UsuarioForm_Load(object sender, EventArgs e)
@@ -191,7 +192,6 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarDatos();
-            this.Dispose();
         }
     }
 }
