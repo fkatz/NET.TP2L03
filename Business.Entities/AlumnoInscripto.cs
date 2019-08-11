@@ -2,7 +2,9 @@
 {
     public class AlumnoInscripto : BusinessEntity
     {
-        public string Condicion { get; set; }
+        public enum Condiciones { Aprobado, Regular, Libre, Cursante }
+
+        public Condiciones Condicion { get; set; }
         public Persona Alumno { get; set; }
         public Curso Curso { get; set; }
         public int Nota { get; set; }

@@ -12,24 +12,30 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class CursadaList : Form
+    public partial class AlumnosDocentesList : Form
     {
-        private ComisionLogic comisiones = new ComisionLogic();
-        private CursoLogic cursos = new CursoLogic();
-        public CursadaList()
+        public AlumnosDocentesList(Curso curso) :this()
+        {
+            this.currentCurso = curso;
+            this.Text = "Administrar curso " + curso.Comision.ToString() + " " + curso.AñoCalendario.ToString();
+        }
+        private Curso currentCurso;
+        private MateriaLogic materias = new MateriaLogic();
+        private PlanLogic planes = new PlanLogic();
+        public AlumnosDocentesList()
         {
             InitializeComponent();
-            dgvComisiones.AutoGenerateColumns = false;
-            dgvCursos.AutoGenerateColumns = false;
+            dgvMaterias.AutoGenerateColumns = false;
+            dgvPlanes.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            this.dgvComisiones.DataSource = comisiones.GetAll();
-            this.dgvCursos.DataSource = cursos.GetAll();
+            this.dgvPlanes.DataSource = planes.GetAll();
+            this.dgvMaterias.DataSource = materias.GetAll();
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void Usuarios_Load(object sender, EventArgs e)
         {
             Listar();
         }
@@ -44,13 +50,15 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabComisiones":
-                    entityForm = new ComisionForm(FormMode.Alta);
+                case "tabEspecialidades":
+                    entityForm = new EspecialidadForm(FormMode.Alta);
                     break;
-                case "tabCursos":
-                    entityForm = new CursoForm(FormMode.Alta);
+                case "tabPlanes":
+                    entityForm = new PlanForm(FormMode.Alta);
                     break;
-                //COMPLETAR
+                case "tabMaterias":
+                    entityForm = new MateriaForm(FormMode.Alta);
+                    break;
                 default: throw new Exception("No tab selected");
             }
             entityForm.ShowDialog();
@@ -63,11 +71,11 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabComisiones":
-                    entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                case "tabPlanes":
+                    entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
-                case "tabCursos":
-                    entityForm = new CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                case "tabMaterias":
+                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -82,22 +90,21 @@ namespace UI.Desktop
             if (confirm == DialogResult.Yes)
             {
                 try {
-                    if (tabControl.SelectedTab == tabComisiones) {
-                        List<Comision> array = new List<Comision>();
-                        foreach (DataGridViewRow row in dgvComisiones.SelectedRows) {
-                            Comision entity = (Comision)row.DataBoundItem;
+                    if (tabControl.SelectedTab == tsbAlumnos) {
+                        List<Plan> array = new List<Plan>();
+                        foreach (DataGridViewRow row in dgvPlanes.SelectedRows) {
+                            Plan entity = (Plan)row.DataBoundItem;
                             entity.State = BusinessEntity.States.Deleted;
-                            comisiones.Save(entity);
+                            planes.Save(entity);
                         }
                     }
-                    else if (tabControl.SelectedTab == tabCursos)
-                    {
-                        List<Curso> array = new List<Curso>();
-                        foreach (DataGridViewRow row in dgvCursos.SelectedRows)
-                        {
-                            Curso entity = (Curso)row.DataBoundItem;
+
+                    else if (tabControl.SelectedTab == tsbDocentes) {
+                        List<Materia> array = new List<Materia>();
+                        foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
+                            Materia entity = (Materia)row.DataBoundItem;
                             entity.State = BusinessEntity.States.Deleted;
-                            cursos.Save(entity);
+                            materias.Save(entity);
                         }
                     }
                 }
@@ -121,27 +128,6 @@ namespace UI.Desktop
         {
             DataGridView grid = (DataGridView)sender;
             tsbEditar.Enabled = grid.SelectedRows.Count == 1;
-        }
-
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(tabControl.SelectedTab == tabCursos)
-            {
-                tsSeparator.Visible = true;
-                tsbAlumDoc.Visible = true;
-            }
-            else
-            {
-                tsSeparator.Visible = false;
-                tsbAlumDoc.Visible = false;
-            }
-        }
-
-        private void tsbAlumDoc_Click(object sender, EventArgs e)
-        {
-            Form entityList = new AlumnosDocentesList(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem));
-            entityList.ShowDialog();
-            Listar();
         }
     }
 }

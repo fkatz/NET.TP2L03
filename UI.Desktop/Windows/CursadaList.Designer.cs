@@ -47,6 +47,8 @@
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tsSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbAlumDoc = new System.Windows.Forms.ToolStripButton();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
@@ -86,6 +88,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(660, 345);
             this.tabControl.TabIndex = 1;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabComisiones
             // 
@@ -219,10 +222,12 @@
             this.tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
-            this.tsbEliminar});
+            this.tsbEliminar,
+            this.tsSeparator,
+            this.tsbAlumDoc});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(72, 25);
+            this.tsUsuarios.Size = new System.Drawing.Size(132, 25);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -257,6 +262,23 @@
             this.tsbEliminar.Text = "toolStripButton2";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // tsSeparator
+            // 
+            this.tsSeparator.Name = "tsSeparator";
+            this.tsSeparator.Size = new System.Drawing.Size(6, 25);
+            this.tsSeparator.Visible = false;
+            // 
+            // tsbAlumDoc
+            // 
+            this.tsbAlumDoc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAlumDoc.Image = ((System.Drawing.Image)(resources.GetObject("tsbAlumDoc.Image")));
+            this.tsbAlumDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAlumDoc.Name = "tsbAlumDoc";
+            this.tsbAlumDoc.Size = new System.Drawing.Size(23, 22);
+            this.tsbAlumDoc.Text = "Administrar Alumnos y Profesores";
+            this.tsbAlumDoc.Visible = false;
+            this.tsbAlumDoc.Click += new System.EventHandler(this.tsbAlumDoc_Click);
             // 
             // CursadaList
             // 
@@ -303,5 +325,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn cursCom;
         private System.Windows.Forms.DataGridViewTextBoxColumn cursMat;
+        private System.Windows.Forms.ToolStripButton tsbAlumDoc;
+        private System.Windows.Forms.ToolStripSeparator tsSeparator;
     }
 }

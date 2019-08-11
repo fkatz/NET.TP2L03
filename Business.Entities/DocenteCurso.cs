@@ -2,7 +2,7 @@
 {
     public class DocenteCurso : BusinessEntity
     {
-        public enum TiposCargos { }
+        public enum TiposCargos { Titular, Adjunto, Ayudante }
 
         public TiposCargos TipoCargo { get; set; }
         public Curso Curso { get; set; }
