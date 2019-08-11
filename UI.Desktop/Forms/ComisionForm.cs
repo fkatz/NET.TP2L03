@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
@@ -82,6 +83,49 @@ namespace UI.Desktop {
         public bool Validar() {
             bool valid = true;
             string message = "";
+            if (txtDescripcion.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Descripción es obligatorio.";
+            }
+            else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
+            {
+                valid = false;
+                message += "\nDescripción de comisión inválida.";
+            }
+
+            if (txtAño.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Año Especialidad es obligatorio.";
+            }
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtAño.Text) < 1 || int.Parse(txtAño.Text) > 5)
+                    {
+                        valid = false;
+                        message += "\nEl Año de Especialidad debe ser un número entero entre 1 y 5.";
+                    }
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nEl El Año de Especialidad debe ser un número entero entre 1 y 5.";
+                }
+            }
+
+            if (cmbPlan.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nPlan requerido.";
+            }
+
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Comisión inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 

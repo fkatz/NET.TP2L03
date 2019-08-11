@@ -101,6 +101,71 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
+
+            if (txtCupo.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Cupo es obligatorio.";
+            }
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtCupo.Text) <= 0)
+                    {
+                        valid = false;
+                        message += "\nEl El Cupo debe ser un número entero positivo.";
+                    }else if(int.Parse(txtCupo.Text) > 100)
+                        {
+                            valid = false;
+                            message += "\nEl El máximo de Cupos por Curso es 100.";
+                        }
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nEl El Cupo debe ser un número entero positivo.";
+                }
+            }
+
+            if (txtAñoCalendario.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Año es obligatorio.";
+            }
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtAñoCalendario.Text) < DateTime.Now.Year)
+                    {
+                        valid = false;
+                        message += "\nEl Año ingresado es menor al actual.";
+                    }
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nEl El Año debe ser un número entero positivo.";
+                }
+            }
+
+            if (cmbComision.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nComision requerida.";
+            }
+
+            if (cmbMateria.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nMateria requerida.";
+            }
+
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Curso inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 

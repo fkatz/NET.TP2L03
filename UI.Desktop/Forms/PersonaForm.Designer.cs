@@ -51,11 +51,11 @@
             this.chkTipoAlumno = new System.Windows.Forms.CheckBox();
             this.chkTipoDocente = new System.Windows.Forms.CheckBox();
             this.chkTipoNoDocente = new System.Windows.Forms.CheckBox();
+            this.chkTipoPreceptor = new System.Windows.Forms.CheckBox();
+            this.chkTipoAdministrador = new System.Windows.Forms.CheckBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.chkTipoPreceptor = new System.Windows.Forms.CheckBox();
-            this.chkTipoAdministrador = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -286,6 +286,26 @@
             this.chkTipoNoDocente.Text = "No Docente";
             this.chkTipoNoDocente.UseVisualStyleBackColor = true;
             // 
+            // chkTipoPreceptor
+            // 
+            this.chkTipoPreceptor.AutoSize = true;
+            this.chkTipoPreceptor.Location = new System.Drawing.Point(233, 3);
+            this.chkTipoPreceptor.Name = "chkTipoPreceptor";
+            this.chkTipoPreceptor.Size = new System.Drawing.Size(72, 17);
+            this.chkTipoPreceptor.TabIndex = 3;
+            this.chkTipoPreceptor.Text = "Preceptor";
+            this.chkTipoPreceptor.UseVisualStyleBackColor = true;
+            // 
+            // chkTipoAdministrador
+            // 
+            this.chkTipoAdministrador.AutoSize = true;
+            this.chkTipoAdministrador.Location = new System.Drawing.Point(311, 3);
+            this.chkTipoAdministrador.Name = "chkTipoAdministrador";
+            this.chkTipoAdministrador.Size = new System.Drawing.Size(89, 17);
+            this.chkTipoAdministrador.TabIndex = 4;
+            this.chkTipoAdministrador.Text = "Administrador";
+            this.chkTipoAdministrador.UseVisualStyleBackColor = true;
+            // 
             // lblTipo
             // 
             this.lblTipo.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -302,7 +322,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTipo, 0, 1);
@@ -345,26 +365,6 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(163, 20);
             this.txtID.TabIndex = 33;
-            // 
-            // chkTipoPreceptor
-            // 
-            this.chkTipoPreceptor.AutoSize = true;
-            this.chkTipoPreceptor.Location = new System.Drawing.Point(233, 3);
-            this.chkTipoPreceptor.Name = "chkTipoPreceptor";
-            this.chkTipoPreceptor.Size = new System.Drawing.Size(72, 17);
-            this.chkTipoPreceptor.TabIndex = 3;
-            this.chkTipoPreceptor.Text = "Preceptor";
-            this.chkTipoPreceptor.UseVisualStyleBackColor = true;
-            // 
-            // chkTipoAdministrador
-            // 
-            this.chkTipoAdministrador.AutoSize = true;
-            this.chkTipoAdministrador.Location = new System.Drawing.Point(311, 3);
-            this.chkTipoAdministrador.Name = "chkTipoAdministrador";
-            this.chkTipoAdministrador.Size = new System.Drawing.Size(89, 17);
-            this.chkTipoAdministrador.TabIndex = 4;
-            this.chkTipoAdministrador.Text = "Administrador";
-            this.chkTipoAdministrador.UseVisualStyleBackColor = true;
             // 
             // PersonaForm
             // 

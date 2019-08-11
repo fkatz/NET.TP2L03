@@ -93,25 +93,37 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
-            if (!Regex.IsMatch(txtEmail.Text, "^[a-zA-Z0-9]+([a-zA-Z0-9_]+[a-zA-Z0-9])@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"))
+            if (txtEmail.Text.Length == 0)
             {
                 valid = false;
-                message += "\nEmail inválido.";
+                message += "\nEl campo Email es obligatorio.";
             }
-            if (!Regex.IsMatch(txtUsuario.Text, "^[a-zA-Z0-9][a-zA-Z0-9_]{2,}[a-zA-Z0-9]$"))
-            {
-                valid = false;
-                message += "\nNombre de usuario inválido.";
-            }
-            else
-            {
-                Usuario savedUser = entities.FindByUsername(txtUsuario.Text);
-                if (savedUser != null && EntidadActual != null && EntidadActual.ID != savedUser.ID)
+            else if (!Regex.IsMatch(txtEmail.Text, "^[a-zA-Z0-9]+([a-zA-Z0-9_]+[a-zA-Z0-9])@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"))
                 {
                     valid = false;
-                    message += "\nYa existe un usuario con ese nombre de usuario.";
+                    message += "\nEmail inválido.";
                 }
+
+            if (txtUsuario.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Usuario es obligatorio.";
             }
+            else if (!Regex.IsMatch(txtUsuario.Text, "^[a-zA-Z0-9][a-zA-Z0-9_]{2,}[a-zA-Z0-9]$"))
+                {
+                    valid = false;
+                    message += "\nNombre de usuario inválido.";
+                }
+                else
+                    {
+                        Usuario savedUser = entities.FindByUsername(txtUsuario.Text);
+                        if (savedUser != null && EntidadActual != null && EntidadActual.ID != savedUser.ID)
+                        {
+                            valid = false;
+                            message += "\nYa existe un usuario con ese nombre de usuario.";
+                        }
+                    }
+
             if (this.formMode == FormMode.Alta && txtClave.Text.Length == 0)
             {
                 valid = false;
@@ -122,6 +134,7 @@ namespace UI.Desktop
                 valid = false;
                 message += "\nLas contraseñas ingresadas no coinciden.";
             }
+
             if (!valid)
             {
                 MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);

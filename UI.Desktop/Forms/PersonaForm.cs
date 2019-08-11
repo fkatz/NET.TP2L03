@@ -116,35 +116,79 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
-            try
-            {
-                int.Parse(txtLegajo.Text);
-            }
-            catch(FormatException ef)
+            if (txtLegajo.Text.Length == 0)
             {
                 valid = false;
-                message += "\nEl legajo debe ser un número entero.";
+                message += "\nEl campo Legajo es obligatorio.";
             }
-            if (!Regex.IsMatch(txtNombre.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+            else
+            {
+                try
+                {
+                    int.Parse(txtLegajo.Text);
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nEl legajo debe ser un número entero.";
+                }
+            }
+
+            if (txtNombre.Text.Length == 0)
             {
                 valid = false;
-                message += "\nNombre inválido.";
+                message += "\nEl campo Nombre es obligatorio.";
             }
-            if (!Regex.IsMatch(txtApellido.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+            else if (!Regex.IsMatch(txtNombre.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+                {
+                    valid = false;
+                    message += "\nNombre inválido.";
+                }
+
+            if (txtApellido.Text.Length == 0)
             {
                 valid = false;
-                message += "\nApellido inválido.";
+                message += "\nEl campo Apellido es obligatorio.";
             }
-            if (!Regex.IsMatch(txtTelefono.Text, "^[0-9]+$") || txtTelefono.Text.Length <1)
+            else if (!Regex.IsMatch(txtApellido.Text, "^[A-ZÁ-ÚÑ][a-zá-úñ]+( [A-ZÁ-ÚÑ][a-zá-úñ]+)*$"))
+                {
+                    valid = false;
+                    message += "\nApellido inválido.";
+                }
+
+            if (txtTelefono.Text.Length == 0)
             {
                 valid = false;
-                message += "\nTelefono inválido.";
+                message += "\nEl campo Telefono es obligatorio.";
             }
-            if (txtDireccion.Text.Length < 1)
+            else
+                {
+                    try
+                    {
+                        if (int.Parse(txtTelefono.Text) <= 0)
+                        {
+                            valid = false;
+                            message += "\nEl teléfono debe ser un número entero positivo.";
+                        }
+                    }
+                    catch (FormatException ef)
+                    {
+                        valid = false;
+                        message += "\nEl teléfono debe ser un número entero positivo.";
+                    }
+                }
+
+            if (txtDireccion.Text.Length == 0)
             {
                 valid = false;
-                message += "\nDirección inválida.";
+                message += "\nEl campo Dirección es obligatorio.";
             }
+            else if (!Regex.IsMatch(txtDireccion.Text, "[a-zA-Z]{3,}[ ][0-9]{2,4}"))
+                {
+                    valid = false;
+                    message += "\nDirección inválida.";
+                }
+
             if (!valid)
             {
                 MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
@@ -47,6 +48,7 @@ namespace UI.Desktop {
                         break;
                 }
                 entities.Save(EntidadActual);
+                this.Close();
             }
         }
 
@@ -86,6 +88,70 @@ namespace UI.Desktop {
         public bool Validar() {
             bool valid = true;
             string message = "";
+            if (txtDescripcion.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Descripción es obligatorio.";
+            }
+                else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
+                {
+                    valid = false;
+                    message += "\nDescripción de materia inválida.";
+                }
+
+            if (txtHorasTotal.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Horas Totales es obligatorio.";
+            }
+            else{
+                try
+                {
+                    if (int.Parse(txtHorasTotal.Text) <= 0)
+                    {
+                        valid = false;
+                        message += "\nLas Horas Totales deben ser un número entero positivo.";
+                    }
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nLas Horas Totales deben ser un número entero positivo.";
+                }
+            }
+
+            if (txtHsSemanales.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Horas Semanales es obligatorio.";
+            }
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtHsSemanales.Text) <= 0)
+                    {
+                        valid = false;
+                        message += "\nLas Horas semanales deben ser un número entero positivo.";
+                    }
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    message += "\nLas Horas semanales deben ser un número entero positivo.";
+                }
+            }
+
+            if (cmbPlan.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nPlan requerido.";
+            }
+
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Materia inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 

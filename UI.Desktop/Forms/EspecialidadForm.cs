@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 using Data.Database;
+using System.Text.RegularExpressions;
 
 namespace UI.Desktop {
     public partial class EspecialidadForm : Form, IEntityForm<Especialidad> {
@@ -76,6 +77,23 @@ namespace UI.Desktop {
         public bool Validar() {
             bool valid = true;
             string message = "";
+            if (txtDescripcion.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Descripción es obligatorio.";
+            }
+            else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
+                {
+                    valid = false;
+                    message += "\nDescripción de especialidad inválida.";
+                }
+
+
+
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Especialidad inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 

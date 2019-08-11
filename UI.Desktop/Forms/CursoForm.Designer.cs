@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbComision = new System.Windows.Forms.ComboBox();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblAñoCalendario = new System.Windows.Forms.Label();
             this.txtAñoCalendario = new System.Windows.Forms.TextBox();
             this.lblMateria = new System.Windows.Forms.Label();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblComision = new System.Windows.Forms.Label();
-            this.txtCupo = new System.Windows.Forms.TextBox();
-            this.lblCupo = new System.Windows.Forms.Label();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
-            this.cmbComision = new System.Windows.Forms.ComboBox();
+            this.lblCupo = new System.Windows.Forms.Label();
+            this.txtCupo = new System.Windows.Forms.TextBox();
+            this.lblComision = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(433, 123);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // cmbComision
+            // 
+            this.cmbComision.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbComision.FormattingEnabled = true;
+            this.cmbComision.Location = new System.Drawing.Point(269, 57);
+            this.cmbComision.Name = "cmbComision";
+            this.cmbComision.Size = new System.Drawing.Size(161, 21);
+            this.cmbComision.TabIndex = 34;
             // 
             // lblID
             // 
@@ -124,24 +133,42 @@
             this.lblMateria.TabIndex = 27;
             this.lblMateria.Text = "Materia";
             // 
-            // btnAceptar
+            // cmbMateria
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(268, 3);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 1;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.cmbMateria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbMateria.FormattingEnabled = true;
+            this.cmbMateria.Location = new System.Drawing.Point(269, 31);
+            this.cmbMateria.Name = "cmbMateria";
+            this.cmbMateria.Size = new System.Drawing.Size(161, 21);
+            this.cmbMateria.TabIndex = 28;
             // 
-            // btnCancelar
+            // lblCupo
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(349, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 0;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.lblCupo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCupo.AutoSize = true;
+            this.lblCupo.Location = new System.Drawing.Point(3, 61);
+            this.lblCupo.Name = "lblCupo";
+            this.lblCupo.Size = new System.Drawing.Size(32, 13);
+            this.lblCupo.TabIndex = 6;
+            this.lblCupo.Text = "Cupo";
+            // 
+            // txtCupo
+            // 
+            this.txtCupo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCupo.Location = new System.Drawing.Point(59, 57);
+            this.txtCupo.Name = "txtCupo";
+            this.txtCupo.Size = new System.Drawing.Size(141, 20);
+            this.txtCupo.TabIndex = 22;
+            // 
+            // lblComision
+            // 
+            this.lblComision.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblComision.AutoSize = true;
+            this.lblComision.Location = new System.Drawing.Point(206, 61);
+            this.lblComision.Name = "lblComision";
+            this.lblComision.Size = new System.Drawing.Size(49, 13);
+            this.lblComision.TabIndex = 2;
+            this.lblComision.Text = "Comision";
             // 
             // flowLayoutPanel1
             // 
@@ -155,51 +182,24 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 42);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
-            // lblComision
+            // btnCancelar
             // 
-            this.lblComision.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblComision.AutoSize = true;
-            this.lblComision.Location = new System.Drawing.Point(206, 61);
-            this.lblComision.Name = "lblComision";
-            this.lblComision.Size = new System.Drawing.Size(49, 13);
-            this.lblComision.TabIndex = 2;
-            this.lblComision.Text = "Comision";
+            this.btnCancelar.Location = new System.Drawing.Point(349, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txtCupo
+            // btnAceptar
             // 
-            this.txtCupo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCupo.Location = new System.Drawing.Point(59, 57);
-            this.txtCupo.Name = "txtCupo";
-            this.txtCupo.Size = new System.Drawing.Size(141, 20);
-            this.txtCupo.TabIndex = 22;
-            // 
-            // lblCupo
-            // 
-            this.lblCupo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCupo.AutoSize = true;
-            this.lblCupo.Location = new System.Drawing.Point(3, 61);
-            this.lblCupo.Name = "lblCupo";
-            this.lblCupo.Size = new System.Drawing.Size(32, 13);
-            this.lblCupo.TabIndex = 6;
-            this.lblCupo.Text = "Cupo";
-            // 
-            // cmbMateria
-            // 
-            this.cmbMateria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(269, 31);
-            this.cmbMateria.Name = "cmbMateria";
-            this.cmbMateria.Size = new System.Drawing.Size(161, 21);
-            this.cmbMateria.TabIndex = 28;
-            // 
-            // cmbComision
-            // 
-            this.cmbComision.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbComision.FormattingEnabled = true;
-            this.cmbComision.Location = new System.Drawing.Point(269, 57);
-            this.cmbComision.Name = "cmbComision";
-            this.cmbComision.Size = new System.Drawing.Size(161, 21);
-            this.cmbComision.TabIndex = 34;
+            this.btnAceptar.Location = new System.Drawing.Point(268, 3);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 1;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // CursoForm
             // 

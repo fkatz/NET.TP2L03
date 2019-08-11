@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
@@ -58,6 +59,7 @@ namespace UI.Desktop
                         break;
                 }
                 entities.Save(EntidadActual);
+                this.Close();
             }
         }
 
@@ -97,6 +99,27 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
+            if (txtDescripcion.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEl campo Descripción es obligatorio.";
+            }
+            else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
+                {
+                    valid = false;
+                    message += "\nDescripción de plan inválida.";
+                }
+
+            if (cmbEspecialidad.Text.Length == 0)
+            {
+                valid = false;
+                message += "\nEspecialidad requerida.";
+            }
+
+            if (!valid)
+            {
+                MessageBox.Show("Error:" + message, "Plan inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return valid;
         }
 
