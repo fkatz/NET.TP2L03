@@ -99,16 +99,33 @@ namespace UI.Desktop
         {
             bool valid = true;
             string message = "";
+
             if (txtDescripcion.Text.Length == 0)
             {
                 valid = false;
-                message += "\nEl campo Descripción es obligatorio.";
+                message += "\nEl campo Año es obligatorio.";
             }
-            else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtDescripcion.Text) > DateTime.Now.Year)
+                    {
+                        valid = false;
+                        message += "\nEl Año del plan ingresado es mayor al actual.";
+                    }
+                    else if (int.Parse(txtDescripcion.Text) < 1970)
+                    {
+                        valid = false;
+                        message += "\nEl Año del plan ingresado es invalido (debe estar entre 1970 y el año actual).";
+                    }
+                }
+                catch (FormatException ef)
                 {
                     valid = false;
-                    message += "\nDescripción de plan inválida.";
+                    message += "\nEl El Año debe ser un número entero positivo, entre 1970 y el año actual).";
                 }
+            }
 
             if (cmbEspecialidad.Text.Length == 0)
             {
