@@ -183,12 +183,6 @@ namespace UI.Desktop
                 valid = false;
                 message += "\nEl campo Dirección es obligatorio.";
             }
-            else if (!Regex.IsMatch(txtDireccion.Text, "[a-zA-Z]{3,}[ ][0-9]{2,4}"))
-                {
-                    valid = false;
-                    message += "\nDirección inválida.";
-                }
-
             if (!valid)
             {
                 MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -18,7 +18,7 @@ namespace UI.Desktop
         public AlumnosDocentesList(Curso curso) :this()
         {
             this.currentCurso = curso;
-            this.Text = "Administrar curso " + curso.Comision.ToString() + " " + curso.AñoCalendario.ToString();
+            this.Text = "Administrar curso " + curso.ToString();
         }
         private Curso currentCurso;
         private AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
@@ -51,9 +51,9 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                //case "tsbDocentes":
-                    //entityForm = new DocenteForm(FormMode.Alta);
-                    //break;
+                case "tsbDocentes":
+                    entityForm = new DocenteForm(FormMode.Alta, currentCurso);
+                    break;
                 case "tsbAlumnos":
                     entityForm = new AlumnoForm(FormMode.Alta,currentCurso);
                     break;
@@ -69,10 +69,10 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabDocentes":
-                    entityForm = new PlanForm(((Plan)this.dgvDocentes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                case "tsbDocentes":
+                    entityForm = new DocenteForm(((DocenteCurso)this.dgvDocentes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación, currentCurso);
                     break;
-                case "tabAlumnos":
+                case "tsbAlumnos":
                     entityForm = new AlumnoForm(((AlumnoInscripto)this.dgvAlumnos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación, currentCurso);
                     break;
                 //COMPLETAR

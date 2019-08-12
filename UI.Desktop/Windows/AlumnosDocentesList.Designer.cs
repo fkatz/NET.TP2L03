@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnosDocentesList));
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tsbDocentes = new System.Windows.Forms.TabPage();
-            this.dgvDocentes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsbAlumnos = new System.Windows.Forms.TabPage();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsbDocentes = new System.Windows.Forms.TabPage();
+            this.dgvDocentes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -62,10 +62,10 @@
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tsbDocentes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.tsbAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            this.tsbDocentes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.tsUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,60 +97,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(660, 345);
             this.tabControl.TabIndex = 1;
-            // 
-            // tsbDocentes
-            // 
-            this.tsbDocentes.Controls.Add(this.dgvDocentes);
-            this.tsbDocentes.Location = new System.Drawing.Point(4, 22);
-            this.tsbDocentes.Name = "tsbDocentes";
-            this.tsbDocentes.Padding = new System.Windows.Forms.Padding(3);
-            this.tsbDocentes.Size = new System.Drawing.Size(652, 319);
-            this.tsbDocentes.TabIndex = 4;
-            this.tsbDocentes.Text = "Docentes";
-            this.tsbDocentes.UseVisualStyleBackColor = true;
-            // 
-            // dgvDocentes
-            // 
-            this.dgvDocentes.AllowUserToAddRows = false;
-            this.dgvDocentes.AllowUserToDeleteRows = false;
-            this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDocentes.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDocentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.Docente,
-            this.Cargo});
-            this.dgvDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDocentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvDocentes.Location = new System.Drawing.Point(3, 3);
-            this.dgvDocentes.Name = "dgvDocentes";
-            this.dgvDocentes.ReadOnly = true;
-            this.dgvDocentes.RowHeadersVisible = false;
-            this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocentes.ShowEditingIcon = false;
-            this.dgvDocentes.Size = new System.Drawing.Size(646, 313);
-            this.dgvDocentes.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Docente
-            // 
-            this.Docente.DataPropertyName = "Docente";
-            this.Docente.HeaderText = "Docente";
-            this.Docente.Name = "Docente";
-            this.Docente.ReadOnly = true;
-            // 
-            // Cargo
-            // 
-            this.Cargo.DataPropertyName = "TipoCargo";
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            this.Cargo.ReadOnly = true;
             // 
             // tsbAlumnos
             // 
@@ -213,6 +159,60 @@
             this.Nota.HeaderText = "Nota";
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
+            // 
+            // tsbDocentes
+            // 
+            this.tsbDocentes.Controls.Add(this.dgvDocentes);
+            this.tsbDocentes.Location = new System.Drawing.Point(4, 22);
+            this.tsbDocentes.Name = "tsbDocentes";
+            this.tsbDocentes.Padding = new System.Windows.Forms.Padding(3);
+            this.tsbDocentes.Size = new System.Drawing.Size(652, 319);
+            this.tsbDocentes.TabIndex = 4;
+            this.tsbDocentes.Text = "Docentes";
+            this.tsbDocentes.UseVisualStyleBackColor = true;
+            // 
+            // dgvDocentes
+            // 
+            this.dgvDocentes.AllowUserToAddRows = false;
+            this.dgvDocentes.AllowUserToDeleteRows = false;
+            this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDocentes.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.Docente,
+            this.Cargo});
+            this.dgvDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDocentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDocentes.Location = new System.Drawing.Point(3, 3);
+            this.dgvDocentes.Name = "dgvDocentes";
+            this.dgvDocentes.ReadOnly = true;
+            this.dgvDocentes.RowHeadersVisible = false;
+            this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocentes.ShowEditingIcon = false;
+            this.dgvDocentes.Size = new System.Drawing.Size(646, 313);
+            this.dgvDocentes.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Docente
+            // 
+            this.Docente.DataPropertyName = "Docente";
+            this.Docente.HeaderText = "Docente";
+            this.Docente.Name = "Docente";
+            this.Docente.ReadOnly = true;
+            // 
+            // Cargo
+            // 
+            this.Cargo.DataPropertyName = "TipoCargo";
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
             // 
             // tsUsuarios
             // 
@@ -360,10 +360,10 @@
             this.tcUsuarios.ResumeLayout(false);
             this.tcUsuarios.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.tsbDocentes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.tsbAlumnos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            this.tsbDocentes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.tsUsuarios.ResumeLayout(false);
             this.tsUsuarios.PerformLayout();
             this.ResumeLayout(false);

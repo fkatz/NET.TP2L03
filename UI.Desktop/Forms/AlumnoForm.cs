@@ -69,10 +69,12 @@ namespace UI.Desktop.Forms {
                     break;
             }
             Persona alumno = personas.FindByLegajo(int.Parse(txtLegajo.Text));
+            int nota = 0;
+            if (txtNota.Text.Length > 0) nota = int.Parse(txtNota.Text);
             this.EntidadActual = new AlumnoInscripto() {
                 Condicion =  c,
                 Alumno = alumno,
-                Nota = int.Parse(txtNota.Text),
+                Nota = nota,
                 Curso = currentCurso
             };
             if (oldEntity != null) {
@@ -82,7 +84,11 @@ namespace UI.Desktop.Forms {
 
         public void MapearDeDatos() {
             txtLegajo.Text = EntidadActual.Alumno.Legajo.ToString();
-            txtNota.Text = EntidadActual.Nota.ToString();
+            if (EntidadActual.Nota > 0)
+            {
+                txtNota.Text = EntidadActual.Nota.ToString();
+            }
+            else txtNota.Text = "";
             cmbCondicion.SelectedItem = EntidadActual.Condicion.ToString();
             txtID.Text = EntidadActual.ID.ToString();
             switch (this.formMode) {
@@ -120,11 +126,7 @@ namespace UI.Desktop.Forms {
                 }
             }
 
-            if (txtNota.Text.Length == 0) {
-                valid = false;
-                message += "\nEl campo Nota es obligatorio.";
-            }
-            else {
+            if (txtNota.Text.Length > 0) {
                 try {
                     int.Parse(txtNota.Text);
                 }

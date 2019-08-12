@@ -80,8 +80,8 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabComisiones);
             this.tabControl.Controls.Add(this.tabCursos);
+            this.tabControl.Controls.Add(this.tabComisiones);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -227,7 +227,7 @@
             this.tsbAlumDoc});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(132, 25);
+            this.tsUsuarios.Size = new System.Drawing.Size(101, 25);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -267,7 +267,6 @@
             // 
             this.tsSeparator.Name = "tsSeparator";
             this.tsSeparator.Size = new System.Drawing.Size(6, 25);
-            this.tsSeparator.Visible = false;
             // 
             // tsbAlumDoc
             // 
@@ -277,7 +276,6 @@
             this.tsbAlumDoc.Name = "tsbAlumDoc";
             this.tsbAlumDoc.Size = new System.Drawing.Size(23, 22);
             this.tsbAlumDoc.Text = "Administrar Alumnos y Profesores";
-            this.tsbAlumDoc.Visible = false;
             this.tsbAlumDoc.Click += new System.EventHandler(this.tsbAlumDoc_Click);
             // 
             // CursadaList

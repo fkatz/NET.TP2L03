@@ -19,19 +19,23 @@ namespace UI.Desktop
         public DocenteCurso EntidadActual { get; set; }
         FormMode formMode;
         DocenteCursoLogic entities = new DocenteCursoLogic();
-        public DocenteForm()
+        PersonaLogic personas = new PersonaLogic();
+        Curso currentCurso;
+        public DocenteForm(Curso curso)
         {
+            this.currentCurso = curso;
             InitializeComponent();
+            txtCurso.Text = currentCurso.ToString();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
             this.cmbCargo.DataSource = new String[]{"Titular","Adjunto","Ayudante"};
             this.cmbCargo.DisplayMember = "Cargo";
         }
-        public DocenteForm(FormMode formMode) : this()
+        public DocenteForm(FormMode formMode, Curso curso) : this(curso)
         {
             this.formMode = formMode;
         }
-        public DocenteForm(int id, FormMode formMode) : this()
+        public DocenteForm(int id, FormMode formMode, Curso curso) : this(curso)
         {
             this.EntidadActual = entities.GetOne(id);
             this.MapearDeDatos();
@@ -40,7 +44,6 @@ namespace UI.Desktop
         public void MapearADatos()
         {
             DocenteCurso oldEntity = this.EntidadActual;
-            PersonaLogic personas = new PersonaLogic();
             DocenteCurso.TiposCargos tp = 0;
             switch (cmbCargo.SelectedIndex)
             {
@@ -59,7 +62,8 @@ namespace UI.Desktop
             this.EntidadActual = new DocenteCurso()
             {
                 Docente = personas.FindByLegajo(int.Parse(txtLegajo.Text)),
-                TipoCargo = tp
+                TipoCargo = tp,
+                Curso = currentCurso
             };
             if (oldEntity != null)
             {
@@ -129,8 +133,7 @@ namespace UI.Desktop
                     int.Parse(txtLegajo.Text);
                     try
                     {
-                        PersonaLogic p = new PersonaLogic();
-                        p.FindByLegajo(int.Parse(txtLegajo.Text));
+                        personas.FindByLegajo(int.Parse(txtLegajo.Text));
                     }
                     catch (Exception e)
                     {
@@ -173,6 +176,25 @@ namespace UI.Desktop
                     this.Text = "Modificar Docente";
                     break;
 
+            }
+        }
+
+        private void txtLegajo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Persona p = personas.FindByLegajo(int.Parse(txtLegajo.Text));
+                if (p != null)
+                {
+                    txtDocente.Text = p.ToString();
+                }
+                else
+                {
+                    throw new Exception("Persona no encontrada");
+                }
+            }
+            catch{
+                txtDocente.Text = "";
             }
         }
     }

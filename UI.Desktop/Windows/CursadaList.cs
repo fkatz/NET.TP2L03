@@ -120,7 +120,9 @@ namespace UI.Desktop
         private void selectionChanged(object sender, EventArgs e)
         {
             DataGridView grid = (DataGridView)sender;
+            tsbAlumDoc.Enabled = grid.SelectedRows.Count == 1;
             tsbEditar.Enabled = grid.SelectedRows.Count == 1;
+            tsbEliminar.Enabled = grid.SelectedRows.Count >= 1;
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
