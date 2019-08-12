@@ -21,19 +21,19 @@ namespace UI.Desktop
             this.Text = "Administrar curso " + curso.Comision.ToString() + " " + curso.AñoCalendario.ToString();
         }
         private Curso currentCurso;
-        private MateriaLogic materias = new MateriaLogic();
-        private PlanLogic planes = new PlanLogic();
+        private AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
+        private DocenteCursoLogic docentes = new DocenteCursoLogic();
         public AlumnosDocentesList()
         {
             InitializeComponent();
-            dgvMaterias.AutoGenerateColumns = false;
-            dgvPlanes.AutoGenerateColumns = false;
+            dgvAlumnos.AutoGenerateColumns = false;
+            dgvDocentes.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            this.dgvPlanes.DataSource = planes.GetAll();
-            this.dgvMaterias.DataSource = materias.GetAll();
+            this.dgvDocentes.DataSource = docentes.GetAll();
+            this.dgvAlumnos.DataSource = alumnos.GetAll();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
@@ -51,14 +51,11 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabPlanes":
-                    entityForm = new PlanForm(FormMode.Alta);
-                    break;
-                case "tabMaterias":
-                    entityForm = new MateriaForm(FormMode.Alta);
-                    break;
+                //case "tsbDocentes":
+                    //entityForm = new DocenteForm(FormMode.Alta);
+                    //break;
                 case "tsbAlumnos":
-                    entityForm = new AlumnoForm(FormMode.Alta);
+                    entityForm = new AlumnoForm(FormMode.Alta,currentCurso);
                     break;
                 default: throw new Exception("No tab selected");
             }
@@ -72,11 +69,11 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabPlanes":
-                    entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                case "tabDocentes":
+                    entityForm = new PlanForm(((Plan)this.dgvDocentes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
-                case "tabMaterias":
-                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                case "tabAlumnos":
+                    entityForm = new AlumnoForm(((AlumnoInscripto)this.dgvAlumnos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación, currentCurso);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -92,20 +89,20 @@ namespace UI.Desktop
             {
                 try {
                     if (tabControl.SelectedTab == tsbAlumnos) {
-                        List<Plan> array = new List<Plan>();
-                        foreach (DataGridViewRow row in dgvPlanes.SelectedRows) {
-                            Plan entity = (Plan)row.DataBoundItem;
+                        List<AlumnoInscripto> array = new List<AlumnoInscripto>();
+                        foreach (DataGridViewRow row in dgvAlumnos.SelectedRows) {
+                            AlumnoInscripto entity = (AlumnoInscripto)row.DataBoundItem;
                             entity.State = BusinessEntity.States.Deleted;
-                            planes.Save(entity);
+                            alumnos.Save(entity);
                         }
                     }
 
                     else if (tabControl.SelectedTab == tsbDocentes) {
-                        List<Materia> array = new List<Materia>();
-                        foreach (DataGridViewRow row in dgvMaterias.SelectedRows) {
-                            Materia entity = (Materia)row.DataBoundItem;
+                        List<DocenteCurso> array = new List<DocenteCurso>();
+                        foreach (DataGridViewRow row in dgvDocentes.SelectedRows) {
+                            DocenteCurso entity = (DocenteCurso)row.DataBoundItem;
                             entity.State = BusinessEntity.States.Deleted;
-                            materias.Save(entity);
+                            docentes.Save(entity);
                         }
                     }
                 }

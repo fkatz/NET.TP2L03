@@ -16,15 +16,18 @@ namespace UI.Desktop.Forms {
         public AlumnoInscripto EntidadActual { get; set; }
         FormMode formMode;
         AlumnoInscriptoLogic entities = new AlumnoInscriptoLogic();
-        public AlumnoForm() {
+        PersonaLogic personas = new PersonaLogic();
+        Curso currentCurso;
+        public AlumnoForm(Curso curso) {
+            this.currentCurso = curso;
             InitializeComponent();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
         }
-        public AlumnoForm(FormMode formMode) : this() {
+        public AlumnoForm(FormMode formMode, Curso curso) : this(curso) {
             this.formMode = formMode;
         }
-        public AlumnoForm(int id, FormMode formMode) : this() {
+        public AlumnoForm(int id, FormMode formMode, Curso curso) : this(curso) {
             this.EntidadActual = entities.GetOne(id);
             this.MapearDeDatos();
             this.formMode = formMode;
@@ -65,12 +68,12 @@ namespace UI.Desktop.Forms {
                     c = AlumnoInscripto.Condiciones.Cursante;
                     break;
             }
-            PersonaLogic pl = new PersonaLogic();
-            Persona alumno = pl.FindByLegajo(int.Parse(txtLegajo.Text));
+            Persona alumno = personas.FindByLegajo(int.Parse(txtLegajo.Text));
             this.EntidadActual = new AlumnoInscripto() {
                 Condicion =  c,
                 Alumno = alumno,
-                Nota = int.Parse(txtNota.Text)
+                Nota = int.Parse(txtNota.Text),
+                Curso = currentCurso
             };
             if (oldEntity != null) {
                 this.EntidadActual.ID = oldEntity.ID;
@@ -104,8 +107,7 @@ namespace UI.Desktop.Forms {
                 try {
                     int.Parse(txtLegajo.Text);
                     try {
-                        PersonaLogic p = new PersonaLogic();
-                        p.FindByLegajo(int.Parse(txtLegajo.Text));
+                        personas.FindByLegajo(int.Parse(txtLegajo.Text));
                     }
                     catch (Exception e) {
                         valid = false;

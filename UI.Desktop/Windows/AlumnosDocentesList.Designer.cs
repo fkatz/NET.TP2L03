@@ -32,13 +32,16 @@
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tsbDocentes = new System.Windows.Forms.TabPage();
-            this.dgvMaterias = new System.Windows.Forms.DataGridView();
+            this.dgvDocentes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsbAlumnos = new System.Windows.Forms.TabPage();
+            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsbAlumnos = new System.Windows.Forms.TabPage();
-            this.dgvPlanes = new System.Windows.Forms.DataGridView();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -55,17 +58,14 @@
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.persID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tsbDocentes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.tsbAlumnos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.tsUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +100,7 @@
             // 
             // tsbDocentes
             // 
-            this.tsbDocentes.Controls.Add(this.dgvPlanes);
+            this.tsbDocentes.Controls.Add(this.dgvDocentes);
             this.tsbDocentes.Location = new System.Drawing.Point(4, 22);
             this.tsbDocentes.Name = "tsbDocentes";
             this.tsbDocentes.Padding = new System.Windows.Forms.Padding(3);
@@ -109,28 +109,82 @@
             this.tsbDocentes.Text = "Docentes";
             this.tsbDocentes.UseVisualStyleBackColor = true;
             // 
-            // dgvMaterias
+            // dgvDocentes
             // 
-            this.dgvMaterias.AllowUserToAddRows = false;
-            this.dgvMaterias.AllowUserToDeleteRows = false;
-            this.dgvMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMaterias.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDocentes.AllowUserToAddRows = false;
+            this.dgvDocentes.AllowUserToDeleteRows = false;
+            this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDocentes.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.Docente,
+            this.Cargo});
+            this.dgvDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDocentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDocentes.Location = new System.Drawing.Point(3, 3);
+            this.dgvDocentes.Name = "dgvDocentes";
+            this.dgvDocentes.ReadOnly = true;
+            this.dgvDocentes.RowHeadersVisible = false;
+            this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocentes.ShowEditingIcon = false;
+            this.dgvDocentes.Size = new System.Drawing.Size(646, 313);
+            this.dgvDocentes.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Docente
+            // 
+            this.Docente.DataPropertyName = "Docente";
+            this.Docente.HeaderText = "Docente";
+            this.Docente.Name = "Docente";
+            this.Docente.ReadOnly = true;
+            // 
+            // Cargo
+            // 
+            this.Cargo.DataPropertyName = "TipoCargo";
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            // 
+            // tsbAlumnos
+            // 
+            this.tsbAlumnos.Controls.Add(this.dgvAlumnos);
+            this.tsbAlumnos.Location = new System.Drawing.Point(4, 22);
+            this.tsbAlumnos.Name = "tsbAlumnos";
+            this.tsbAlumnos.Padding = new System.Windows.Forms.Padding(3);
+            this.tsbAlumnos.Size = new System.Drawing.Size(652, 319);
+            this.tsbAlumnos.TabIndex = 2;
+            this.tsbAlumnos.Text = "Alumnos";
+            this.tsbAlumnos.UseVisualStyleBackColor = true;
+            // 
+            // dgvAlumnos
+            // 
+            this.dgvAlumnos.AllowUserToAddRows = false;
+            this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAlumnos.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.Alumno,
             this.Condicion,
             this.Nota});
-            this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMaterias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMaterias.Location = new System.Drawing.Point(3, 3);
-            this.dgvMaterias.Name = "dgvMaterias";
-            this.dgvMaterias.ReadOnly = true;
-            this.dgvMaterias.RowHeadersVisible = false;
-            this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterias.ShowEditingIcon = false;
-            this.dgvMaterias.Size = new System.Drawing.Size(646, 313);
-            this.dgvMaterias.TabIndex = 2;
+            this.dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAlumnos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAlumnos.Location = new System.Drawing.Point(3, 3);
+            this.dgvAlumnos.Name = "dgvAlumnos";
+            this.dgvAlumnos.ReadOnly = true;
+            this.dgvAlumnos.RowHeadersVisible = false;
+            this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAlumnos.ShowEditingIcon = false;
+            this.dgvAlumnos.Size = new System.Drawing.Size(646, 313);
+            this.dgvAlumnos.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -159,39 +213,6 @@
             this.Nota.HeaderText = "Nota";
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
-            // 
-            // tsbAlumnos
-            // 
-            this.tsbAlumnos.Controls.Add(this.dgvMaterias);
-            this.tsbAlumnos.Location = new System.Drawing.Point(4, 22);
-            this.tsbAlumnos.Name = "tsbAlumnos";
-            this.tsbAlumnos.Padding = new System.Windows.Forms.Padding(3);
-            this.tsbAlumnos.Size = new System.Drawing.Size(652, 319);
-            this.tsbAlumnos.TabIndex = 2;
-            this.tsbAlumnos.Text = "Alumnos";
-            this.tsbAlumnos.UseVisualStyleBackColor = true;
-            // 
-            // dgvPlanes
-            // 
-            this.dgvPlanes.AllowUserToAddRows = false;
-            this.dgvPlanes.AllowUserToDeleteRows = false;
-            this.dgvPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPlanes.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.Docente,
-            this.Cargo});
-            this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPlanes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
-            this.dgvPlanes.Name = "dgvPlanes";
-            this.dgvPlanes.ReadOnly = true;
-            this.dgvPlanes.RowHeadersVisible = false;
-            this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanes.ShowEditingIcon = false;
-            this.dgvPlanes.Size = new System.Drawing.Size(646, 313);
-            this.dgvPlanes.TabIndex = 2;
             // 
             // tsUsuarios
             // 
@@ -324,27 +345,6 @@
             this.persID.Name = "persID";
             this.persID.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Docente
-            // 
-            this.Docente.DataPropertyName = "Docente";
-            this.Docente.HeaderText = "Docente";
-            this.Docente.Name = "Docente";
-            this.Docente.ReadOnly = true;
-            // 
-            // Cargo
-            // 
-            this.Cargo.DataPropertyName = "TipoCargo";
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            this.Cargo.ReadOnly = true;
-            // 
             // AlumnosDocentesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,9 +361,9 @@
             this.tcUsuarios.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tsbDocentes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.tsbAlumnos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.tsUsuarios.ResumeLayout(false);
             this.tsUsuarios.PerformLayout();
             this.ResumeLayout(false);
@@ -380,7 +380,7 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tsbAlumnos;
         private System.Windows.Forms.TabPage tsbDocentes;
-        private System.Windows.Forms.DataGridView dgvMaterias;
+        private System.Windows.Forms.DataGridView dgvAlumnos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn planID;
@@ -393,7 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn persID;
-        private System.Windows.Forms.DataGridView dgvPlanes;
+        private System.Windows.Forms.DataGridView dgvDocentes;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Condicion;
