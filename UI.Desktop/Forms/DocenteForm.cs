@@ -41,7 +41,7 @@ namespace UI.Desktop
         {
             DocenteCurso oldEntity = this.EntidadActual;
             PersonaLogic personas = new PersonaLogic();
-            DocenteCurso.TiposCargos tp = new DocenteCurso.TiposCargos();
+            DocenteCurso.TiposCargos tp = 0;
             switch (cmbCargo.SelectedIndex)
             {
                 case 0:
@@ -58,7 +58,7 @@ namespace UI.Desktop
             }
             this.EntidadActual = new DocenteCurso()
             {
-                Docente = personas.GetOne(int.Parse(txtIDDocente.Text)),
+                Docente = personas.FindByLegajo(int.Parse(txtLegajo.Text)),
                 TipoCargo = tp
             };
             if (oldEntity != null)
@@ -69,9 +69,8 @@ namespace UI.Desktop
 
         public void MapearDeDatos()
         {
-            txtIDDocente.Text = EntidadActual.Docente.ID.ToString();
+            txtLegajo.Text = EntidadActual.Docente.Legajo.ToString();
             cmbCargo.SelectedIndex = cmbCargo.FindString(EntidadActual.TipoCargo.ToString());
-            //Arreglar
             txtID.Text = EntidadActual.ID.ToString();
             switch (this.formMode)
             {
@@ -118,34 +117,31 @@ namespace UI.Desktop
                 message += "\nCargo requerido.";
             }
 
-            if (txtIDDocente.Text.Length == 0)
+            if (txtLegajo.Text.Length == 0)
             {
                 valid = false;
-                message += "\nEl campo ID Docente es obligatorio.";
+                message += "\nEl campo Legajo es obligatorio.";
             }
             else
             {
                 try
                 {
-                    if (int.Parse(txtIDDocente.Text) <= 0)
+                    int.Parse(txtLegajo.Text);
+                    try
+                    {
+                        PersonaLogic p = new PersonaLogic();
+                        p.FindByLegajo(int.Parse(txtLegajo.Text));
+                    }
+                    catch (Exception e)
                     {
                         valid = false;
-                        message += "\nEl ID de Docente debe ser un número entero positivo.";
+                        message += "\nEl Legajo no pertenece a ningún alumno.";
                     }
-                    else
-                        {
-                            DocenteCurso savedTeacher = entities.GetOne(int.Parse(txtIDDocente.Text));
-                            if (savedTeacher != null && EntidadActual != null && EntidadActual.ID != savedTeacher.ID)
-                            {
-                                valid = false;
-                                message += "\nYa existe un docente con esta ID";
-                            }
-                        }
                 }
                 catch (FormatException ef)
                 {
                     valid = false;
-                    message += "\nEl ID de Docente debe ser un número entero positivo.";
+                    message += "\nEl legajo debe ser un número entero.";
                 }
             }
 
