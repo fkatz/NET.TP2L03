@@ -26,6 +26,13 @@ namespace Data.Database
             }
         }
 
+        public int CantInscriptos(Curso curso)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.AlumnoInscripto.Count(a => a.Curso.ID == curso.ID);
+            }
+        }
 
         public void Delete(int ID)
         {
@@ -79,5 +86,6 @@ namespace Data.Database
                     break;
             }
         }
+
     }
 }

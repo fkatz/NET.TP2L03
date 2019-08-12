@@ -114,6 +114,12 @@
     <Compile Include="Windows\CursadaList.Designer.cs">
       <DependentUpon>CursadaList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\InscripcionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\InscripcionForm.Designer.cs">
+      <DependentUpon>InscripcionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PersonasList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\CursadaList.resx">
       <DependentUpon>CursadaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\InscripcionForm.resx">
+      <DependentUpon>InscripcionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>

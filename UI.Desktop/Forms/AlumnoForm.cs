@@ -23,6 +23,7 @@ namespace UI.Desktop.Forms {
             InitializeComponent();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
+            txtCurso.Text = curso.ToString();
         }
         public AlumnoForm(FormMode formMode, Curso curso) : this(curso) {
             this.formMode = formMode;
@@ -100,6 +101,8 @@ namespace UI.Desktop.Forms {
                     this.btnAceptar.Text = "Eliminar";
                     break;
             }
+            SetPersona();
+
         }
 
         public bool Validar() {
@@ -169,5 +172,30 @@ namespace UI.Desktop.Forms {
 
             }
         }
+        private void SetPersona()
+        {
+            try
+            {
+                Persona p = personas.FindByLegajo(int.Parse(txtLegajo.Text));
+                if (p != null)
+                {
+                    txtAlumno.Text = p.ToString();
+                }
+                else
+                {
+                    throw new Exception("Persona no encontrada");
+                }
+            }
+            catch
+            {
+                txtAlumno.Text = "";
+            }
+    }
+
+        private void txtLegajo_TextChanged(object sender, EventArgs e)
+        {
+            SetPersona();
+        }
+           
     }
 }

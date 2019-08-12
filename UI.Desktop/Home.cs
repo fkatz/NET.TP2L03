@@ -127,5 +127,11 @@ namespace UI.Desktop
             this.ActualizarVista();
             LogIn();
         }
+
+        private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InscripcionForm form = new InscripcionForm(loggedPersona);
+            form.Show();
+        }
     }
 }

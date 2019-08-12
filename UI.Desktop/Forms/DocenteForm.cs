@@ -86,6 +86,7 @@ namespace UI.Desktop
                     this.btnAceptar.Text = "Eliminar";
                     break;
             }
+            SetPersona();
         }
 
         public void GuardarDatos()
@@ -179,7 +180,7 @@ namespace UI.Desktop
             }
         }
 
-        private void txtLegajo_TextChanged(object sender, EventArgs e)
+        private void SetPersona()
         {
             try
             {
@@ -193,9 +194,15 @@ namespace UI.Desktop
                     throw new Exception("Persona no encontrada");
                 }
             }
-            catch{
+            catch
+            {
                 txtDocente.Text = "";
             }
+        }
+
+        private void txtLegajo_TextChanged(object sender, EventArgs e)
+        {
+            SetPersona();
         }
     }
 }

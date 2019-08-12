@@ -26,5 +26,10 @@ namespace Business.Logic
         {
             CursoData.Delete(ID);
         }
+
+        public int CantInscriptos(Curso curso)
+        {
+            return CursoData.CantInscriptos(curso);
+        }
     }
 }

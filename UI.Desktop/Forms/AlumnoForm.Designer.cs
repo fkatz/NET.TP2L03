@@ -27,7 +27,7 @@
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblCondición = new System.Windows.Forms.Label();
-            this.lblAlumno = new System.Windows.Forms.Label();
+            this.lblLegajo = new System.Windows.Forms.Label();
             this.lblNota = new System.Windows.Forms.Label();
             this.txtNota = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,7 +35,10 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cmbCondicion = new System.Windows.Forms.ComboBox();
             this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.txtAlumno = new System.Windows.Forms.TextBox();
+            this.lblAlumno = new System.Windows.Forms.Label();
             this.lblCurso = new System.Windows.Forms.Label();
+            this.txtCurso = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,14 +54,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblCondición, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblAlumno, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblNota, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtNota, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtNota, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cmbCondicion, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtAlumno, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblLegajo, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblAlumno, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblCondición, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblNota, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cmbCondicion, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblCurso, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtCurso, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -94,27 +100,27 @@
             // 
             this.lblCondición.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCondición.AutoSize = true;
-            this.lblCondición.Location = new System.Drawing.Point(3, 34);
+            this.lblCondición.Location = new System.Drawing.Point(3, 62);
             this.lblCondición.Name = "lblCondición";
             this.lblCondición.Size = new System.Drawing.Size(54, 13);
             this.lblCondición.TabIndex = 18;
             this.lblCondición.Text = "Condición";
             // 
-            // lblAlumno
+            // lblLegajo
             // 
-            this.lblAlumno.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblAlumno.AutoSize = true;
-            this.lblAlumno.Location = new System.Drawing.Point(268, 34);
-            this.lblAlumno.Name = "lblAlumno";
-            this.lblAlumno.Size = new System.Drawing.Size(39, 13);
-            this.lblAlumno.TabIndex = 27;
-            this.lblAlumno.Text = "Legajo";
+            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(3, 34);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
+            this.lblLegajo.TabIndex = 27;
+            this.lblLegajo.Text = "Legajo";
             // 
             // lblNota
             // 
             this.lblNota.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNota.AutoSize = true;
-            this.lblNota.Location = new System.Drawing.Point(3, 62);
+            this.lblNota.Location = new System.Drawing.Point(268, 62);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(30, 13);
             this.lblNota.TabIndex = 3;
@@ -123,9 +129,9 @@
             // txtNota
             // 
             this.txtNota.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNota.Location = new System.Drawing.Point(105, 57);
+            this.txtNota.Location = new System.Drawing.Point(317, 57);
             this.txtNota.Name = "txtNota";
-            this.txtNota.Size = new System.Drawing.Size(157, 20);
+            this.txtNota.Size = new System.Drawing.Size(173, 20);
             this.txtNota.TabIndex = 24;
             // 
             // flowLayoutPanel1
@@ -168,7 +174,7 @@
             "Regular",
             "Libre",
             "Cursante"});
-            this.cmbCondicion.Location = new System.Drawing.Point(105, 31);
+            this.cmbCondicion.Location = new System.Drawing.Point(105, 57);
             this.cmbCondicion.Name = "cmbCondicion";
             this.cmbCondicion.Size = new System.Drawing.Size(157, 21);
             this.cmbCondicion.TabIndex = 35;
@@ -176,10 +182,31 @@
             // txtLegajo
             // 
             this.txtLegajo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLegajo.Location = new System.Drawing.Point(317, 31);
+            this.txtLegajo.Location = new System.Drawing.Point(105, 31);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(173, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(157, 20);
             this.txtLegajo.TabIndex = 36;
+            this.txtLegajo.TextChanged += new System.EventHandler(this.txtLegajo_TextChanged);
+            // 
+            // txtAlumno
+            // 
+            this.txtAlumno.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAlumno.Location = new System.Drawing.Point(317, 31);
+            this.txtAlumno.Name = "txtAlumno";
+            this.txtAlumno.ReadOnly = true;
+            this.txtAlumno.Size = new System.Drawing.Size(173, 20);
+            this.txtAlumno.TabIndex = 37;
+            // 
+            // lblAlumno
+            // 
+            this.lblAlumno.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblAlumno.AutoSize = true;
+            this.lblAlumno.Location = new System.Drawing.Point(268, 34);
+            this.lblAlumno.Name = "lblAlumno";
+            this.lblAlumno.Size = new System.Drawing.Size(42, 13);
+            this.lblAlumno.TabIndex = 38;
+            this.lblAlumno.Text = "Alumno";
+            this.lblAlumno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCurso
             // 
@@ -190,6 +217,15 @@
             this.lblCurso.Size = new System.Drawing.Size(37, 13);
             this.lblCurso.TabIndex = 7;
             this.lblCurso.Text = "Curso:";
+            // 
+            // txtCurso
+            // 
+            this.txtCurso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCurso.Location = new System.Drawing.Point(317, 3);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.ReadOnly = true;
+            this.txtCurso.Size = new System.Drawing.Size(173, 20);
+            this.txtCurso.TabIndex = 39;
             // 
             // AlumnoForm
             // 
@@ -214,14 +250,17 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblCondición;
-        private System.Windows.Forms.Label lblAlumno;
+        private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.Label lblNota;
         private System.Windows.Forms.TextBox txtNota;
-        private System.Windows.Forms.Label lblCurso;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ComboBox cmbCondicion;
         private System.Windows.Forms.TextBox txtLegajo;
+        private System.Windows.Forms.TextBox txtAlumno;
+        private System.Windows.Forms.Label lblAlumno;
+        private System.Windows.Forms.Label lblCurso;
+        private System.Windows.Forms.TextBox txtCurso;
     }
 }
