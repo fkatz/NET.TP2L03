@@ -89,11 +89,11 @@ namespace UI.Desktop {
                 valid = false;
                 message += "\nEl campo Descripción es obligatorio.";
             }
-            else if (!Regex.IsMatch(txtDescripcion.Text, "[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*"))
-            {
-                valid = false;
-                message += "\nDescripción de comisión inválida.";
-            }
+            else if (!Regex.IsMatch(txtDescripcion.Text, "[0-9]{3}"))
+                {
+                    valid = false;
+                    message += "\nDescripción de comisión inválida (número entero de 3 cifras).";
+                }
 
             if (txtAño.Text.Length == 0)
             {

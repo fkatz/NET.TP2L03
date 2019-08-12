@@ -71,6 +71,12 @@
     <Compile Include="Forms\CursoForm.Designer.cs">
       <DependentUpon>CursoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DocenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocenteForm.Designer.cs">
+      <DependentUpon>DocenteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EspecialidadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CursoForm.resx">
       <DependentUpon>CursoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocenteForm.resx">
+      <DependentUpon>DocenteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EspecialidadForm.resx">
       <DependentUpon>EspecialidadForm.cs</DependentUpon>
