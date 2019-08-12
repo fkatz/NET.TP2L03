@@ -38,7 +38,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.txtIDDocente = new System.Windows.Forms.TextBox();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblCurso, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtCurso, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDDocente, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmbCargo, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -163,10 +163,10 @@
             // 
             // txtIDDocente
             // 
-            this.txtIDDocente.Location = new System.Drawing.Point(366, 31);
-            this.txtIDDocente.Name = "txtIDDocente";
-            this.txtIDDocente.Size = new System.Drawing.Size(202, 20);
-            this.txtIDDocente.TabIndex = 34;
+            this.txtLegajo.Location = new System.Drawing.Point(366, 31);
+            this.txtLegajo.Name = "txtIDDocente";
+            this.txtLegajo.Size = new System.Drawing.Size(202, 20);
+            this.txtLegajo.TabIndex = 34;
             // 
             // cmbCargo
             // 
@@ -208,7 +208,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.TextBox txtIDDocente;
+        private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.ComboBox cmbCargo;
     }
 }
