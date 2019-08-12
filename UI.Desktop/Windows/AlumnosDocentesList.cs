@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using UI.Desktop.Forms;
 
 namespace UI.Desktop
 {
@@ -50,14 +51,14 @@ namespace UI.Desktop
             Form entityForm;
             switch (tabControl.SelectedTab.Name)
             {
-                case "tabEspecialidades":
-                    entityForm = new EspecialidadForm(FormMode.Alta);
-                    break;
                 case "tabPlanes":
                     entityForm = new PlanForm(FormMode.Alta);
                     break;
                 case "tabMaterias":
                     entityForm = new MateriaForm(FormMode.Alta);
+                    break;
+                case "tsbAlumnos":
+                    entityForm = new AlumnoForm(FormMode.Alta);
                     break;
                 default: throw new Exception("No tab selected");
             }
