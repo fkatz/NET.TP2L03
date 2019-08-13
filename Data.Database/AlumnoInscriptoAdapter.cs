@@ -24,6 +24,13 @@ namespace Data.Database
                 return context.AlumnoInscripto.Where(a=>a.Curso.ID == curso.ID).Include("Alumno").Include("Curso").ToList();
             }
         }
+        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso, string condicion1, string condicion2)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && (a.Condicion.ToString() == condicion1 || a.Condicion.ToString() == condicion2)).Include("Alumno").Include("Curso").ToList();
+            }
+        }
         public List<AlumnoInscripto> ListByAlumno(Persona alumno)
         {
             using (var context = new AcademiaContext())

@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="editNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editNota.Designer.cs">
+      <DependentUpon>editNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AlumnoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     <Compile Include="List.designer.cs">
       <DependentUpon>List.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AlumnosCursoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AlumnosCursoList.Designer.cs">
+      <DependentUpon>AlumnosCursoList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AlumnosDocentesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,12 @@
     </Compile>
     <Compile Include="Windows\CursadaList.Designer.cs">
       <DependentUpon>CursadaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CursosDocenteList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CursosDocenteList.Designer.cs">
+      <DependentUpon>CursosDocenteList.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\NotasAlumnoList.cs">
       <SubType>Form</SubType>
@@ -170,6 +188,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="editNota.resx">
+      <DependentUpon>editNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +213,9 @@
       <DependentUpon>List.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AlumnosCursoList.resx">
+      <DependentUpon>AlumnosCursoList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\AlumnosDocentesList.resx">
       <DependentUpon>AlumnosDocentesList.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\CursadaList.resx">
       <DependentUpon>CursadaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CursosDocenteList.resx">
+      <DependentUpon>CursosDocenteList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\NotasAlumnoList.resx">
       <DependentUpon>NotasAlumnoList.cs</DependentUpon>

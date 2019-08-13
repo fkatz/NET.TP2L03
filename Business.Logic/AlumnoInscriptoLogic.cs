@@ -22,6 +22,10 @@ namespace Business.Logic
         {
             return AlumnoInscriptoData.ListByCurso(curso);
         }
+        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso,string condicion1, string condicion2)
+        {
+            return AlumnoInscriptoData.ListByCursoAndCondicion(curso,condicion1,condicion2);
+        }
         public List<AlumnoInscripto> ListByAlumno(Persona alumno)
         {
             return AlumnoInscriptoData.ListByAlumno(alumno);

@@ -139,5 +139,11 @@ namespace UI.Desktop
             NotasAlumnoList form = new NotasAlumnoList(loggedPersona);
             form.Show();
         }
+
+        private void administrarNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CursosDocenteList form = new CursosDocenteList(loggedPersona);
+            form.Show();
+        }
     }
 }

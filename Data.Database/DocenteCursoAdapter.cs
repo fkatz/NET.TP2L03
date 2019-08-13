@@ -34,6 +34,14 @@ namespace Data.Database
             }
         }
 
+        public List<DocenteCurso> ListByDocente(Persona docente)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.DocenteCurso.Where(d => d.Docente.ID == docente.ID).Include("Curso").Include("Docente").ToList();
+            }
+        }
+
         public void Delete(int ID)
         {
             using (var context = new AcademiaContext())
