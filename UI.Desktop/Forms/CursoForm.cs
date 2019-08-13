@@ -116,11 +116,7 @@ namespace UI.Desktop
                     {
                         valid = false;
                         message += "\nEl El Cupo debe ser un número entero positivo.";
-                    }else if(int.Parse(txtCupo.Text) > 100)
-                        {
-                            valid = false;
-                            message += "\nEl El máximo de Cupos por Curso es 100.";
-                        }
+                    }
                 }
                 catch (FormatException ef)
                 {
@@ -138,11 +134,7 @@ namespace UI.Desktop
             {
                 try
                 {
-                    if (int.Parse(txtAñoCalendario.Text) < DateTime.Now.Year)
-                    {
-                        valid = false;
-                        message += "\nEl Año ingresado es menor al actual.";
-                    }
+                    int.Parse(txtAñoCalendario.Text);
                 }
                 catch (FormatException ef)
                 {

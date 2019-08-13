@@ -18,6 +18,10 @@ namespace Business.Logic
         {
             return DocenteCursoData.GetAll();
         }
+        public List<DocenteCurso> ListByCurso(Curso curso)
+        {
+            return DocenteCursoData.ListByCurso(curso);
+        }
         public void Save(DocenteCurso DocenteCurso)
         {
             DocenteCursoData.Save(DocenteCurso);

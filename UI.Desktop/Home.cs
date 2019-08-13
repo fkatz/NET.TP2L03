@@ -50,7 +50,7 @@ namespace UI.Desktop
                     {
                         this.tsmDocente.Visible = true;
                     }
-                    if ((loggedPersona.Tipo & Persona.TipoPersona.Preceptor) == Persona.TipoPersona.Preceptor)
+                    if ((loggedPersona.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel)
                     {
                         this.tsmPreceptor.Visible = true;
                     }
@@ -119,7 +119,7 @@ namespace UI.Desktop
 
         private void tsmSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -130,7 +130,13 @@ namespace UI.Desktop
 
         private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InscripcionForm form = new InscripcionForm(loggedPersona);
+            InscripcionList form = new InscripcionList(loggedPersona);
+            form.Show();
+        }
+
+        private void notasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NotasAlumnoList form = new NotasAlumnoList(loggedPersona);
             form.Show();
         }
     }

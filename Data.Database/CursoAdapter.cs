@@ -17,6 +17,13 @@ namespace Data.Database
                 return context.Curso.Include("Comision").Include("Materia").ToList();
             }
         }
+        public List<Curso> ListByAño(int año)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Curso.Where(c => c.AñoCalendario == año).Include("Comision").Include("Materia").ToList();
+            }
+        }
 
         public Business.Entities.Curso GetOne(int ID)
         {
@@ -31,6 +38,14 @@ namespace Data.Database
             using (var context = new AcademiaContext())
             {
                 return context.AlumnoInscripto.Count(a => a.Curso.ID == curso.ID);
+            }
+        }
+
+        public bool AlumnoIsInCurso(Persona alumno, Curso curso)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.AlumnoInscripto.Count(a => a.Curso.ID == curso.ID && a.Alumno.ID == alumno.ID) == 1;
             }
         }
 

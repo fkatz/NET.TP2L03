@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CursadaList));
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabComisiones = new System.Windows.Forms.TabPage();
-            this.dgvComisiones = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCursos = new System.Windows.Forms.TabPage();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +38,11 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cursCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cursMat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabComisiones = new System.Windows.Forms.TabPage();
+            this.dgvComisiones = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -53,10 +53,10 @@
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabComisiones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tabCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
+            this.tabComisiones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tsUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,60 +90,6 @@
             this.tabControl.TabIndex = 1;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
-            // tabComisiones
-            // 
-            this.tabComisiones.Controls.Add(this.dgvComisiones);
-            this.tabComisiones.Location = new System.Drawing.Point(4, 22);
-            this.tabComisiones.Name = "tabComisiones";
-            this.tabComisiones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComisiones.Size = new System.Drawing.Size(652, 319);
-            this.tabComisiones.TabIndex = 5;
-            this.tabComisiones.Text = "Comisiones";
-            this.tabComisiones.UseVisualStyleBackColor = true;
-            // 
-            // dgvComisiones
-            // 
-            this.dgvComisiones.AllowUserToAddRows = false;
-            this.dgvComisiones.AllowUserToDeleteRows = false;
-            this.dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComisiones.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn11});
-            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvComisiones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
-            this.dgvComisiones.Name = "dgvComisiones";
-            this.dgvComisiones.ReadOnly = true;
-            this.dgvComisiones.RowHeadersVisible = false;
-            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.ShowEditingIcon = false;
-            this.dgvComisiones.Size = new System.Drawing.Size(646, 313);
-            this.dgvComisiones.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "AñoEspecialidad";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Año";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
             // tabCursos
             // 
             this.tabCursos.Controls.Add(this.dgvCursos);
@@ -159,6 +105,7 @@
             // 
             this.dgvCursos.AllowUserToAddRows = false;
             this.dgvCursos.AllowUserToDeleteRows = false;
+            this.dgvCursos.AllowUserToResizeRows = false;
             this.dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCursos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -213,6 +160,61 @@
             this.cursMat.HeaderText = "Materia";
             this.cursMat.Name = "cursMat";
             this.cursMat.ReadOnly = true;
+            // 
+            // tabComisiones
+            // 
+            this.tabComisiones.Controls.Add(this.dgvComisiones);
+            this.tabComisiones.Location = new System.Drawing.Point(4, 22);
+            this.tabComisiones.Name = "tabComisiones";
+            this.tabComisiones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabComisiones.Size = new System.Drawing.Size(652, 319);
+            this.tabComisiones.TabIndex = 5;
+            this.tabComisiones.Text = "Comisiones";
+            this.tabComisiones.UseVisualStyleBackColor = true;
+            // 
+            // dgvComisiones
+            // 
+            this.dgvComisiones.AllowUserToAddRows = false;
+            this.dgvComisiones.AllowUserToDeleteRows = false;
+            this.dgvComisiones.AllowUserToResizeRows = false;
+            this.dgvComisiones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComisiones.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn11});
+            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvComisiones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
+            this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.ReadOnly = true;
+            this.dgvComisiones.RowHeadersVisible = false;
+            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComisiones.ShowEditingIcon = false;
+            this.dgvComisiones.Size = new System.Drawing.Size(646, 313);
+            this.dgvComisiones.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "AñoEspecialidad";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Año";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // tsUsuarios
             // 
@@ -293,10 +295,10 @@
             this.tcUsuarios.ResumeLayout(false);
             this.tcUsuarios.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.tabComisiones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
             this.tabCursos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
+            this.tabComisiones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
             this.tsUsuarios.ResumeLayout(false);
             this.tsUsuarios.PerformLayout();
             this.ResumeLayout(false);

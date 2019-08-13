@@ -14,6 +14,10 @@ namespace Business.Logic
         {
             return CursoData.GetOne(ID);
         }
+        public List<Curso> ListByAño(int año)
+        {
+            return CursoData.ListByAño(año);
+        }
         public List<Curso> GetAll()
         {
             return CursoData.GetAll();
@@ -30,6 +34,10 @@ namespace Business.Logic
         public int CantInscriptos(Curso curso)
         {
             return CursoData.CantInscriptos(curso);
+        }
+        public bool AlumnoIsInCurso(Persona alumno, Curso curso)
+        {
+            return CursoData.AlumnoIsInCurso(alumno, curso);
         }
     }
 }

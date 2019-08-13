@@ -12,7 +12,7 @@ namespace Business.Entities
             Alumno = 0b1,
             Docente = 0b10,
             NoDocente = 0b100,
-            Preceptor = 0b1000,
+            Bedel = 0b1000,
             Administrador = 0b10000
         }
         public TipoPersona Tipo { get;set; }
@@ -26,6 +26,10 @@ namespace Business.Entities
         public override string ToString()
         {
             return Legajo.ToString()+" - " +Apellido+", "+Nombre;
+        }
+        public string NombreCompleto
+        {
+            get { return Apellido + ", " + Nombre; }
         }
     }
 

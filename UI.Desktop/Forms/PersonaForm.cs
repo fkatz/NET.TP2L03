@@ -45,7 +45,7 @@ namespace UI.Desktop
             if (chkTipoAlumno.Checked) tp |= Persona.TipoPersona.Alumno;
             if (chkTipoDocente.Checked) tp |= Persona.TipoPersona.Docente;
             if (chkTipoNoDocente.Checked) tp |= Persona.TipoPersona.NoDocente;
-            if (chkTipoPreceptor.Checked) tp |= Persona.TipoPersona.Preceptor;
+            if (chkTipoPreceptor.Checked) tp |= Persona.TipoPersona.Bedel;
             if (chkTipoAdministrador.Checked) tp |= Persona.TipoPersona.Administrador;
             UsuarioLogic users = new UsuarioLogic();
             this.EntidadActual = new Persona()
@@ -70,7 +70,7 @@ namespace UI.Desktop
             chkTipoAlumno.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno;
             chkTipoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente;
             chkTipoNoDocente.Checked = (EntidadActual.Tipo & Persona.TipoPersona.NoDocente) == Persona.TipoPersona.NoDocente;
-            chkTipoPreceptor.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Preceptor) == Persona.TipoPersona.Preceptor;
+            chkTipoPreceptor.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel;
             chkTipoAdministrador.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador;
             txtLegajo.Text = EntidadActual.Legajo.ToString();
             cmbUsuario.SelectedIndex = cmbUsuario.FindString(EntidadActual.Usuario.NombreUsuario);

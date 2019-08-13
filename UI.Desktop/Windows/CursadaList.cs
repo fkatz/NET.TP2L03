@@ -36,7 +36,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)

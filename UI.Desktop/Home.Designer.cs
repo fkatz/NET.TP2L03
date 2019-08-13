@@ -154,6 +154,7 @@
             this.notasToolStripMenuItem.Name = "notasToolStripMenuItem";
             this.notasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.notasToolStripMenuItem.Text = "Estado Académico";
+            this.notasToolStripMenuItem.Click += new System.EventHandler(this.notasToolStripMenuItem_Click);
             // 
             // tsmDocente
             // 
@@ -174,13 +175,13 @@
             this.tsmPreceptor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regularidadesToolStripMenuItem});
             this.tsmPreceptor.Name = "tsmPreceptor";
-            this.tsmPreceptor.Size = new System.Drawing.Size(70, 20);
-            this.tsmPreceptor.Text = "Preceptor";
+            this.tsmPreceptor.Size = new System.Drawing.Size(48, 20);
+            this.tsmPreceptor.Text = "Bedel";
             // 
             // regularidadesToolStripMenuItem
             // 
             this.regularidadesToolStripMenuItem.Name = "regularidadesToolStripMenuItem";
-            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.regularidadesToolStripMenuItem.Text = "Regularidades";
             // 
             // panel1

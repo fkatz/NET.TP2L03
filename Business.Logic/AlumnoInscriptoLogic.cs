@@ -18,6 +18,14 @@ namespace Business.Logic
         {
             return AlumnoInscriptoData.GetAll();
         }
+        public List<AlumnoInscripto> ListByCurso(Curso curso)
+        {
+            return AlumnoInscriptoData.ListByCurso(curso);
+        }
+        public List<AlumnoInscripto> ListByAlumno(Persona alumno)
+        {
+            return AlumnoInscriptoData.ListByAlumno(alumno);
+        }
         public void Save(AlumnoInscripto AlumnoInscripto)
         {
             AlumnoInscriptoData.Save(AlumnoInscripto);

@@ -32,8 +32,8 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            this.dgvDocentes.DataSource = docentes.GetAll();
-            this.dgvAlumnos.DataSource = alumnos.GetAll();
+            this.dgvDocentes.DataSource = docentes.ListByCurso(currentCurso);
+            this.dgvAlumnos.DataSource = alumnos.ListByCurso(currentCurso);
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
