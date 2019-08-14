@@ -26,17 +26,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.lblCondición = new System.Windows.Forms.Label();
-            this.lblLegajo = new System.Windows.Forms.Label();
-            this.lblNota = new System.Windows.Forms.Label();
             this.txtNota = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.cmbCondicion = new System.Windows.Forms.ComboBox();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtAlumno = new System.Windows.Forms.TextBox();
+            this.lblLegajo = new System.Windows.Forms.Label();
             this.lblAlumno = new System.Windows.Forms.Label();
+            this.lblCondición = new System.Windows.Forms.Label();
+            this.lblNota = new System.Windows.Forms.Label();
+            this.cmbCondicion = new System.Windows.Forms.ComboBox();
             this.lblCurso = new System.Windows.Forms.Label();
             this.txtCurso = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -96,36 +96,6 @@
             this.txtID.Size = new System.Drawing.Size(157, 20);
             this.txtID.TabIndex = 33;
             // 
-            // lblCondición
-            // 
-            this.lblCondición.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCondición.AutoSize = true;
-            this.lblCondición.Location = new System.Drawing.Point(3, 62);
-            this.lblCondición.Name = "lblCondición";
-            this.lblCondición.Size = new System.Drawing.Size(54, 13);
-            this.lblCondición.TabIndex = 18;
-            this.lblCondición.Text = "Condición";
-            // 
-            // lblLegajo
-            // 
-            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(3, 34);
-            this.lblLegajo.Name = "lblLegajo";
-            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
-            this.lblLegajo.TabIndex = 27;
-            this.lblLegajo.Text = "Legajo";
-            // 
-            // lblNota
-            // 
-            this.lblNota.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNota.AutoSize = true;
-            this.lblNota.Location = new System.Drawing.Point(268, 62);
-            this.lblNota.Name = "lblNota";
-            this.lblNota.Size = new System.Drawing.Size(30, 13);
-            this.lblNota.TabIndex = 3;
-            this.lblNota.Text = "Nota";
-            // 
             // txtNota
             // 
             this.txtNota.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -166,19 +136,6 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // cmbCondicion
-            // 
-            this.cmbCondicion.FormattingEnabled = true;
-            this.cmbCondicion.Items.AddRange(new object[] {
-            "Aprobado",
-            "Regular",
-            "Libre",
-            "Cursante"});
-            this.cmbCondicion.Location = new System.Drawing.Point(105, 57);
-            this.cmbCondicion.Name = "cmbCondicion";
-            this.cmbCondicion.Size = new System.Drawing.Size(157, 21);
-            this.cmbCondicion.TabIndex = 35;
-            // 
             // txtLegajo
             // 
             this.txtLegajo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,6 +154,16 @@
             this.txtAlumno.Size = new System.Drawing.Size(173, 20);
             this.txtAlumno.TabIndex = 37;
             // 
+            // lblLegajo
+            // 
+            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(3, 34);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
+            this.lblLegajo.TabIndex = 27;
+            this.lblLegajo.Text = "Legajo";
+            // 
             // lblAlumno
             // 
             this.lblAlumno.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -207,6 +174,39 @@
             this.lblAlumno.TabIndex = 38;
             this.lblAlumno.Text = "Alumno";
             this.lblAlumno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCondición
+            // 
+            this.lblCondición.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCondición.AutoSize = true;
+            this.lblCondición.Location = new System.Drawing.Point(3, 62);
+            this.lblCondición.Name = "lblCondición";
+            this.lblCondición.Size = new System.Drawing.Size(54, 13);
+            this.lblCondición.TabIndex = 18;
+            this.lblCondición.Text = "Condición";
+            // 
+            // lblNota
+            // 
+            this.lblNota.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNota.AutoSize = true;
+            this.lblNota.Location = new System.Drawing.Point(268, 62);
+            this.lblNota.Name = "lblNota";
+            this.lblNota.Size = new System.Drawing.Size(30, 13);
+            this.lblNota.TabIndex = 3;
+            this.lblNota.Text = "Nota";
+            // 
+            // cmbCondicion
+            // 
+            this.cmbCondicion.FormattingEnabled = true;
+            this.cmbCondicion.Items.AddRange(new object[] {
+            "Aprobado",
+            "Regular",
+            "Libre",
+            "Cursante"});
+            this.cmbCondicion.Location = new System.Drawing.Point(105, 57);
+            this.cmbCondicion.Name = "cmbCondicion";
+            this.cmbCondicion.Size = new System.Drawing.Size(157, 21);
+            this.cmbCondicion.TabIndex = 35;
             // 
             // lblCurso
             // 
@@ -234,7 +234,7 @@
             this.ClientSize = new System.Drawing.Size(493, 120);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AlumnoForm";
-            this.Text = "AlumnoForm";
+            this.Text = "Alumno";
             this.Load += new System.EventHandler(this.AlumnoForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

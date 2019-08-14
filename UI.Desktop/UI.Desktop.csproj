@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="editCondicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editCondicion.Designer.cs">
+      <DependentUpon>editCondicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="editNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     <Compile Include="Windows\AlumnosDocentesList.Designer.cs">
       <DependentUpon>AlumnosDocentesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CondicionesAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CondicionesAlumnos.Designer.cs">
+      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CurriculaList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,12 @@
     </Compile>
     <Compile Include="Windows\PersonasList.Designer.cs">
       <DependentUpon>PersonasList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RegularidadesBedelList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\RegularidadesBedelList.Designer.cs">
+      <DependentUpon>RegularidadesBedelList.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\UsuariosList.cs">
       <SubType>Form</SubType>
@@ -188,6 +206,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="editCondicion.resx">
+      <DependentUpon>editCondicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editNota.resx">
       <DependentUpon>editNota.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +240,9 @@
     <EmbeddedResource Include="Windows\AlumnosDocentesList.resx">
       <DependentUpon>AlumnosDocentesList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CondicionesAlumnos.resx">
+      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\CurriculaList.resx">
       <DependentUpon>CurriculaList.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\RegularidadesBedelList.resx">
+      <DependentUpon>RegularidadesBedelList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\UsuariosList.resx">
       <DependentUpon>UsuariosList.cs</DependentUpon>

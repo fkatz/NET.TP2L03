@@ -167,7 +167,7 @@
             // administrarNotasToolStripMenuItem
             // 
             this.administrarNotasToolStripMenuItem.Name = "administrarNotasToolStripMenuItem";
-            this.administrarNotasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.administrarNotasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.administrarNotasToolStripMenuItem.Text = "Administrar Notas";
             this.administrarNotasToolStripMenuItem.Click += new System.EventHandler(this.administrarNotasToolStripMenuItem_Click);
             // 
@@ -182,8 +182,9 @@
             // regularidadesToolStripMenuItem
             // 
             this.regularidadesToolStripMenuItem.Name = "regularidadesToolStripMenuItem";
-            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.regularidadesToolStripMenuItem.Text = "Regularidades";
+            this.regularidadesToolStripMenuItem.Click += new System.EventHandler(this.regularidadesToolStripMenuItem_Click);
             // 
             // panel1
             // 

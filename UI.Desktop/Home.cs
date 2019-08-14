@@ -145,5 +145,10 @@ namespace UI.Desktop
             CursosDocenteList form = new CursosDocenteList(loggedPersona);
             form.Show();
         }
+
+        private void regularidadesToolStripMenuItem_Click(object sender, EventArgs e) {
+            RegularidadesBedelList form = new RegularidadesBedelList();
+            form.Show();
+        }
     }
 }
