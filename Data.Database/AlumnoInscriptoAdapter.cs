@@ -24,11 +24,11 @@ namespace Data.Database
                 return context.AlumnoInscripto.Where(a=>a.Curso.ID == curso.ID).Include("Alumno").Include("Curso").ToList();
             }
         }
-        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso, string condicion1, string condicion2)
+        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso, AlumnoInscripto.Condiciones[] condiciones)
         {
             using (var context = new AcademiaContext())
             {
-                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && (a.Condicion.ToString() == condicion1 || a.Condicion.ToString() == condicion2)).Include("Alumno").Include("Curso").ToList();
+                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && condiciones.Any(c=>a.Condicion == c)).Include("Alumno").Include("Curso").ToList();
             }
         }
         public List<AlumnoInscripto> ListByAlumno(Persona alumno)

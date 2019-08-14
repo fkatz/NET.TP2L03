@@ -21,10 +21,10 @@ namespace UI.Desktop.Windows
         private int index = 0;
         private Persona currentDocente;
         private Curso selectedCurso;
-        public AlumnosCursoList(Persona docente, Curso curso)
+        public AlumnosCursoList(DocenteCurso docCurso)
         {
-            this.currentDocente = docente;
-            this.selectedCurso = curso;
+            this.currentDocente = docCurso.Docente;
+            this.selectedCurso = cursos.GetOne(docCurso.Curso.ID);
             InitializeComponent();
             dgvAlumnosCurso.AutoGenerateColumns = false;
             gbxAlumnosCurso.Text += " " + currentDocente.NombreCompleto;
@@ -32,7 +32,7 @@ namespace UI.Desktop.Windows
 
         public void Listar()
         {
-            List<AlumnoInscripto> alumnoList = alumnos.ListByCursoAndCondicion(selectedCurso,"Regular","Cursante");
+            List<AlumnoInscripto> alumnoList = alumnos.ListByCursoAndCondicion(selectedCurso,AlumnoInscripto.Condiciones.Regular, AlumnoInscripto.Condiciones.Cursante, AlumnoInscripto.Condiciones.Aprobado);
             foreach(AlumnoInscripto alumno in alumnoList)
             {
                 alumno.Curso = cursos.GetOne(alumno.Curso.ID);            

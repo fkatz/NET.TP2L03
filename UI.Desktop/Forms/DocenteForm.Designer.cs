@@ -32,16 +32,16 @@
             this.txtDocente = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.lblCargo = new System.Windows.Forms.Label();
-            this.lblLegajo = new System.Windows.Forms.Label();
-            this.lblDocente = new System.Windows.Forms.Label();
-            this.lblCurso = new System.Windows.Forms.Label();
             this.txtCurso = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
+            this.lblCurso = new System.Windows.Forms.Label();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblLegajo = new System.Windows.Forms.Label();
+            this.lblDocente = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,46 +103,6 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(177, 20);
             this.txtID.TabIndex = 33;
-            // 
-            // lblCargo
-            // 
-            this.lblCargo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(3, 62);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(35, 13);
-            this.lblCargo.TabIndex = 18;
-            this.lblCargo.Text = "Cargo";
-            // 
-            // lblLegajo
-            // 
-            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(3, 34);
-            this.lblLegajo.Name = "lblLegajo";
-            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
-            this.lblLegajo.TabIndex = 27;
-            this.lblLegajo.Text = "Legajo";
-            // 
-            // lblDocente
-            // 
-            this.lblDocente.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDocente.AutoSize = true;
-            this.lblDocente.Location = new System.Drawing.Point(242, 34);
-            this.lblDocente.Name = "lblDocente";
-            this.lblDocente.Size = new System.Drawing.Size(48, 13);
-            this.lblDocente.TabIndex = 36;
-            this.lblDocente.Text = "Docente";
-            // 
-            // lblCurso
-            // 
-            this.lblCurso.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCurso.AutoSize = true;
-            this.lblCurso.Location = new System.Drawing.Point(242, 7);
-            this.lblCurso.Name = "lblCurso";
-            this.lblCurso.Size = new System.Drawing.Size(34, 13);
-            this.lblCurso.TabIndex = 3;
-            this.lblCurso.Text = "Curso";
             // 
             // txtCurso
             // 
@@ -207,6 +167,46 @@
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(177, 21);
             this.cmbCargo.TabIndex = 2;
+            // 
+            // lblCurso
+            // 
+            this.lblCurso.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCurso.AutoSize = true;
+            this.lblCurso.Location = new System.Drawing.Point(242, 7);
+            this.lblCurso.Name = "lblCurso";
+            this.lblCurso.Size = new System.Drawing.Size(34, 13);
+            this.lblCurso.TabIndex = 3;
+            this.lblCurso.Text = "Curso";
+            // 
+            // lblCargo
+            // 
+            this.lblCargo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Location = new System.Drawing.Point(3, 62);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(35, 13);
+            this.lblCargo.TabIndex = 18;
+            this.lblCargo.Text = "Cargo";
+            // 
+            // lblLegajo
+            // 
+            this.lblLegajo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(3, 34);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(39, 13);
+            this.lblLegajo.TabIndex = 27;
+            this.lblLegajo.Text = "Legajo";
+            // 
+            // lblDocente
+            // 
+            this.lblDocente.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblDocente.AutoSize = true;
+            this.lblDocente.Location = new System.Drawing.Point(242, 34);
+            this.lblDocente.Name = "lblDocente";
+            this.lblDocente.Size = new System.Drawing.Size(48, 13);
+            this.lblDocente.TabIndex = 36;
+            this.lblDocente.Text = "Docente";
             // 
             // DocenteForm
             // 

@@ -19,6 +19,8 @@ namespace UI.Desktop
         private int index = 0;
         private CursoLogic cursos = new CursoLogic();
         private DocenteCursoLogic docentes = new DocenteCursoLogic();
+        MateriaLogic materias = new MateriaLogic();
+        PlanLogic planes = new PlanLogic();
 
         private Persona currentDocente;
         public CursosDocenteList(Persona docente)
@@ -32,18 +34,17 @@ namespace UI.Desktop
         public void Listar()
         {
 
-            this.dgvCursosDocente.DataSource = cursos.ListByAño(System.DateTime.Now.Year);
-            MateriaLogic materias = new MateriaLogic();
-            PlanLogic planes = new PlanLogic();
+            this.dgvCursosDocente.DataSource = docentes.ListByDocente(currentDocente);
+
             for (int i = 0; i < dgvCursosDocente.RowCount; i++)
             {
-                Curso curso = (Curso)dgvCursosDocente.Rows[i].DataBoundItem;
+                DocenteCurso docCurso = (DocenteCurso)dgvCursosDocente.Rows[i].DataBoundItem;
+                Curso curso = cursos.GetOne(docCurso.Curso.ID);
                 Materia materia = materias.GetOne(curso.Materia.ID);
                 Plan plan = planes.GetOne(materia.Plan.ID);
-                DocenteCurso docCurso = docentes.GetOne(curso.ID);
-                dgvCursosDocente["Materia", i].Value = curso.Materia;
+                dgvCursosDocente["Materia", i].Value = materia;
                 dgvCursosDocente["Comision", i].Value = curso.Comision;
-                dgvCursosDocente["Especialidad", i].Value = plan.Especialidad.ToString();
+                dgvCursosDocente["Especialidad", i].Value = plan.Especialidad;
                 dgvCursosDocente["Año", i].Value = curso.Comision.AñoEspecialidad.ToString();
                 dgvCursosDocente["TipoCargo", i].Value = docCurso.TipoCargo.ToString();
             }
@@ -63,8 +64,8 @@ namespace UI.Desktop
 
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
-            Curso selectedCurso = (Curso)dgvCursosDocente.Rows[index].DataBoundItem;
-            AlumnosCursoList form = new AlumnosCursoList(currentDocente,selectedCurso);
+            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.Rows[index].DataBoundItem;
+            AlumnosCursoList form = new AlumnosCursoList(selectedDocCurso);
             form.Show();
         }
 
