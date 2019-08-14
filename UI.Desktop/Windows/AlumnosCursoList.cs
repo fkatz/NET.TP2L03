@@ -88,6 +88,14 @@ namespace UI.Desktop.Windows
         private void AlumnosCursoList_Load(object sender, EventArgs e)
         {
             Listar();
+            if(selectedCurso.AñoCalendario < DateTime.Now.Year)
+            {
+                btnNota.Enabled = false;
+            }
+            else
+            {
+                btnNota.Enabled = true;
+            }
         }
 
         private void editNota_FormClosing(object sender, FormClosingEventArgs e)

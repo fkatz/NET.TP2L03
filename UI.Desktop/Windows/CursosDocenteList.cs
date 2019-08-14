@@ -45,7 +45,8 @@ namespace UI.Desktop
                 dgvCursosDocente["Materia", i].Value = materia;
                 dgvCursosDocente["Comision", i].Value = curso.Comision;
                 dgvCursosDocente["Especialidad", i].Value = plan.Especialidad;
-                dgvCursosDocente["Año", i].Value = curso.Comision.AñoEspecialidad.ToString();
+                dgvCursosDocente["AñoEsp", i].Value = curso.Comision.AñoEspecialidad.ToString();
+                dgvCursosDocente["AñoCal", i].Value = curso.AñoCalendario.ToString();
                 dgvCursosDocente["TipoCargo", i].Value = docCurso.TipoCargo.ToString();
             }
 
@@ -72,6 +73,24 @@ namespace UI.Desktop
         private void dgvCursosDocente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
+            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.Rows[index].DataBoundItem;
+            if(selectedDocCurso.Curso.AñoCalendario > DateTime.Now.Year)
+            {
+                btnAdministrar.Enabled = false;
+            }
+            else
+            {
+                btnAdministrar.Enabled = true;
+                if (selectedDocCurso.Curso.AñoCalendario < DateTime.Now.Year)
+                {
+                    btnAdministrar.Text = "Ver Notas";
+                }
+                else
+                {
+                    btnAdministrar.Text = "Administrar Notas";
+                }
+            }
+
         }
     }
 }
