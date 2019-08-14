@@ -81,7 +81,16 @@ namespace UI.Desktop
             else
             {
                 btnAdministrar.Enabled = true;
+                if (selectedDocCurso.Curso.AñoCalendario < DateTime.Now.Year)
+                {
+                    btnAdministrar.Text = "Ver Notas";
+                }
+                else
+                {
+                    btnAdministrar.Text = "Administrar Notas";
+                }
             }
+
         }
     }
 }
