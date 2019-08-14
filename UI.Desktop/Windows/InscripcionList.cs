@@ -31,14 +31,14 @@ namespace UI.Desktop
             this.dgvInscripciones.DataSource = cursos.ListByAño(System.DateTime.Now.Year);
             MateriaLogic materias = new MateriaLogic();
             PlanLogic planes = new PlanLogic();
-            for (int i = 0; i< dgvInscripciones.RowCount; i++)
+            foreach (DataGridViewRow row in dgvInscripciones.Rows)
             {
-                Curso curso = (Curso)dgvInscripciones.Rows[i].DataBoundItem;
+                Curso curso = (Curso)row.DataBoundItem;
                 Materia materia = materias.GetOne(curso.Materia.ID);
                 Plan plan = planes.GetOne(materia.Plan.ID);
-                dgvInscripciones["Especialidad", i].Value = plan.Especialidad.ToString();
-                dgvInscripciones["CupoDisp", i].Value = curso.Cupo - cursos.CantInscriptos(curso);
-                dgvInscripciones["Inscripto", i].Value = cursos.AlumnoIsInCurso(currentAlumno,curso);
+                row.Cells["Especialidad"].Value = plan.Especialidad.ToString();
+                row.Cells["CupoDisp"].Value = curso.Cupo - cursos.CantInscriptos(curso);
+                row.Cells["Inscripto"].Value = cursos.AlumnoIsInCurso(currentAlumno,curso);
             }
         }
 

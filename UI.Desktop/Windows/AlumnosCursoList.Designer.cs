@@ -36,8 +36,8 @@
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNota = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbxAlumnosCurso.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,17 +99,16 @@
             this.Condicion,
             this.Nota});
             this.dgvAlumnosCurso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAlumnosCurso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAlumnosCurso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvAlumnosCurso.Location = new System.Drawing.Point(0, 0);
             this.dgvAlumnosCurso.MultiSelect = false;
             this.dgvAlumnosCurso.Name = "dgvAlumnosCurso";
-            this.dgvAlumnosCurso.ReadOnly = true;
             this.dgvAlumnosCurso.RowHeadersVisible = false;
             this.dgvAlumnosCurso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnosCurso.ShowEditingIcon = false;
             this.dgvAlumnosCurso.Size = new System.Drawing.Size(642, 299);
             this.dgvAlumnosCurso.TabIndex = 2;
-            this.dgvAlumnosCurso.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnosCurso_CellClick);
+            this.dgvAlumnosCurso.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnosCurso_CellEndEdit);
+            this.dgvAlumnosCurso.SelectionChanged += new System.EventHandler(this.dgvAlumnosCurso_SelectionChanged);
             // 
             // Alumno
             // 
@@ -126,15 +125,13 @@
             // 
             // Nota
             // 
-            this.Nota.DataPropertyName = "Nota";
             this.Nota.HeaderText = "Nota";
             this.Nota.Name = "Nota";
-            this.Nota.ReadOnly = true;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnOk);
-            this.flowLayoutPanel2.Controls.Add(this.btnNota);
+            this.flowLayoutPanel2.Controls.Add(this.btnCancelar);
+            this.flowLayoutPanel2.Controls.Add(this.btnAceptar);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 333);
@@ -142,26 +139,26 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(654, 34);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
-            // btnNota
+            // btnCancelar
             // 
-            this.btnNota.Location = new System.Drawing.Point(484, 3);
-            this.btnNota.Name = "btnNota";
-            this.btnNota.Size = new System.Drawing.Size(86, 23);
-            this.btnNota.TabIndex = 0;
-            this.btnNota.Text = "Modificar Nota";
-            this.btnNota.UseVisualStyleBackColor = true;
-            this.btnNota.Click += new System.EventHandler(this.btnNota_Click);
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCancelar.Location = new System.Drawing.Point(576, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnOk
+            // btnAceptar
             // 
-            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnOk.Location = new System.Drawing.Point(576, 3);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 0;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(495, 3);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // AlumnosCursoList
             // 
@@ -170,7 +167,7 @@
             this.ClientSize = new System.Drawing.Size(660, 370);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AlumnosCursoList";
-            this.Text = "AlumnosCursoList";
+            this.Text = "Administrar notas";
             this.Load += new System.EventHandler(this.AlumnosCursoList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gbxAlumnosCurso.ResumeLayout(false);
@@ -188,10 +185,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvAlumnosCurso;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Condicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
-        private System.Windows.Forms.Button btnNota;
     }
 }
