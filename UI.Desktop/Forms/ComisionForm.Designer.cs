@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop {
+﻿namespace UI.Desktop.Forms {
     partial class ComisionForm {
         /// <summary>
         /// Required designer variable.

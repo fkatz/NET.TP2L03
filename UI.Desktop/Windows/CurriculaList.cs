@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class CurriculaList : Form
     {
@@ -48,13 +48,13 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabEspecialidades":
-                    entityForm = new EspecialidadForm(FormMode.Alta);
+                    entityForm = new Forms.EspecialidadForm(FormMode.Alta);
                     break;
                 case "tabPlanes":
-                    entityForm = new PlanForm(FormMode.Alta);
+                    entityForm = new Forms.PlanForm(FormMode.Alta);
                     break;
                 case "tabMaterias":
-                    entityForm = new MateriaForm(FormMode.Alta);
+                    entityForm = new Forms.MateriaForm(FormMode.Alta);
                     break;
                 default: throw new Exception("No tab selected");
             }
@@ -69,13 +69,13 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabEspecialidades":
-                    entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabPlanes":
-                    entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabMaterias":
-                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");

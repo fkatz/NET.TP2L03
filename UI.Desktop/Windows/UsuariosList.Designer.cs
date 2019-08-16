@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop
+﻿namespace UI.Desktop.Windows
 {
     partial class UsuariosList
     {

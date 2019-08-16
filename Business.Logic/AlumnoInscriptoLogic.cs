@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
@@ -30,6 +31,12 @@ namespace Business.Logic
         {
             return AlumnoInscriptoData.ListByAlumno(alumno);
         }
+
+        public List<AlumnoInscripto> ListByCursoAndNoNota(Curso curso)
+        {
+            return AlumnoInscriptoData.ListByCursoAndNoNota(curso);
+        }
+
         public void Save(AlumnoInscripto AlumnoInscripto)
         {
             AlumnoInscriptoData.Save(AlumnoInscripto);

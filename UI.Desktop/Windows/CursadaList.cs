@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class CursadaList : Form
     {
@@ -45,10 +45,10 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabComisiones":
-                    entityForm = new ComisionForm(FormMode.Alta);
+                    entityForm = new Forms.ComisionForm(FormMode.Alta);
                     break;
                 case "tabCursos":
-                    entityForm = new CursoForm(FormMode.Alta);
+                    entityForm = new Forms.CursoForm(FormMode.Alta);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -64,10 +64,10 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabComisiones":
-                    entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabCursos":
-                    entityForm = new CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");

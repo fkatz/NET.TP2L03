@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop
+﻿namespace UI.Desktop.Windows
 {
     partial class CursosDocenteList
     {
@@ -35,6 +35,10 @@
             this.dgvCursosDocente = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdministrar = new System.Windows.Forms.Button();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbxCursosDocente.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -110,11 +114,9 @@
             this.dgvCursosDocente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursosDocente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Especialidad,
-            this.AñoCal,
-            this.AñoEsp,
-            this.Comision,
             this.Materia,
-            this.TipoCargo});
+            this.Comision,
+            this.Cargo});
             this.dgvCursosDocente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursosDocente.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCursosDocente.Location = new System.Drawing.Point(0, 0);
@@ -148,6 +150,34 @@
             this.btnAdministrar.UseVisualStyleBackColor = true;
             this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
+            // Especialidad
+            // 
+            this.Especialidad.FillWeight = 60F;
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            // 
+            // Materia
+            // 
+            this.Materia.FillWeight = 72.41963F;
+            this.Materia.HeaderText = "Materia";
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            // 
+            // Comision
+            // 
+            this.Comision.FillWeight = 72.41963F;
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            // 
+            // Cargo
+            // 
+            this.Cargo.FillWeight = 72.41963F;
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            // 
             // CursosDocenteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,10 +207,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAdministrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AñoCal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AñoEsp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
     }
 }

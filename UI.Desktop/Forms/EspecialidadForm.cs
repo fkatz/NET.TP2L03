@@ -12,7 +12,7 @@ using Business.Logic;
 using Data.Database;
 using System.Text.RegularExpressions;
 
-namespace UI.Desktop {
+namespace UI.Desktop.Forms {
     public partial class EspecialidadForm : Form, IEntityForm<Especialidad> {
         public Especialidad EntidadActual { get; set; }
         FormMode formMode;

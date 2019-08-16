@@ -11,7 +11,7 @@ using Business.Entities;
 using Business.Logic;
 using UI.Desktop.Forms;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class AlumnosDocentesList : Form
     {

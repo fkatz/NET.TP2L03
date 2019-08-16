@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Desktop {
+namespace UI.Desktop.Windows {
     public partial class RegularidadesBedelList : Form {
         private CursoLogic cursos = new CursoLogic();
         MateriaLogic materias = new MateriaLogic();
@@ -45,7 +45,7 @@ namespace UI.Desktop {
 
         private void btnAdministrar_Click(object sender, EventArgs e) {
             Curso selectedCurso = (Curso)dgvCursos.SelectedRows[0].DataBoundItem;
-            CondicionesAlumnos ca = new CondicionesAlumnos(selectedCurso);
+            Windows.CargaCondicionList ca = new Windows.CargaCondicionList(selectedCurso);
             ca.ShowDialog();
         }
     }

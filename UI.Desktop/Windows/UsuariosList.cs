@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class UsuariosList : Form
     {
@@ -40,7 +40,7 @@ namespace UI.Desktop
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             Form entityForm;
-            entityForm = new UsuarioForm(FormMode.Alta);
+            entityForm = new Forms.UsuarioForm(FormMode.Alta);
             entityForm.ShowDialog();
             Listar();
         }
@@ -48,7 +48,7 @@ namespace UI.Desktop
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             Form entityForm;
-            entityForm = new UsuarioForm(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+            entityForm = new Forms.UsuarioForm(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
             entityForm.ShowDialog();
             Listar();
         }

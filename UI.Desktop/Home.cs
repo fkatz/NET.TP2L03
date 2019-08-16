@@ -85,25 +85,25 @@ namespace UI.Desktop
 
         private void administrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UsuariosList form = new UsuariosList();
+            Windows.UsuariosList form = new Windows.UsuariosList();
             form.Show();
         }
 
         private void administrarPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PersonasList form = new PersonasList();
+            Windows.PersonasList form = new Windows.PersonasList();
             form.Show();
         }
 
         private void administrarCurrículaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurriculaList form = new CurriculaList();
+            Windows.CurriculaList form = new Windows.CurriculaList();
             form.Show();
         }
 
         private void administrarCursadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CursadaList form = new CursadaList();
+            Windows.CursadaList form = new Windows.CursadaList();
             form.Show();
         }
 
@@ -130,24 +130,24 @@ namespace UI.Desktop
 
         private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InscripcionList form = new InscripcionList(loggedPersona);
+            Windows.InscripcionList form = new Windows.InscripcionList(loggedPersona);
             form.Show();
         }
 
         private void notasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NotasAlumnoList form = new NotasAlumnoList(loggedPersona);
+            Windows.NotasAlumnoList form = new Windows.NotasAlumnoList(loggedPersona);
             form.Show();
         }
 
         private void administrarNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CursosDocenteList form = new CursosDocenteList(loggedPersona);
+            Windows.CursosDocenteList form = new Windows.CursosDocenteList(loggedPersona);
             form.Show();
         }
 
         private void regularidadesToolStripMenuItem_Click(object sender, EventArgs e) {
-            RegularidadesBedelList form = new RegularidadesBedelList();
+            Windows.RegularidadesBedelList form = new Windows.RegularidadesBedelList();
             form.Show();
         }
     }

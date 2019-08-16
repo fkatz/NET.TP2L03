@@ -12,11 +12,10 @@ using Business.Logic;
 using UI.Desktop;
 using UI.Desktop.Windows;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class CursosDocenteList : Form
     {
-        private int index = 0;
         private CursoLogic cursos = new CursoLogic();
         private DocenteCursoLogic docentes = new DocenteCursoLogic();
         MateriaLogic materias = new MateriaLogic();
@@ -45,9 +44,7 @@ namespace UI.Desktop
                 dgvCursosDocente["Materia", i].Value = materia;
                 dgvCursosDocente["Comision", i].Value = curso.Comision;
                 dgvCursosDocente["Especialidad", i].Value = plan.Especialidad;
-                dgvCursosDocente["AñoEsp", i].Value = curso.Comision.AñoEspecialidad.ToString();
-                dgvCursosDocente["AñoCal", i].Value = curso.AñoCalendario.ToString();
-                dgvCursosDocente["TipoCargo", i].Value = docCurso.TipoCargo.ToString();
+                dgvCursosDocente["Cargo", i].Value = docCurso.TipoCargo.ToString();
             }
 
         }    
@@ -65,15 +62,14 @@ namespace UI.Desktop
 
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
-            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.Rows[index].DataBoundItem;
-            AlumnosCursoList form = new AlumnosCursoList(selectedDocCurso);
+            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.SelectedRows[0].DataBoundItem;
+            CargaNotasList form = new CargaNotasList(selectedDocCurso);
             form.Show();
         }
 
         private void dgvCursosDocente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            index = e.RowIndex;
-            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.Rows[index].DataBoundItem;
+            DocenteCurso selectedDocCurso = (DocenteCurso)dgvCursosDocente.Rows[e.RowIndex].DataBoundItem;
             if(selectedDocCurso.Curso.AñoCalendario > DateTime.Now.Year)
             {
                 btnAdministrar.Enabled = false;

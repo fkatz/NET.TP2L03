@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop.Windows
 {
-    public partial class AlumnosCursoList : Form
+    public partial class CargaNotasList : Form
     {
         private CursoLogic cursos = new CursoLogic();
         private DocenteCursoLogic docentes = new DocenteCursoLogic();
@@ -20,7 +20,7 @@ namespace UI.Desktop.Windows
 
         private Persona currentDocente;
         private Curso currentCurso;
-        public AlumnosCursoList(DocenteCurso docCurso)
+        public CargaNotasList(DocenteCurso docCurso)
         {
             this.currentDocente = docCurso.Docente;
             this.currentCurso = cursos.GetOne(docCurso.Curso.ID);
@@ -88,13 +88,11 @@ namespace UI.Desktop.Windows
         private void AlumnosCursoList_Load(object sender, EventArgs e)
         {
             Listar();
-            if(selectedCurso.AñoCalendario < DateTime.Now.Year)
+            if(currentCurso.AñoCalendario < DateTime.Now.Year)
             {
-                btnNota.Enabled = false;
             }
             else
             {
-                btnNota.Enabled = true;
             }
         }
 

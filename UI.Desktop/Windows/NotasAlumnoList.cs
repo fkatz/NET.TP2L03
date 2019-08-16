@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Desktop
+namespace UI.Desktop.Windows
 {
     public partial class NotasAlumnoList : Form
     {

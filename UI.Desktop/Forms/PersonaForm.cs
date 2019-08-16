@@ -12,7 +12,7 @@ using Business.Entities;
 using Business.Logic;
 using Data.Database;
 
-namespace UI.Desktop
+namespace UI.Desktop.Forms
 {
     public partial class PersonaForm : Form, IEntityForm<Persona>
     {

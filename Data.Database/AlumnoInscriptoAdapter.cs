@@ -38,6 +38,15 @@ namespace Data.Database
                 return context.AlumnoInscripto.Where(a => a.Alumno.ID == alumno.ID).Include("Alumno").Include("Curso").ToList();
             }
         }
+
+        public List<AlumnoInscripto> ListByCursoAndNoNota(Curso curso)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && a.Nota == 0).Include("Alumno").Include("Curso").ToList();
+            }
+        }
+
         public Business.Entities.AlumnoInscripto GetOne(int ID)
         {
             using (var context = new AcademiaContext())

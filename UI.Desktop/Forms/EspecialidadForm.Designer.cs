@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop {
+﻿namespace UI.Desktop.Forms {
     partial class EspecialidadForm {
         /// <summary>
         /// Required designer variable.

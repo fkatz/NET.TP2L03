@@ -53,18 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="editCondicion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editCondicion.Designer.cs">
-      <DependentUpon>editCondicion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="editNota.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editNota.Designer.cs">
-      <DependentUpon>editNota.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AlumnoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,23 +96,23 @@
     <Compile Include="List.designer.cs">
       <DependentUpon>List.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AlumnosCursoList.cs">
+    <Compile Include="Windows\CargaCondicionList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\AlumnosCursoList.Designer.cs">
-      <DependentUpon>AlumnosCursoList.cs</DependentUpon>
+    <Compile Include="Windows\CargaCondicionList.Designer.cs">
+      <DependentUpon>CargaCondicionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CargaNotasList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CargaNotasList.Designer.cs">
+      <DependentUpon>CargaNotasList.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\AlumnosDocentesList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\AlumnosDocentesList.Designer.cs">
       <DependentUpon>AlumnosDocentesList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CondicionesAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\CondicionesAlumnos.Designer.cs">
-      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\CurriculaList.cs">
       <SubType>Form</SubType>
@@ -141,7 +129,7 @@
     <Compile Include="Windows\CursosDocenteList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\CursosDocenteList.Designer.cs">
+    <Compile Include="Windows\CursosDocenteList.designer.cs">
       <DependentUpon>CursosDocenteList.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\NotasAlumnoList.cs">
@@ -206,12 +194,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="editCondicion.resx">
-      <DependentUpon>editCondicion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editNota.resx">
-      <DependentUpon>editNota.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,14 +216,14 @@
       <DependentUpon>List.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\AlumnosCursoList.resx">
-      <DependentUpon>AlumnosCursoList.cs</DependentUpon>
+    <EmbeddedResource Include="Windows\CargaCondicionList.resx">
+      <DependentUpon>CargaCondicionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CargaNotasList.resx">
+      <DependentUpon>CargaNotasList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AlumnosDocentesList.resx">
       <DependentUpon>AlumnosDocentesList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\CondicionesAlumnos.resx">
-      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\CurriculaList.resx">
       <DependentUpon>CurriculaList.cs</DependentUpon>

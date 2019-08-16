@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop.Windows
 {
-    partial class AlumnosCursoList
+    partial class CargaNotasList
     {
         /// <summary>
         /// Required designer variable.

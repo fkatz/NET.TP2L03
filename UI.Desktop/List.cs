@@ -90,25 +90,25 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabUsuarios":
-                    entityForm = new UsuarioForm(FormMode.Alta);
+                    entityForm = new Forms.UsuarioForm(FormMode.Alta);
                     break;
                 case "tabPersonas":
-                    entityForm = new PersonaForm(FormMode.Alta);
+                    entityForm = new Forms.PersonaForm(FormMode.Alta);
                     break;
                 case "tabEspecialidades":
-                    entityForm = new EspecialidadForm(FormMode.Alta);
+                    entityForm = new Forms.EspecialidadForm(FormMode.Alta);
                     break;
                 case "tabPlanes":
-                    entityForm = new PlanForm(FormMode.Alta);
+                    entityForm = new Forms.PlanForm(FormMode.Alta);
                     break;
                 case "tabMaterias":
-                    entityForm = new MateriaForm(FormMode.Alta);
+                    entityForm = new Forms.MateriaForm(FormMode.Alta);
                     break;
                 case "tabComisiones":
-                    entityForm = new ComisionForm(FormMode.Alta);
+                    entityForm = new Forms.ComisionForm(FormMode.Alta);
                     break;
                 case "tabCursos":
-                    entityForm = new CursoForm(FormMode.Alta);
+                    entityForm = new Forms.CursoForm(FormMode.Alta);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");
@@ -124,25 +124,25 @@ namespace UI.Desktop
             switch (tabControl.SelectedTab.Name)
             {
                 case "tabUsuarios":
-                    entityForm = new UsuarioForm(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.UsuarioForm(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabPersonas":
-                    entityForm = new PersonaForm(((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.PersonaForm(((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabEspecialidades":
-                    entityForm = new EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.EspecialidadForm(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabPlanes":
-                    entityForm = new PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.PlanForm(((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabMaterias":
-                    entityForm = new MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.MateriaForm(((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabComisiones":
-                    entityForm = new ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.ComisionForm(((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 case "tabCursos":
-                    entityForm = new CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
+                    entityForm = new Forms.CursoForm(((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID, FormMode.Modificación);
                     break;
                 //COMPLETAR
                 default: throw new Exception("No tab selected");

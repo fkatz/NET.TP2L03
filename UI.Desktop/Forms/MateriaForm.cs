@@ -12,7 +12,7 @@ using Business.Entities;
 using Business.Logic;
 using Data.Database;
 
-namespace UI.Desktop {
+namespace UI.Desktop.Forms {
     public partial class MateriaForm : Form, IEntityForm<Materia> {
         public Materia EntidadActual { get; set; }
         FormMode formMode;
