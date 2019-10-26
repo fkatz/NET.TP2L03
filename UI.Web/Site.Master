@@ -10,9 +10,28 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>
-        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-        <div>
+                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="/">Home</asp:HyperLink>
+        <asp:Panel ID="invitadoMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="/Login.aspx">Iniciar Sesión</asp:HyperLink>
+        </asp:Panel>
+        <asp:Panel ID="administradorMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Usuarios.aspx">Administrar Usuarios</asp:HyperLink>
+        </asp:Panel>
+        <asp:Panel ID="alumnoMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="/EstadoAcademico.aspx">Estado Académico</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="/Inscripciones.aspx">Inscripciones</asp:HyperLink>
+        </asp:Panel>
+        <asp:Panel ID="docenteMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="/CargaNotasCursos.aspx">Carga de Notas</asp:HyperLink>
+
+        </asp:Panel>
+        <asp:Panel ID="bedelMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="/RegularidadesCursos.aspx">Regularidades</asp:HyperLink>
+        </asp:Panel>
+                <asp:Panel ID="logoutMenu" runat="server" Visible="false">
+        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="/Logout.aspx">Cerrar Sesión</asp:HyperLink>
+        </asp:Panel>
+                    <div>
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>

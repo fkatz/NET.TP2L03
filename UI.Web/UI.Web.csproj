@@ -112,12 +112,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CargaNotasCursos.aspx" />
+    <Content Include="CargaNotas.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Error.aspx" />
+    <Content Include="EstadoAcademico.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -133,6 +136,8 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inscripciones.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Regularidades.aspx" />
+    <Content Include="RegularidadesCursos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -165,17 +170,37 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Master" />
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CargaNotasCursos.aspx.cs">
+      <DependentUpon>CargaNotasCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaNotasCursos.aspx.designer.cs">
+      <DependentUpon>CargaNotasCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargaNotas.aspx.cs">
+      <DependentUpon>CargaNotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaNotas.aspx.designer.cs">
+      <DependentUpon>CargaNotas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoAcademico.aspx.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EstadoAcademico.aspx.designer.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,6 +220,20 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regularidades.aspx.cs">
+      <DependentUpon>Regularidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Regularidades.aspx.designer.cs">
+      <DependentUpon>Regularidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegularidadesCursos.aspx.cs">
+      <DependentUpon>RegularidadesCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegularidadesCursos.aspx.designer.cs">
+      <DependentUpon>RegularidadesCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
