@@ -10,5 +10,6 @@
         {
             return NombreUsuario;
         }
+        public virtual Persona Persona { get; set; }
     }
 }

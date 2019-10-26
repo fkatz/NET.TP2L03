@@ -14,7 +14,6 @@ namespace UI.Desktop
 {
     public partial class Home : Form
     {
-        private Persona loggedPersona;
         private Usuario loggedUser;
         public Home()
         {
@@ -36,25 +35,25 @@ namespace UI.Desktop
             {
                 this.tsmCerrarSesion.Visible = true;
                 this.tsmIniciarSesion.Visible = false;
-                if(loggedPersona != null)
+                if(loggedUser != null && loggedUser.Persona != null)
                 {
-                    if((loggedPersona.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno)
+                    if((loggedUser.Persona.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno)
                     {
                         this.tsmAlumno.Visible = true;
                     }
-                    if ((loggedPersona.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno)
+                    if ((loggedUser.Persona.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno)
                     {
                         this.tsmAlumno.Visible = true;
                     }
-                    if ((loggedPersona.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente)
+                    if ((loggedUser.Persona.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente)
                     {
                         this.tsmDocente.Visible = true;
                     }
-                    if ((loggedPersona.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel)
+                    if ((loggedUser.Persona.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel)
                     {
                         this.tsmPreceptor.Visible = true;
                     }
-                    if ((loggedPersona.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador)
+                    if ((loggedUser.Persona.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador)
                     {
                         this.tsmAdministrar.Visible = true;
                     }
@@ -67,18 +66,12 @@ namespace UI.Desktop
             Login login = new Login();
             login.ShowDialog();
             this.loggedUser = login.loggedUser;
-            if(loggedUser != null)
-            {
-                PersonaLogic personas = new PersonaLogic();
-                this.loggedPersona = personas.FindByUsuario(this.loggedUser);
-            }
             ActualizarVista();
         }
 
         public void LogOut()
         {
             this.loggedUser = null;
-            this.loggedPersona = null;
             ActualizarVista();
             LogIn();
         }
@@ -130,19 +123,19 @@ namespace UI.Desktop
 
         private void inscripcionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Windows.InscripcionList form = new Windows.InscripcionList(loggedPersona);
+            Windows.InscripcionList form = new Windows.InscripcionList(loggedUser.Persona);
             form.Show();
         }
 
         private void notasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Windows.NotasAlumnoList form = new Windows.NotasAlumnoList(loggedPersona);
+            Windows.NotasAlumnoList form = new Windows.NotasAlumnoList(loggedUser.Persona);
             form.Show();
         }
 
         private void administrarNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Windows.CursosDocenteList form = new Windows.CursosDocenteList(loggedPersona);
+            Windows.CursosDocenteList form = new Windows.CursosDocenteList(loggedUser.Persona);
             form.Show();
         }
 

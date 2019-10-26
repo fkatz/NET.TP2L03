@@ -43,8 +43,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.cmbUsuario = new System.Windows.Forms.ComboBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -205,25 +203,6 @@
             this.lblApellido.TabIndex = 6;
             this.lblApellido.Text = "Apellido";
             // 
-            // cmbUsuario
-            // 
-            this.cmbUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(297, 59);
-            this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(182, 21);
-            this.cmbUsuario.TabIndex = 28;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(228, 62);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 27;
-            this.lblUsuario.Text = "Usuario";
-            // 
             // txtLegajo
             // 
             this.txtLegajo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -329,8 +308,6 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblLegajo, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblUsuario, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cmbUsuario, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblApellido, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtApellido, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 2, 3);
@@ -399,8 +376,6 @@
         private System.Windows.Forms.CheckBox chkTipoNoDocente;
         private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.TextBox txtLegajo;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblNombre;

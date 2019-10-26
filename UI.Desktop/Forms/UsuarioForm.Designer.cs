@@ -44,6 +44,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblPersona = new System.Windows.Forms.Label();
+            this.cmbPersona = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,22 +65,25 @@
             this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkHabilitado, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblPersona, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cmbPersona, 3, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(433, 124);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(433, 141);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -122,6 +127,7 @@
             this.txtClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtClave.Location = new System.Drawing.Point(54, 52);
             this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(121, 20);
             this.txtClave.TabIndex = 4;
             // 
@@ -130,6 +136,7 @@
             this.txtConfirmarClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtConfirmarClave.Location = new System.Drawing.Point(269, 52);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(161, 20);
             this.txtConfirmarClave.TabIndex = 5;
             // 
@@ -160,9 +167,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAceptar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 91);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 111);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 27);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // btnCancelar
@@ -229,11 +236,30 @@
             this.label3.Text = "Email";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblPersona
+            // 
+            this.lblPersona.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPersona.AutoSize = true;
+            this.lblPersona.Location = new System.Drawing.Point(181, 82);
+            this.lblPersona.Name = "lblPersona";
+            this.lblPersona.Size = new System.Drawing.Size(46, 13);
+            this.lblPersona.TabIndex = 20;
+            this.lblPersona.Text = "Persona";
+            // 
+            // cmbPersona
+            // 
+            this.cmbPersona.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbPersona.FormattingEnabled = true;
+            this.cmbPersona.Location = new System.Drawing.Point(269, 80);
+            this.cmbPersona.Name = "cmbPersona";
+            this.cmbPersona.Size = new System.Drawing.Size(161, 21);
+            this.cmbPersona.TabIndex = 21;
+            // 
             // UsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 124);
+            this.ClientSize = new System.Drawing.Size(433, 141);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UsuarioForm";
             this.Text = "UsuarioDesktop";
@@ -263,5 +289,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Label lblPersona;
+        private System.Windows.Forms.ComboBox cmbPersona;
     }
 }

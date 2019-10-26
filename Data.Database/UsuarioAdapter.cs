@@ -13,7 +13,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Usuario.ToList();
+                return context.Usuario.Include("Persona").ToList();
             }
         }
 
@@ -21,7 +21,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Usuario.Find(ID);
+                return context.Usuario.Include("Persona").Where(i => i.ID == ID).First();
             }
         }
 
@@ -30,7 +30,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                Usuario usr = context.Usuario
+                Usuario usr = context.Usuario.Include("Persona")
                 .FirstOrDefault(usuario => usuario.NombreUsuario == username);
                 return usr;
             }
@@ -54,6 +54,7 @@ namespace Data.Database
                 var result = context.Usuario.Find(usuario.ID);
                 if (result != null)
                 {
+                    result.Persona = context.Persona.Attach(usuario.Persona);
                     result.Email = usuario.Email;
                     result.Habilitado = usuario.Habilitado;
                     result.NombreUsuario = usuario.NombreUsuario;
@@ -67,11 +68,19 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                var persona = context.Persona.Attach(usuario.Persona);
+                usuario.Persona = persona;
                 context.Usuario.Add(usuario);
                 context.SaveChanges();
             }
         }
-
+        public Usuario FindByPersona(Persona persona)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Usuario.Include("Persona").Where(i => i.Persona.ID == persona.ID).FirstOrDefault();
+            }
+        }
         public void Save(Usuario usuario)
         {
             switch (usuario.State)

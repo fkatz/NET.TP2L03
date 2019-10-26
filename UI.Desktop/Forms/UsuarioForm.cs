@@ -19,11 +19,15 @@ namespace UI.Desktop.Forms
         public Usuario EntidadActual { get; set; }
         FormMode formMode;
         UsuarioLogic entities = new UsuarioLogic();
+        PersonaLogic personas = new PersonaLogic();
         private UsuarioForm()
         {
             InitializeComponent();
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
+            this.cmbPersona.DataSource = personas.GetAll();
+            this.cmbPersona.DisplayMember = "LegajoYNombre";
+            this.cmbPersona.ValueMember = "ID";
         }
         public UsuarioForm(FormMode formMode) : this()
         {
@@ -38,12 +42,14 @@ namespace UI.Desktop.Forms
         public void MapearADatos()
         {
             Usuario oldUsr = this.EntidadActual;
+
             this.EntidadActual = new Usuario()
             {
                 NombreUsuario = this.txtUsuario.Text,
                 Email = this.txtEmail.Text,
-                Habilitado = this.chkHabilitado.Checked
-            };
+                Habilitado = this.chkHabilitado.Checked,
+                Persona = personas.GetOne(((Persona)cmbPersona.SelectedItem).ID)
+            };              
             EntidadActual.Clave = (this.txtClave.Text.Length > 0) ? this.txtClave.Text : oldUsr.Clave;
             if (this.formMode == FormMode.Modificación) this.EntidadActual.ID = Int32.Parse(this.txtId.Text);
         }
@@ -53,6 +59,7 @@ namespace UI.Desktop.Forms
             this.txtUsuario.Text = EntidadActual.NombreUsuario;
             this.txtId.Text = EntidadActual.ID.ToString();
             this.chkHabilitado.Checked = EntidadActual.Habilitado;
+            cmbPersona.SelectedIndex = cmbPersona.FindString(EntidadActual.Persona.LegajoYNombre);
             switch (this.formMode)
             {
                 case FormMode.Modificación:
@@ -134,7 +141,6 @@ namespace UI.Desktop.Forms
                 valid = false;
                 message += "\nLas contraseñas ingresadas no coinciden.";
             }
-
             if (!valid)
             {
                 MessageBox.Show("Error:" + message, "Usuario inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);

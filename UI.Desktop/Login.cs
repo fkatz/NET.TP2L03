@@ -42,6 +42,10 @@ namespace UI.Desktop
             {
                 MessageBox.Show("Usuario o contraseña incorrectos");
             }
+            else if (user != null && !user.Habilitado)
+            {
+                MessageBox.Show("Su cuenta no está habilitada");
+            }
             else
             {
                 this.logged = true;

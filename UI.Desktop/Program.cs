@@ -29,30 +29,28 @@ namespace UI.Desktop
 
             if (usuarios.FindByUsername("fkatz") == null)
             {
-                Usuario usr = new Usuario()
+                Persona persona = new Persona()
                 {
-                    NombreUsuario = "fkatz",
-                    Clave = "fedefede",
-                    Email = "fkatz@gmail.com",
-                    Habilitado = true,
+                    Nombre = "Federico",
+                    Apellido = "Katzaroff",
+                    Legajo = 44744,
+                    Tipo = Persona.TipoPersona.Alumno | Persona.TipoPersona.Administrador,
+                    Direccion = "Guaraní 3048",
+                    Telefono = "4398771",
+                    FechaNacimiento = new DateTime(1995, 5, 16),
                     State = BusinessEntity.States.New
                 };
+                personas.Save(persona);
+            Usuario usr = new Usuario()
+            {
+                NombreUsuario = "fkatz",
+                Clave = "fedefede",
+                Email = "fkatz@gmail.com",
+                Habilitado = true,
+                State = BusinessEntity.States.New,
+                Persona = persona
+                };
                 usuarios.Save(usr);
-                if (personas.FindByLegajo(44744) == null)
-                {
-                    personas.Save(new Persona()
-                    {
-                        Nombre = "Federico",
-                        Apellido = "Katzaroff",
-                        Legajo = 44744,
-                        Tipo = Persona.TipoPersona.Alumno | Persona.TipoPersona.Administrador,
-                        Direccion = "Guaraní 3048",
-                        Telefono = "4398771",
-                        FechaNacimiento = new DateTime(1995, 5, 16),
-                        Usuario = usr,
-                        State = BusinessEntity.States.New
-                    });
-                }
             }
         }
     }

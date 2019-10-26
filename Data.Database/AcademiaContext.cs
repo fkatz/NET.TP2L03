@@ -24,8 +24,8 @@ namespace Data.Database
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Persona>()
-            .HasOptional(p => p.Usuario);
+            modelBuilder.Entity<Usuario>()
+            .HasOptional(u => u.Persona);
         }
     }
 

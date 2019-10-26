@@ -22,10 +22,13 @@ namespace Business.Entities
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public override string ToString()
         {
-            return Legajo.ToString()+" - " +Apellido+", "+Nombre;
+            return LegajoYNombre;
+        }
+        public string LegajoYNombre
+        {
+            get { return Legajo.ToString() + " - " + Apellido + ", " + Nombre; }
         }
         public string NombreCompleto
         {

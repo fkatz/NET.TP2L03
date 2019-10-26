@@ -14,7 +14,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Persona.Include("Usuario").ToList();
+                return context.Persona.ToList();
             }
         }
 
@@ -22,23 +22,16 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Persona.Include("Usuario").Where(i=>i.ID==ID).First();
+                return context.Persona.Where(i=>i.ID==ID).First();
             }
         }
 
-        public Persona FindByUsuario(Usuario usr)
-        {
-            using (var context = new AcademiaContext())
-            {
-                return context.Persona.Include("Usuario").Where(i => i.Usuario.ID == usr.ID).FirstOrDefault();
-            }
-        }
 
         public Persona FindByLegajo(int legajo)
         {
             using (var context = new AcademiaContext())
             {
-                return context.Persona.Include("Usuario").Where(i => i.Legajo == legajo).FirstOrDefault();
+                return context.Persona.Where(i => i.Legajo == legajo).FirstOrDefault();
             }
         }
 
@@ -56,7 +49,6 @@ namespace Data.Database
             using (var context = new AcademiaContext())
             {
                 entity = context.Persona.Attach(entity);
-                entity.Usuario = context.Usuario.Attach(entity.Usuario);
                 var entry = context.Entry(entity); // Gets the entry for entity inside context
                 entry.State = EntityState.Modified;
                 context.SaveChanges();
@@ -66,8 +58,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var Usuario = context.Usuario.Attach(entity.Usuario);
-                entity.Usuario = Usuario;
+
                 context.Persona.Add(entity);
                 context.SaveChanges();
             }

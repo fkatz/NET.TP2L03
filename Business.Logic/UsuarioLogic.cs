@@ -30,5 +30,9 @@ namespace Business.Logic
         {
             UsuarioData.Delete(ID);
         }
+        public Usuario FindByPersona(Persona persona)
+        {
+            return UsuarioData.FindByPersona(persona);
+        }
     }
 }

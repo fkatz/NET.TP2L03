@@ -25,8 +25,7 @@ namespace UI.Desktop.Forms
             this.AcceptButton = btnAceptar;
             this.CancelButton = btnCancelar;
             UsuarioLogic usrLogic = new UsuarioLogic();
-            this.cmbUsuario.DataSource = usrLogic.GetAll();
-            this.cmbUsuario.DisplayMember = "NombreUsuario";
+            
         }
         public PersonaForm(FormMode formMode) : this()
         {
@@ -52,7 +51,6 @@ namespace UI.Desktop.Forms
             {
                 Tipo = tp,
                 Legajo = int.Parse(txtLegajo.Text),
-                Usuario = users.GetOne(((Usuario)cmbUsuario.SelectedItem).ID),
                 Apellido = txtApellido.Text,
                 Nombre = txtNombre.Text,
                 Telefono = txtTelefono.Text,
@@ -73,7 +71,6 @@ namespace UI.Desktop.Forms
             chkTipoPreceptor.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel;
             chkTipoAdministrador.Checked = (EntidadActual.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador;
             txtLegajo.Text = EntidadActual.Legajo.ToString();
-            cmbUsuario.SelectedIndex = cmbUsuario.FindString(EntidadActual.Usuario.NombreUsuario);
             txtApellido.Text = EntidadActual.Apellido;
             txtNombre.Text = EntidadActual.Nombre;
             txtTelefono.Text = EntidadActual.Telefono;
