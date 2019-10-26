@@ -1,11 +1,11 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Web.UI;
+using System.Globalization;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Personas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,8 +24,6 @@ namespace UI.Web
                 LoadGrid();
             }
         }
-
-
         public enum FormModes
         {
             Alta,
@@ -42,7 +40,7 @@ namespace UI.Web
                 ViewState["FormMode"] = value;
             }
         }
-        private Usuario Entity { get; set; }
+        private Persona Entity { get; set; }
 
         private int SelectedID
         {
@@ -63,12 +61,12 @@ namespace UI.Web
         {
             get { return SelectedID != 0; }
         }
-        private UsuarioLogic usuarios = new UsuarioLogic();
+
         private PersonaLogic personas = new PersonaLogic();
 
         private void LoadGrid()
         {
-            gridView.DataSource = usuarios.GetAll();
+            gridView.DataSource = personas.GetAll();
             gridView.DataBind();
         }
 
@@ -76,22 +74,37 @@ namespace UI.Web
         {
             SelectedID = (int)gridView.SelectedValue;
         }
+
         private void LoadForm(int id)
         {
-            Entity = usuarios.GetOne(id);
-            nombreUsuarioTextBox.Text = Entity.NombreUsuario;
-            habilitadoCheckBox.Checked = Entity.Habilitado;
-            personaDropDownList.SelectedValue = Entity.Persona.ID.ToString();
-            emailTextBox.Text = Entity.Email;
+            Entity = personas.GetOne(id);
+            nombreTextBox.Text = Entity.Nombre;
+            legajoTextBox.Text = Entity.Legajo.ToString();
+            DireccionTextBox.Text = Entity.Direccion;
+            apellidoTextBox.Text = Entity.Apellido;
+            FechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
+            TelefonoTextBox.Text = Entity.Telefono;
+            chboxAlumno1.Checked = (Entity.Tipo & Persona.TipoPersona.Alumno) == Persona.TipoPersona.Alumno;
+            chboxDocente.Checked = (Entity.Tipo & Persona.TipoPersona.Docente) == Persona.TipoPersona.Docente;
+            chboxNoDocente.Checked = (Entity.Tipo & Persona.TipoPersona.NoDocente) == Persona.TipoPersona.NoDocente;
+            chboxPreceptor.Checked = (Entity.Tipo & Persona.TipoPersona.Bedel) == Persona.TipoPersona.Bedel;
+            chboxAdministrador.Checked = (Entity.Tipo & Persona.TipoPersona.Administrador) == Persona.TipoPersona.Administrador;
+
         }
         private void ClearForm()
         {
             Entity = null;
-            nombreUsuarioTextBox.Text = "";
-            habilitadoCheckBox.Checked = false;
-            emailTextBox.Text = "";
-            claveTextBox.Text = "";
-            repetirClaveTextBox.Text = "";
+            nombreTextBox.Text = "";
+            chboxDocente.Checked = false;
+            chboxAlumno1.Checked = false;
+            chboxAdministrador.Checked = false;
+            chboxNoDocente.Checked = false;
+            chboxPreceptor.Checked = false;
+            TelefonoTextBox.Text = "";
+            FechaNacTextBox.Text = "";
+            legajoTextBox.Text = "";
+            apellidoTextBox.Text = "";
+            DireccionTextBox.Text = "";
         }
 
         protected void editarButton_Click(object sender, EventArgs e)
@@ -115,19 +128,25 @@ namespace UI.Web
             FormMode = FormModes.Alta;
             ClearForm();
         }
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Persona persona)
         {
-            if (claveTextBox.Text.Length > 0) usuario.Clave = claveTextBox.Text;
-            usuario.Email = emailTextBox.Text;
-            usuario.NombreUsuario = nombreUsuarioTextBox.Text;
-            int personaID;
-            int.TryParse(personaDropDownList.SelectedValue, out personaID);
-            usuario.Persona = personas.GetOne(personaID);
-            usuario.Habilitado = habilitadoCheckBox.Checked;
+            persona.Nombre = nombreTextBox.Text;
+            persona.Apellido = apellidoTextBox.Text;
+            persona.Direccion = DireccionTextBox.Text;
+            persona.Telefono = TelefonoTextBox.Text;
+            persona.FechaNacimiento = DateTime.Parse(FechaNacTextBox.Text, new CultureInfo("en-CA"));
+            persona.Legajo = Convert.ToInt32(legajoTextBox.Text);
+            Persona.TipoPersona tp = 0;
+            if (chboxAlumno1.Checked) tp |= Persona.TipoPersona.Alumno;
+            if (chboxDocente.Checked) tp |= Persona.TipoPersona.Docente;
+            if (chboxNoDocente.Checked) tp |= Persona.TipoPersona.NoDocente;
+            if (chboxPreceptor.Checked) tp |= Persona.TipoPersona.Bedel;
+            if (chboxAdministrador.Checked) tp |= Persona.TipoPersona.Administrador;
+            persona.Tipo = tp;
         }
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Persona persona)
         {
-            usuarios.Save(usuario);
+            personas.Save(persona);
         }
 
         protected void AceptarForm_Click(object sender, EventArgs e)
@@ -137,12 +156,12 @@ namespace UI.Web
             {
                 if (FormMode == FormModes.Modificacion)
                 {
-                    Entity = usuarios.GetOne(SelectedID);
+                    Entity = personas.GetOne(SelectedID);
                     Entity.State = BusinessEntity.States.Modified;
                 }
                 else
                 {
-                    Entity = new Usuario();
+                    Entity = new Persona();
                     Entity.State = BusinessEntity.States.New;
                 }
                 LoadEntity(Entity);
@@ -151,13 +170,15 @@ namespace UI.Web
                 formPanel.Visible = false;
             }
         }
+
         protected void CancelarForm_Click(object sender, EventArgs e)
         {
             formPanel.Visible = false;
         }
+
         protected void AceptarEliminar_Click(object sender, EventArgs e)
         {
-            usuarios.Delete(SelectedID);
+            personas.Delete(SelectedID);
             LoadGrid();
             eliminarPanel.Visible = false;
         }
