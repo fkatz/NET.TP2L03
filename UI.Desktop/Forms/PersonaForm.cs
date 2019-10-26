@@ -158,22 +158,11 @@ namespace UI.Desktop.Forms
                 valid = false;
                 message += "\nEl campo Telefono es obligatorio.";
             }
-            else
-                {
-                    try
-                    {
-                        if (int.Parse(txtTelefono.Text) <= 0)
-                        {
-                            valid = false;
-                            message += "\nEl teléfono debe ser un número entero positivo.";
-                        }
-                    }
-                    catch (FormatException ef)
-                    {
-                        valid = false;
-                        message += "\nEl teléfono debe ser un número entero positivo.";
-                    }
-                }
+            else if (!Regex.IsMatch(txtTelefono.Text, "^[0-9]+$"))
+            {
+                valid = false;
+                message += "\nEl teléfono sólo puede contener números.";
+            }
 
             if (txtDireccion.Text.Length == 0)
             {
