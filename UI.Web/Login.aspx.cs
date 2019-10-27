@@ -12,9 +12,17 @@ namespace UI.Web
     public partial class Login : System.Web.UI.Page
     {
         UsuarioLogic usuarios = new UsuarioLogic();
+        string redirect;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Request.QueryString["redirect"]!=null) 
+            {
+                redirect = Request.QueryString["redirect"];
+            }
+            else redirect = "/";
+            if(Authenticator.Authenticate() != null){
 
+            }
         }
 
         protected void IngresarButton_Click(object sender, EventArgs e)
@@ -22,8 +30,8 @@ namespace UI.Web
             Usuario usuario = usuarios.FindByUsername(UsuarioTextBox.Text);
             if (usuario != null && usuario.Clave == ClaveTextBox.Text && usuario.Habilitado)
             {
-                Session["usuario"] = usuario;
-                Response.Redirect("/");
+                Session["usuario"] = usuario.ID;
+                Response.Redirect(redirect);
             }
             if(usuario.Clave != ClaveTextBox.Text || usuario == null)
             {

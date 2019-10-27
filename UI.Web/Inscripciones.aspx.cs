@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Inscripciones : System.Web.UI.Page
+    public partial class Inscripciones : WebBase
     {
         CursoLogic cursos = new CursoLogic();
         MateriaLogic materias = new MateriaLogic();
@@ -18,25 +18,13 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Docente) != Persona.TipoPersona.Docente)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-            }
+			Authorize(Persona.TipoPersona.Administrador, true);
             LoadGrid();
         }
         public void LoadGrid()
         {
             gridView.DataSource = cursos.ListByAño(DateTime.Now.Year);
             gridView.DataBind();
-
         }
 
         protected void gridView_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -45,7 +33,7 @@ namespace UI.Web
             {
                 e.Row.RowState = DataControlRowState.Edit;
                 Curso curso = (Curso)e.Row.DataItem;
-                Usuario usuario = (Usuario)Session["usuario"];
+                Usuario usuario = Authenticate(true);
 
                 if (curso.Cupo - cursos.CantInscriptos(curso) > 0 && !cursos.AlumnoIsInCurso(usuario.Persona,curso))
                 {
@@ -73,7 +61,7 @@ namespace UI.Web
                 Curso curso = cursos.GetOne(id);
                 if (curso.Cupo - cursos.CantInscriptos(curso) > 0)
                 {
-                    Usuario usuario = (Usuario)Session["usuario"];
+                    Usuario usuario = Authenticate(true);
                     AlumnoInscripto alumno = new AlumnoInscripto()
                     {
                         Alumno = usuario.Persona,

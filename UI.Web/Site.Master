@@ -10,12 +10,18 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="/">Home</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="/">Home</asp:HyperLink>
         <asp:Panel ID="invitadoMenu" runat="server" Visible="false">
             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="/Login.aspx">Iniciar Sesión</asp:HyperLink>
         </asp:Panel>
         <asp:Panel ID="administradorMenu" runat="server" Visible="false">
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Usuarios.aspx">Administrar Usuarios</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="/Personas.aspx">Administrar Personas</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="/Especialidades.aspx">Administrar Especialidades</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="/Planes.aspx">Administrar Planes</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="/Materias.aspx">Administrar Materias</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="/Comisiones.aspx">Administrar Comisiones</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="/Cursos.aspx">Administrar Cursos</asp:HyperLink>
         </asp:Panel>
         <asp:Panel ID="alumnoMenu" runat="server" Visible="false">
             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="/EstadoAcademico.aspx">Estado Académico</asp:HyperLink>
@@ -28,10 +34,10 @@
         <asp:Panel ID="bedelMenu" runat="server" Visible="false">
             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="/RegularidadesCursos.aspx">Regularidades</asp:HyperLink>
         </asp:Panel>
-                <asp:Panel ID="logoutMenu" runat="server" Visible="false">
-        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="/Logout.aspx">Cerrar Sesión</asp:HyperLink>
+        <asp:Panel ID="logoutMenu" runat="server" Visible="false">
+            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="/Logout.aspx">Cerrar Sesión</asp:HyperLink>
         </asp:Panel>
-                    <div>
+        <div>
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>

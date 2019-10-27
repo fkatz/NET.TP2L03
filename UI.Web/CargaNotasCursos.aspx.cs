@@ -9,7 +9,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class CargaNotaCursos : System.Web.UI.Page
+    public partial class CargaNotaCursos : WebBase
     {
         DocenteCursoLogic docencias = new DocenteCursoLogic();
         CursoLogic cursos = new CursoLogic();
@@ -17,24 +17,13 @@ namespace UI.Web
         PlanLogic planes = new PlanLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Docente) != Persona.TipoPersona.Docente)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-            }
+			Authorize(Persona.TipoPersona.Bedel, true);
             LoadGrid();
         }
 
         private void LoadGrid()
         {
-            Usuario usuario = (Usuario)Session["usuario"];
+            Usuario usuario = Authenticate(true);
             List<DocenteCurso> docenciasList = docencias.ListByDocente(usuario.Persona);
             foreach(DocenteCurso docencia in docenciasList)
             {

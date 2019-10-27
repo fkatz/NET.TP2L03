@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class CargaNotas : System.Web.UI.Page
+    public partial class CargaNotas : WebBase
     {
         AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
         CursoLogic cursos = new CursoLogic();
@@ -25,19 +25,9 @@ namespace UI.Web
             }
         }
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Docente) != Persona.TipoPersona.Docente)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-            }
+        {        
+			Authorize(Persona.TipoPersona.Bedel, true);
+            
             if (Request.QueryString["id"] == null)
             {
                 Response.Redirect("/error?m=" + "No hay curso seleccionado");
@@ -66,6 +56,11 @@ namespace UI.Web
         {
             AlumnoInscripto alumno = alumnos.GetOne(CurrentAlumnoID);
             alumno.Nota = Convert.ToInt32(notaTextBox.Text);
+            if (alumno.Nota >= 6)
+            {
+                alumno.Condicion = AlumnoInscripto.Condiciones.Aprobado;
+            }
+            else alumno.Condicion = AlumnoInscripto.Condiciones.Libre;
             alumno.State = BusinessEntity.States.Modified;
             alumnos.Save(alumno);
         }

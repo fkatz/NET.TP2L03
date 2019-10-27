@@ -9,7 +9,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Regularidades : System.Web.UI.Page
+    public partial class Regularidades : WebBase
     {
         CursoLogic cursos = new CursoLogic();
         AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
@@ -25,18 +25,7 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Bedel) != Persona.TipoPersona.Bedel)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-            }
+			Authorize(Persona.TipoPersona.Bedel, true);
             if (Request.QueryString["id"] == null)
             {
                 Response.Redirect("/error?m=" + "No hay curso seleccionado");

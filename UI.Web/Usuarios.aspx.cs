@@ -5,64 +5,16 @@ using System.Web.UI;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Usuarios : WebBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Administrador) != Persona.TipoPersona.Administrador)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-
-                LoadGrid();
-            }
+			Authorize(Persona.TipoPersona.Administrador, true);
+            LoadGrid();
         }
 
-
-        public enum FormModes
-        {
-            Alta,
-            Modificacion
-        }
-        public FormModes FormMode
-        {
-            get
-            {
-                return (FormModes)ViewState["FormMode"];
-            }
-            set
-            {
-                ViewState["FormMode"] = value;
-            }
-        }
         private Usuario Entity { get; set; }
 
-        private int SelectedID
-        {
-            get
-            {
-                if (ViewState["SelectedID"] != null)
-                {
-                    return (int)ViewState["SelectedID"];
-                }
-                else return 0;
-            }
-            set
-            {
-                ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return SelectedID != 0; }
-        }
         private UsuarioLogic usuarios = new UsuarioLogic();
         private PersonaLogic personas = new PersonaLogic();
 

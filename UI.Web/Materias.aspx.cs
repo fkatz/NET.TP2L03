@@ -9,64 +9,15 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Materias : WebBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Administrador) != Persona.TipoPersona.Administrador)
-                {
-                    Response.Redirect("/Error.aspx?m="+"Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-
-                LoadGrid();
-            }
+			Authorize(Persona.TipoPersona.Administrador, true);
+            LoadGrid();
         }
 
-
-        public enum FormModes
-        {
-            Alta,
-            Modificacion
-        }
-        public FormModes FormMode
-        {
-            get
-            {
-                return (FormModes)ViewState["FormMode"];
-            }
-            set
-            {
-                ViewState["FormMode"] = value;
-            }
-        }
         private Materia Entity { get; set; }
-
-        private int SelectedID
-        {
-            get
-            {
-                if (ViewState["SelectedID"] != null)
-                {
-                    return (int)ViewState["SelectedID"];
-                }
-                else return 0;
-            }
-            set
-            {
-                ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return SelectedID != 0; }
-        }
         private MateriaLogic materias = new MateriaLogic();
         private PlanLogic planes = new PlanLogic();
 

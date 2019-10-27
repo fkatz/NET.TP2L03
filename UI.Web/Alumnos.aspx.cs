@@ -9,77 +9,28 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Alumnos : System.Web.UI.Page
+    public partial class Alumnos : WebBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+			Authorize(Persona.TipoPersona.Administrador, true);
+
             condicionDropDownList.DataSource = Enum.GetNames(typeof(AlumnoInscripto.Condiciones));
             condicionDropDownList.DataBind();
 
-            int idCurso = int.Parse(Request.QueryString["idCurso"]);
-            CurrentCurso = cursos.GetOne(idCurso);
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Administrador) != Persona.TipoPersona.Administrador)
-                {
-                    Response.Redirect("/Error.aspx?m="+"Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-
-                LoadGrid();
-            }
+            LoadGrid();
         }
 
-
-        public enum FormModes
-        {
-            Alta,
-            Modificacion
-        }
-        public FormModes FormMode
-        {
-            get
-            {
-                return (FormModes)ViewState["FormMode"];
-            }
-            set
-            {
-                ViewState["FormMode"] = value;
-            }
-        }
         private AlumnoInscripto Entity { get; set; }
-
-        private int SelectedID
-        {
-            get
-            {
-                if (ViewState["SelectedID"] != null)
-                {
-                    return (int)ViewState["SelectedID"];
-                }
-                else return 0;
-            }
-            set
-            {
-                ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return SelectedID != 0; }
-        }
         private AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
         private PersonaLogic personas = new PersonaLogic();
         private CursoLogic cursos = new CursoLogic();
         private Curso CurrentCurso = new Curso();
         
-
         private void LoadGrid()
         {
+            int idCurso = int.Parse(Request.QueryString["idCurso"]);
+            CurrentCurso = cursos.GetOne(idCurso);
             gridView.DataSource = alumnos.ListByCurso(CurrentCurso);
             gridView.DataBind();
         }

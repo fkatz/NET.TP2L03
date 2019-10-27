@@ -9,25 +9,15 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class EstadoAcademico : System.Web.UI.Page
+    public partial class EstadoAcademico : WebBase
     {
         AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
         CursoLogic cursos = new CursoLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("/login.aspx");
-            }
-            else
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                if ((usuario.Persona.Tipo & Persona.TipoPersona.Alumno) != Persona.TipoPersona.Alumno)
-                {
-                    Response.Redirect("/Error.aspx?m=" + "Su cuenta no tiene privilegios suficientes para acceder a esta página");
-                }
-            }
-            Persona persona = ((Usuario)Session["usuario"]).Persona;
+			Authorize(Persona.TipoPersona.Alumno, true);
+
+            Persona persona = Authenticate(true).Persona;
             List<AlumnoInscripto> alumnoList = alumnos.ListByAlumno(persona);
             foreach (AlumnoInscripto alumno in alumnoList)
             {

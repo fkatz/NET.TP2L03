@@ -124,6 +124,7 @@
     <Content Include="Cursos.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Especialidades.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="EstadoAcademico.aspx" />
     <Content Include="favicon.ico" />
@@ -188,6 +189,7 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authenticator.cs" />
     <Compile Include="CargaNotasCursos.aspx.cs">
       <DependentUpon>CargaNotasCursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,6 +231,13 @@
     </Compile>
     <Compile Include="Especialidades.aspx.designer.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
@@ -311,6 +320,9 @@
     <Compile Include="Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,7 +363,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54734</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57664/</IISUrl>
+          <IISUrl>http://localhost:57665/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
