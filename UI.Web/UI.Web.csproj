@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Cursos.aspx" />
+    <Content Include="Docentes.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="Logout.aspx" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Docentes.aspx.cs">
+      <DependentUpon>Docentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Docentes.aspx.designer.cs">
+      <DependentUpon>Docentes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
