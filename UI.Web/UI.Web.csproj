@@ -112,13 +112,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos.aspx" />
     <Content Include="CargaNotasCursos.aspx" />
     <Content Include="CargaNotas.aspx" />
+    <Content Include="Comisiones.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Cursos.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="EstadoAcademico.aspx" />
     <Content Include="favicon.ico" />
@@ -136,6 +139,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inscripciones.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Materias.aspx" />
     <Content Include="Personas.aspx" />
     <Content Include="Regularidades.aspx" />
     <Content Include="RegularidadesCursos.aspx" />
@@ -173,6 +177,13 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos.aspx.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos.aspx.designer.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CargaNotasCursos.aspx.cs">
@@ -188,6 +199,20 @@
     </Compile>
     <Compile Include="CargaNotas.aspx.designer.cs">
       <DependentUpon>CargaNotas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos.aspx.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cursos.aspx.designer.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -219,6 +244,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.aspx.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materias.aspx.designer.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personas.aspx.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
