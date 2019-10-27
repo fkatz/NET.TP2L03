@@ -13,6 +13,7 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["usuario"] == null)
             {
                 Response.Redirect("/login.aspx");
@@ -173,6 +174,10 @@ namespace UI.Web
         {
             eliminarPanel.Visible = false;
         }
-        
+
+        protected void alumnosButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Alumnos.aspx?idCurso="+SelectedID);
+        }
     }
 }

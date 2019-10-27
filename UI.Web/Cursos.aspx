@@ -21,6 +21,7 @@
             <asp:Button ID="editarButton" runat="server" Text="Editar" OnClick="editarButton_Click" CausesValidation="false"/>
             <asp:Button ID="eliminarButton" runat="server" Text="Eliminar" OnClick="eliminarButton_Click" CausesValidation="false"/>
             <asp:Button ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" CausesValidation="false"/>
+            <asp:Button ID="alumnosButton" runat="server" OnClick="alumnosButton_Click" Text="Alumnos" />
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="ComisionLabel" runat="server" Text="Comision: "></asp:Label>

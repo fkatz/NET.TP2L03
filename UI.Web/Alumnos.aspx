@@ -22,21 +22,20 @@
             <asp:Button ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" CausesValidation="false"/>
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
-            <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
-            <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es inválida" ValidationExpression="[0-9]{3}">*</asp:RegularExpressionValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es requerida">*</asp:RequiredFieldValidator>
+            <asp:Label ID="legajoLabel" runat="server" Text="Legajo Alumno: "></asp:Label>
+            <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
+            
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="El legajo es requerido">*</asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="añoEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
-            <asp:TextBox ID="añoEspecialidadTextBox" runat="server"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="añoEspecialidadTextBox" ErrorMessage="El Año de Especialidad deben ser un número entero positivo menor o igual a 5" ValidationExpression="[12345]">*</asp:RegularExpressionValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="añoEspecialidadTextBox" ErrorMessage="El campo Año de Especialidad de la Comision es requerido">*</asp:RequiredFieldValidator>
+            <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
+            <asp:TextBox ID="notaTextBox" runat="server"></asp:TextBox>
+            
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="notaTextBox" ErrorMessage="El campo nota del Alumno es requerido">*</asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-            <asp:DropDownList ID="planDropDownList" runat="server" DataSourceID="PlanesDatasource" DataTextField="Descripcion" DataValueField="ID">
+            <asp:Label ID="condicionLabel" runat="server" Text="Condicion: "></asp:Label>
+            <asp:DropDownList ID="condicionDropDownList" runat="server">
             </asp:DropDownList>
             <br />
-            <asp:ObjectDataSource ID="PlanesDatasource" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />
             <br />
             <asp:Button ID="CancelarForm" runat="server" Text="Cancelar" OnClick="CancelarForm_Click" CausesValidation="false"/>

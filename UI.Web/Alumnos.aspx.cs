@@ -13,6 +13,11 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            condicionDropDownList.DataSource = Enum.GetNames(typeof(AlumnoInscripto.Condiciones));
+            condicionDropDownList.DataBind();
+
+            int idCurso = int.Parse(Request.QueryString["idCurso"]);
+            CurrentCurso = cursos.GetOne(idCurso);
             if (Session["usuario"] == null)
             {
                 Response.Redirect("/login.aspx");
@@ -46,7 +51,7 @@ namespace UI.Web
                 ViewState["FormMode"] = value;
             }
         }
-        private Comision Entity { get; set; }
+        private AlumnoInscripto Entity { get; set; }
 
         private int SelectedID
         {
@@ -67,13 +72,15 @@ namespace UI.Web
         {
             get { return SelectedID != 0; }
         }
-        private ComisionLogic comisiones = new ComisionLogic();
-        private PlanLogic planes = new PlanLogic();
+        private AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
+        private PersonaLogic personas = new PersonaLogic();
+        private CursoLogic cursos = new CursoLogic();
+        private Curso CurrentCurso = new Curso();
+        
 
         private void LoadGrid()
         {
-
-            gridView.DataSource = comisiones.GetAll();
+            gridView.DataSource = alumnos.ListByCurso(CurrentCurso);
             gridView.DataBind();
         }
 
@@ -83,17 +90,17 @@ namespace UI.Web
         }
         private void LoadForm(int id)
         {
-            Entity = comisiones.GetOne(id);
-            planDropDownList.SelectedValue = Entity.Plan.ID.ToString();
-            descripcionTextBox.Text = Entity.Descripcion;
-            añoEspecialidadTextBox.Text = Entity.AñoEspecialidad.ToString();
+            Entity = alumnos.GetOne(id);
+            condicionDropDownList.SelectedValue = Entity.Condicion.ToString();
+            legajoTextBox.Text = Entity.Alumno.Legajo.ToString();
+            notaTextBox.Text = Entity.Nota.ToString();
         }
         private void ClearForm()
         {
             Entity = null;
-            añoEspecialidadTextBox.Text = "";
-            descripcionTextBox.Text = "";
-            planDropDownList.SelectedIndex = -1;
+            notaTextBox.Text = "";
+            legajoTextBox.Text = "";
+            condicionDropDownList.SelectedIndex = -1;
         }
 
         protected void editarButton_Click(object sender, EventArgs e)
@@ -118,18 +125,35 @@ namespace UI.Web
             ClearForm();
         }
         
-        private void LoadEntity(Comision comision)
+        private void LoadEntity(AlumnoInscripto alumno)
         {
-            if (descripcionTextBox.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && planDropDownList.SelectedItem != null)
-                comision.Descripcion = descripcionTextBox.Text;
-                comision.AñoEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
-                int idPlan = int.Parse(planDropDownList.SelectedValue);
-                comision.Plan = planes.GetOne(idPlan);
+            AlumnoInscripto.Condiciones c = new AlumnoInscripto.Condiciones();
+            switch (condicionDropDownList.SelectedValue)
+            {
+                case "Regular":
+                    c = AlumnoInscripto.Condiciones.Regular;
+                    break;
+                case "Libre":
+                    c = AlumnoInscripto.Condiciones.Libre;
+                    break;
+                case "Aprobado":
+                    c = AlumnoInscripto.Condiciones.Aprobado;
+                    break;
+                case "Cursante":
+                    c = AlumnoInscripto.Condiciones.Cursante;
+                    break;
+            }
+
+            if (legajoTextBox.Text.Length > 0 && notaTextBox.Text.Length > 0 && condicionDropDownList.SelectedItem != null)
+                alumno.Alumno = personas.FindByLegajo(int.Parse(legajoTextBox.Text));
+                alumno.Nota = int.Parse(notaTextBox.Text);
+                alumno.Condicion = c;
+                alumno.Curso = CurrentCurso; 
         }
 
-        private void SaveEntity(Comision comision)
+        private void SaveEntity(AlumnoInscripto alumno)
         {
-            comisiones.Save(comision);
+            alumnos.Save(alumno);
         }
         
         protected void AceptarForm_Click(object sender, EventArgs e)
@@ -139,12 +163,12 @@ namespace UI.Web
             {
                 if (FormMode == FormModes.Modificacion)
                 {
-                    Entity = comisiones.GetOne(SelectedID);
+                    Entity = alumnos.GetOne(SelectedID);
                     Entity.State = BusinessEntity.States.Modified;
                 }
                 else
                 {
-                    Entity = new Comision();
+                    Entity = new AlumnoInscripto();
                     Entity.State = BusinessEntity.States.New;
                 }
                 LoadEntity(Entity);
@@ -159,7 +183,7 @@ namespace UI.Web
         }
         protected void AceptarEliminar_Click(object sender, EventArgs e)
         {
-            comisiones.Delete(SelectedID);
+            alumnos.Delete(SelectedID);
             LoadGrid();
             eliminarPanel.Visible = false;
         }
@@ -168,6 +192,5 @@ namespace UI.Web
         {
             eliminarPanel.Visible = false;
         }
-        
     }
 }
