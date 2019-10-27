@@ -31,6 +31,10 @@ namespace UI.Web
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedID = (int)gridView.SelectedValue;
+            if (formPanel.Visible)
+            {
+                LoadForm(SelectedID);
+            }
         }
         private void LoadForm(int id)
         {

@@ -33,6 +33,10 @@ namespace UI.Web
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedID = (int)gridView.SelectedValue;
+            if (formPanel.Visible)
+            {
+                LoadForm(SelectedID);
+            }
         }
         private void LoadForm(int id)
         {
@@ -129,6 +133,11 @@ namespace UI.Web
         protected void alumnosButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Alumnos.aspx?idCurso="+SelectedID);
+        }
+
+        protected void DocentesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Docentes.aspx?idCurso=" + SelectedID);
         }
     }
 }

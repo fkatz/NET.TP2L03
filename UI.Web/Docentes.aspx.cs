@@ -1,32 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Business.Entities;
 using Business.Logic;
-using Business.Entities;
+using System;
 
 namespace UI.Web
 {
-    public partial class Comisiones : WebBase
+    public partial class Docentes : WebBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-			Authorize(Persona.TipoPersona.Administrador, true);
+            Authorize(Persona.TipoPersona.Administrador, true);
+
+            cargoDropDownList.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
+            cargoDropDownList.DataBind();
+
             LoadGrid();
         }
 
-
-        private Comision Entity { get; set; }
-
-        private ComisionLogic comisiones = new ComisionLogic();
-        private PlanLogic planes = new PlanLogic();
+        private DocenteCurso Entity { get; set; }
+        private DocenteCursoLogic docentes = new DocenteCursoLogic();
+        private PersonaLogic personas = new PersonaLogic();
+        private CursoLogic cursos = new CursoLogic();
+        private Curso CurrentCurso = new Curso();
 
         private void LoadGrid()
         {
-
-            gridView.DataSource = comisiones.GetAll();
+            int idCurso = int.Parse(Request.QueryString["idCurso"]);
+            CurrentCurso = cursos.GetOne(idCurso);
+            gridView.DataSource = docentes.ListByCurso(CurrentCurso);
             gridView.DataBind();
         }
 
@@ -40,17 +40,16 @@ namespace UI.Web
         }
         private void LoadForm(int id)
         {
-            Entity = comisiones.GetOne(id);
-            planDropDownList.SelectedValue = Entity.Plan.ID.ToString();
-            descripcionTextBox.Text = Entity.Descripcion;
-            añoEspecialidadTextBox.Text = Entity.AñoEspecialidad.ToString();
+            Entity = docentes.GetOne(id);
+            cargoDropDownList.SelectedValue = Entity.TipoCargo.ToString();
+            legajoTextBox.Text = Entity.Docente.Legajo.ToString();
         }
+
         private void ClearForm()
         {
             Entity = null;
-            añoEspecialidadTextBox.Text = "";
-            descripcionTextBox.Text = "";
-            planDropDownList.SelectedIndex = -1;
+            legajoTextBox.Text = "";
+            cargoDropDownList.SelectedIndex = -1;
         }
 
         protected void editarButton_Click(object sender, EventArgs e)
@@ -74,21 +73,34 @@ namespace UI.Web
             FormMode = FormModes.Alta;
             ClearForm();
         }
-        
-        private void LoadEntity(Comision comision)
+
+        private void LoadEntity(DocenteCurso docente)
         {
-            if (descripcionTextBox.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && planDropDownList.SelectedItem != null)
-                comision.Descripcion = descripcionTextBox.Text;
-                comision.AñoEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
-                int idPlan = int.Parse(planDropDownList.SelectedValue);
-                comision.Plan = planes.GetOne(idPlan);
+            DocenteCurso.TiposCargos c = new DocenteCurso.TiposCargos();
+            switch (cargoDropDownList.SelectedItem.Text)
+            {
+                case "Adjunto":
+                    c = DocenteCurso.TiposCargos.Adjunto;
+                    break;
+                case "Ayudante":
+                    c = DocenteCurso.TiposCargos.Ayudante;
+                    break;
+                case "Titular":
+                    c = DocenteCurso.TiposCargos.Titular;
+                    break;
+            }
+
+            if (legajoTextBox.Text.Length > 0 && cargoDropDownList.SelectedItem != null)
+                docente.Docente = personas.FindByLegajo(int.Parse(legajoTextBox.Text));
+            docente.TipoCargo = c;
+            docente.Curso = CurrentCurso;
         }
 
-        private void SaveEntity(Comision comision)
+        private void SaveEntity(DocenteCurso docente)
         {
-            comisiones.Save(comision);
+            docentes.Save(docente);
         }
-        
+
         protected void AceptarForm_Click(object sender, EventArgs e)
         {
             Validate();
@@ -96,12 +108,12 @@ namespace UI.Web
             {
                 if (FormMode == FormModes.Modificacion)
                 {
-                    Entity = comisiones.GetOne(SelectedID);
+                    Entity = docentes.GetOne(SelectedID);
                     Entity.State = BusinessEntity.States.Modified;
                 }
                 else
                 {
-                    Entity = new Comision();
+                    Entity = new DocenteCurso();
                     Entity.State = BusinessEntity.States.New;
                 }
                 LoadEntity(Entity);
@@ -116,15 +128,13 @@ namespace UI.Web
         }
         protected void AceptarEliminar_Click(object sender, EventArgs e)
         {
-            comisiones.Delete(SelectedID);
+            docentes.Delete(SelectedID);
             LoadGrid();
             eliminarPanel.Visible = false;
         }
-
         protected void CancelarEliminar_Click(object sender, EventArgs e)
         {
             eliminarPanel.Visible = false;
         }
-        
     }
 }
