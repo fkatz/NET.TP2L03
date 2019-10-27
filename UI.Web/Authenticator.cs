@@ -17,6 +17,17 @@ namespace UI.Web
             if(HttpContext.Current.Session["usuario"] != null) usuario = usuarios.GetOne((int)HttpContext.Current.Session["usuario"]);
             return usuario;
         }
+        public static Usuario Authenticate(string username, string password, out bool authenticated)
+        {
+            Usuario usuario = usuarios.FindByUsername(username);
+            authenticated = false;
+            if (usuario != null && usuario.Clave == password)
+            {
+                HttpContext.Current.Session["usuario"] = usuario.ID;
+                authenticated = true;
+            }
+            return usuario;
+        }
         public static bool Authorize(Usuario usuario, Persona.TipoPersona tipo){
             bool authorized = false;
             if ((usuario.Persona.Tipo & tipo) == tipo) authorized = true;

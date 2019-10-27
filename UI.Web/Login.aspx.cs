@@ -11,7 +11,6 @@ namespace UI.Web
 {
     public partial class Login : System.Web.UI.Page
     {
-        UsuarioLogic usuarios = new UsuarioLogic();
         string redirect;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,13 +26,13 @@ namespace UI.Web
 
         protected void IngresarButton_Click(object sender, EventArgs e)
         {
-            Usuario usuario = usuarios.FindByUsername(UsuarioTextBox.Text);
-            if (usuario != null && usuario.Clave == ClaveTextBox.Text && usuario.Habilitado)
+            bool authenticated;
+            Usuario usuario = Authenticator.Authenticate(UsuarioTextBox.Text, ClaveTextBox.Text, out authenticated);
+            if (authenticated && usuario.Habilitado)
             {
-                Session["usuario"] = usuario.ID;
                 Response.Redirect(redirect);
             }
-            if(usuario.Clave != ClaveTextBox.Text || usuario == null)
+            if(!authenticated)
             {
                 ErrorLabel.Text = "El usuario o contraseña son incorrectos";
             }
