@@ -33,7 +33,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="notaTextBox" ErrorMessage="El campo nota del Alumno es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="condicionLabel" runat="server" Text="Condicion: "></asp:Label>
-            <asp:DropDownList ID="condicionDropDownList" runat="server">
+            <asp:DropDownList ID="condicionDropDownList" runat="server" >
             </asp:DropDownList>
             <br />
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />

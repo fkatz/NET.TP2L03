@@ -15,7 +15,7 @@ namespace UI.Web
         {
 			Authorize(Persona.TipoPersona.Administrador, true);
 
-            condicionDropDownList.DataSource = Enum.GetNames(typeof(AlumnoInscripto.Condiciones));
+            condicionDropDownList.DataSource = new string[]{ "Regular","Libre","Aprobado","Cursante"};
             condicionDropDownList.DataBind();
 
             LoadGrid();
@@ -78,27 +78,27 @@ namespace UI.Web
         
         private void LoadEntity(AlumnoInscripto alumno)
         {
-            AlumnoInscripto.Condiciones c = new AlumnoInscripto.Condiciones();
+            AlumnoInscripto.Condiciones condicion = new AlumnoInscripto.Condiciones();
             switch (condicionDropDownList.SelectedValue)
             {
                 case "Regular":
-                    c = AlumnoInscripto.Condiciones.Regular;
+                    condicion = AlumnoInscripto.Condiciones.Regular;
                     break;
                 case "Libre":
-                    c = AlumnoInscripto.Condiciones.Libre;
+                    condicion = AlumnoInscripto.Condiciones.Libre;
                     break;
                 case "Aprobado":
-                    c = AlumnoInscripto.Condiciones.Aprobado;
+                    condicion = AlumnoInscripto.Condiciones.Aprobado;
                     break;
                 case "Cursante":
-                    c = AlumnoInscripto.Condiciones.Cursante;
+                    condicion = AlumnoInscripto.Condiciones.Cursante;
                     break;
             }
 
             if (legajoTextBox.Text.Length > 0 && notaTextBox.Text.Length > 0 && condicionDropDownList.SelectedItem != null)
                 alumno.Alumno = personas.FindByLegajo(int.Parse(legajoTextBox.Text));
                 alumno.Nota = int.Parse(notaTextBox.Text);
-                alumno.Condicion = c;
+                alumno.Condicion = condicion;
                 alumno.Curso = CurrentCurso; 
         }
 
@@ -143,5 +143,6 @@ namespace UI.Web
         {
             eliminarPanel.Visible = false;
         }
+
     }
 }
