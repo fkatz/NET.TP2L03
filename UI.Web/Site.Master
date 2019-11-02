@@ -49,7 +49,8 @@
                                 <asp:HyperLink ID="HyperLink11" CssClass="dropdown-item" runat="server" NavigateUrl="/Planes.aspx">Administrar Planes</asp:HyperLink>
                                 <asp:HyperLink ID="HyperLink12" CssClass="dropdown-item" runat="server" NavigateUrl="/Materias.aspx">Administrar Materias</asp:HyperLink>
                                 <asp:HyperLink ID="HyperLink13" CssClass="dropdown-item" runat="server" NavigateUrl="/Comisiones.aspx">Administrar Comisiones</asp:HyperLink>
-                                <asp:HyperLink ID="HyperLink14" CssClass="dropdown-item" runat="server" NavigateUrl="/Cursos.aspx">Administrar Cursos</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink7" CssClass="dropdown-item" runat="server" NavigateUrl="/Cursos.aspx">Administrar Cursos</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink14" CssClass="dropdown-item" runat="server" NavigateUrl="/Promedios.aspx">Reporte de Promedios</asp:HyperLink>
                             </div>
                         </li>
                     </asp:Panel>
