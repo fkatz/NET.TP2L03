@@ -37,6 +37,13 @@ namespace Data.Database
 
         }
 
+        protected bool isRepeated(Usuario usuario)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Usuario.Count(a => a.ID != usuario.ID && a.Persona.ID == usuario.Persona.ID) > 0;
+            }
+        }
 
         public void Delete(int ID)
         {
@@ -51,6 +58,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(usuario)) throw new Exception("Repeated entity");
                 var result = context.Usuario.Find(usuario.ID);
                 if (result != null)
                 {
@@ -68,6 +76,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(usuario)) throw new Exception("Repeated entity");
                 var persona = context.Persona.Attach(usuario.Persona);
                 usuario.Persona = persona;
                 context.Usuario.Add(usuario);

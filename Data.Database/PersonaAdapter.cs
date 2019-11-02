@@ -26,7 +26,6 @@ namespace Data.Database
             }
         }
 
-
         public Persona FindByLegajo(int legajo)
         {
             using (var context = new AcademiaContext())

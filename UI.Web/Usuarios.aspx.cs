@@ -79,7 +79,14 @@ namespace UI.Web
         }
         private void SaveEntity(Usuario usuario)
         {
-            usuarios.Save(usuario);
+            try
+            {
+                usuarios.Save(usuario);
+            }
+            catch (Exception e)
+            {
+                Response.Redirect("/Error.aspx?m=" + e.Message, true);
+            }
         }
 
         protected void AceptarForm_Click(object sender, EventArgs e)
