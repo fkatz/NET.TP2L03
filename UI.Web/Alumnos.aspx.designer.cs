@@ -77,6 +77,16 @@ namespace UI.Web {
         
         /// <summary>
         /// Control formPanel.
+        /// Control errorLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorLabel;
+        
+        /// <summary>
+        /// Control formPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -104,6 +114,7 @@ namespace UI.Web {
         
         /// <summary>
         /// Control RegularExpressionValidator1.
+        /// Control RequiredFieldValidator2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -149,6 +160,7 @@ namespace UI.Web {
         
         /// <summary>
         /// Control RegularExpressionValidator2.
+        /// Control RequiredFieldValidator3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

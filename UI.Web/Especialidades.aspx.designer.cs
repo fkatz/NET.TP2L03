@@ -67,11 +67,27 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Button nuevoButton;
         
         /// <summary>
+<<<<<<< HEAD
+        /// Control formPanel.
+=======
+        /// Control errorLabel.
+>>>>>>> 5287a5c6574e4771fe8f0b3b0c2764366f89cff0
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+<<<<<<< HEAD
+=======
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorLabel;
+        
+        /// <summary>
         /// Control formPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+>>>>>>> 5287a5c6574e4771fe8f0b3b0c2764366f89cff0
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
