@@ -46,6 +46,7 @@
             this.tsmPreceptor = new System.Windows.Forms.ToolStripMenuItem();
             this.regularidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.consultarPromediosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +101,8 @@
             this.tsmAdmUs,
             this.tsmAdmPer,
             this.tsmAdmCurr,
-            this.tsmAdmCurs});
+            this.tsmAdmCurs,
+            this.consultarPromediosToolStripMenuItem});
             this.tsmAdministrar.Name = "tsmAdministrar";
             this.tsmAdministrar.Size = new System.Drawing.Size(81, 20);
             this.tsmAdministrar.Text = "Administrar";
@@ -182,7 +184,7 @@
             // regularidadesToolStripMenuItem
             // 
             this.regularidadesToolStripMenuItem.Name = "regularidadesToolStripMenuItem";
-            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.regularidadesToolStripMenuItem.Text = "Regularidades";
             this.regularidadesToolStripMenuItem.Click += new System.EventHandler(this.regularidadesToolStripMenuItem_Click);
             // 
@@ -194,6 +196,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 426);
             this.panel1.TabIndex = 4;
+            // 
+            // consultarPromediosToolStripMenuItem
+            // 
+            this.consultarPromediosToolStripMenuItem.Name = "consultarPromediosToolStripMenuItem";
+            this.consultarPromediosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.consultarPromediosToolStripMenuItem.Text = "Consultar Promedios";
+            this.consultarPromediosToolStripMenuItem.Click += new System.EventHandler(this.consultarPromediosToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -232,5 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPreceptor;
         private System.Windows.Forms.ToolStripMenuItem regularidadesToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem consultarPromediosToolStripMenuItem;
     }
 }

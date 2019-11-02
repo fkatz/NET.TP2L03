@@ -143,5 +143,11 @@ namespace UI.Desktop
             Windows.RegularidadesBedelList form = new Windows.RegularidadesBedelList();
             form.Show();
         }
+
+        private void consultarPromediosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Windows.Promedios form = new Windows.Promedios();
+            form.Show();
+        }
     }
 }
