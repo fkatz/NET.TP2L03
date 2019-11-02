@@ -60,7 +60,6 @@ namespace UI.Web
         {
             if (gridView.SelectedValue != null)
             {
-                errorLabel.Text = "";
                 if (eliminarPanel.Visible) eliminarPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
@@ -76,7 +75,6 @@ namespace UI.Web
         {
             if (gridView.SelectedValue != null)
             {
-                errorLabel.Text = "";
                 if (formPanel.Visible) formPanel.Visible = false;
                 this.eliminarPanel.Visible = true;
             }

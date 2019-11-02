@@ -13,6 +13,7 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            errorLabel.Text = "";
 			Authorize(Persona.TipoPersona.Administrador, true);
             LoadGrid();
         }
@@ -55,16 +56,30 @@ namespace UI.Web
 
         protected void editarButton_Click(object sender, EventArgs e)
         {
-            if (eliminarPanel.Visible) eliminarPanel.Visible = false;
-            this.formPanel.Visible = true;
-            this.FormMode = FormModes.Modificacion;
-            this.LoadForm(this.SelectedID);
+            if (gridView.SelectedValue != null)
+            {
+                if (eliminarPanel.Visible) eliminarPanel.Visible = false;
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Modificacion;
+                this.LoadForm(this.SelectedID);
+            }
+            else
+            {
+                errorLabel.Text = "No ha seleccionado ninguna comision";
+            }
         }
 
         protected void eliminarButton_Click(object sender, EventArgs e)
         {
-            if (formPanel.Visible) formPanel.Visible = false;
-            this.eliminarPanel.Visible = true;
+            if (gridView.SelectedValue != null)
+            {
+                if (formPanel.Visible) formPanel.Visible = false;
+                this.eliminarPanel.Visible = true;
+            }
+            else
+            {
+                errorLabel.Text = "No ha seleccionado ninguna comision";
+            }
         }
 
         protected void nuevoButton_Click(object sender, EventArgs e)

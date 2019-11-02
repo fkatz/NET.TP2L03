@@ -24,6 +24,7 @@
         <asp:Button CssClass="btn btn-outline-primary" ID="editarButton" runat="server" Text="Editar" OnClick="editarButton_Click" CausesValidation="false" />
         <asp:Button CssClass="btn btn-outline-primary" ID="eliminarButton" runat="server" Text="Eliminar" OnClick="eliminarButton_Click" CausesValidation="false" />
         <asp:Button CssClass="btn btn-outline-primary" ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" CausesValidation="false" />
+        <asp:Label ID="errorLabel" runat="server" Text="Mensaje de error 3"></asp:Label>
     </asp:Panel><br />
     <asp:Panel ID="formPanel" Visible="false" runat="server">
         <asp:Label ID="emailLabel" runat="server" Text="Legajo: "></asp:Label>
