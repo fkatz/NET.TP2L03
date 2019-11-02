@@ -10,11 +10,28 @@ namespace Data.Database
 {
     public class EspecialidadAdapter
     {
+            SqlConnection conn = new SqlConnection();
+
             public List<Especialidad> GetAll()
             {
                 using (var context = new AcademiaContext())
                 {
-                    return context.Especialidad.ToList();
+                    conn = (SqlConnection)context.Database.Connection;
+                    conn.Open();
+                    List<Especialidad> especialidades = new List<Especialidad>();
+                    SqlCommand comando = new SqlCommand("Select * from Especialidads", conn);
+                    SqlDataReader drEspecialidades = comando.ExecuteReader();
+                    while (drEspecialidades.Read())
+                    {
+                        Especialidad es = new Especialidad();
+                        es.ID = (int)drEspecialidades["ID"];
+                        es.Descripcion = (String)drEspecialidades["Descripcion"];
+                        especialidades.Add(es);
+                    }
+                    drEspecialidades.Close();
+                    conn.Close();
+                    conn = null;
+                    return especialidades;
                 }
             }
 
@@ -22,17 +39,36 @@ namespace Data.Database
             {
                 using (var context = new AcademiaContext())
                 {
-                    return context.Especialidad.Where(i => i.ID == ID).First();
+                    Especialidad es = new Especialidad();
+                    conn = (SqlConnection)context.Database.Connection;
+                    conn.Open();
+                    SqlCommand comando = new SqlCommand("Select * from Especialidads where ID=@id", conn);
+                    comando.Parameters.AddWithValue("@id", ID);
+                    SqlDataReader drEspecialidades = comando.ExecuteReader();
+                    while (drEspecialidades.Read())
+                    {
+                        es.ID = (int)drEspecialidades["ID"];
+                        es.Descripcion = (String)drEspecialidades["Descripcion"];
+                    }
+                    drEspecialidades.Close();
+                    conn.Close();
+                    conn = null;
+                    return es;
                 }
-            }
+        }
 
 
             public void Delete(int ID)
             {
                 using (var context = new AcademiaContext())
                 {
-                    context.Especialidad.Remove(context.Especialidad.Find(ID));
-                    context.SaveChanges();
+                    conn = (SqlConnection)context.Database.Connection;
+                    conn.Open();
+                    SqlCommand comando = new SqlCommand("Delete from Especialidads where ID=@id", conn);
+                    comando.Parameters.AddWithValue("@id", ID);
+                    comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn = null;
                 }
             }
 
@@ -40,18 +76,27 @@ namespace Data.Database
             {
                 using (var context = new AcademiaContext())
                 {
-                    entity = context.Especialidad.Attach(entity);
-                    var entry = context.Entry(entity); // Gets the entry for entity inside context
-                    entry.State = EntityState.Modified;
-                    context.SaveChanges();
+                    conn = (SqlConnection)context.Database.Connection;
+                    conn.Open();
+                    SqlCommand comando = new SqlCommand("Update Especialidads set Descripcion=@desc where ID=@id", conn);
+                    comando.Parameters.AddWithValue("@id", entity.ID);
+                    comando.Parameters.AddWithValue("@desc", entity.Descripcion);
+                    comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn = null;
                 }
             }
             protected void Insert(Especialidad entity)
             {
                 using (var context = new AcademiaContext())
-                { 
-                    context.Especialidad.Add(entity);
-                    context.SaveChanges();
+                {
+                    conn = (SqlConnection)context.Database.Connection;
+                    conn.Open();
+                    SqlCommand comando = new SqlCommand("Insert into Especialidads(Descripcion) values (@desc)", conn);
+                    comando.Parameters.AddWithValue("@desc", entity.Descripcion);
+                    comando.ExecuteNonQuery();
+                    conn.Close();
+                    conn = null;
                 }
             }
 
