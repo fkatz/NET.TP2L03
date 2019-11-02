@@ -265,7 +265,9 @@
     <EmbeddedResource Include="Windows\PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\promediosNotas.rdlc" />
+    <None Include="promediosNotas.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <EmbeddedResource Include="Windows\RegularidadesBedelList.resx">
       <DependentUpon>RegularidadesBedelList.cs</DependentUpon>
     </EmbeddedResource>
