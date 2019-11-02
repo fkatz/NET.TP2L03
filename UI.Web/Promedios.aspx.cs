@@ -9,7 +9,7 @@ using Microsoft.Reporting.WebForms;
 
 namespace UI.Web
 {
-    public partial class Planilla : System.Web.UI.Page
+    public partial class Promedios : System.Web.UI.Page
     {
         AlumnoInscriptoLogic alumnosCursos = new AlumnoInscriptoLogic();
         protected void Page_Load(object sender, EventArgs e)

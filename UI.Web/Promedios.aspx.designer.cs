@@ -10,7 +10,7 @@
 namespace UI.Web {
     
     
-    public partial class Planilla {
+    public partial class Promedios {
         
         /// <summary>
         /// Control ScriptManager1.

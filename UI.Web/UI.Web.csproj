@@ -157,7 +157,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Materias.aspx" />
     <Content Include="Personas.aspx" />
-    <Content Include="Planilla.aspx" />
+    <Content Include="Promedios.aspx" />
     <Content Include="promedionota.aspx" />
     <Content Include="Regularidades.aspx" />
     <Content Include="RegularidadesCursos.aspx" />
@@ -306,12 +306,12 @@
     <Compile Include="Personas.aspx.designer.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Planilla.aspx.cs">
-      <DependentUpon>Planilla.aspx</DependentUpon>
+    <Compile Include="Promedios.aspx.cs">
+      <DependentUpon>Promedios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Planilla.aspx.designer.cs">
-      <DependentUpon>Planilla.aspx</DependentUpon>
+    <Compile Include="Promedios.aspx.designer.cs">
+      <DependentUpon>Promedios.aspx</DependentUpon>
     </Compile>
     <Compile Include="promedionota.aspx.cs">
       <DependentUpon>promedionota.aspx</DependentUpon>
