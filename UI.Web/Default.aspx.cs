@@ -13,5 +13,10 @@ namespace UI.Web
         {
 
         }
+
+        protected void promediosBoton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Promedios.aspx");
+        }
     }
 }
