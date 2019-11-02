@@ -108,7 +108,14 @@ namespace UI.Web
         protected void AceptarForm_Click(object sender, EventArgs e)
         {
             Validate();
-            if (Page.IsValid)
+            bool chboxvalid = true;
+            lblErrorChboxes.Text = "";
+            if(!chboxAlumno1.Checked && !chboxAdministrador.Checked && !chboxDocente.Checked && !chboxNoDocente.Checked && !chboxPreceptor.Checked)
+            {
+                chboxvalid = false;
+                lblErrorChboxes.Text = "Seleccione al menos un tipo.";
+            }
+            if (Page.IsValid && chboxvalid)
             {
                 if (FormMode == FormModes.Modificacion)
                 {

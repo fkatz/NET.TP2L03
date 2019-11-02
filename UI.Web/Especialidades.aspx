@@ -22,7 +22,7 @@
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="descripcionLabel" runat="server" Text="Descripción:"></asp:Label>
             <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="El Email es requerido">*</asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La Descripción es Requerida">*</asp:RequiredFieldValidator>
             <br />
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />
             <br />

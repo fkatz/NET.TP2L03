@@ -26,12 +26,15 @@
             <asp:Label ID="legajoLabel" runat="server" Text="Legajo Alumno: "></asp:Label>
             <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
             
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="El legajo es inválido" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
+            
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="El legajo es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
             <asp:TextBox ID="notaTextBox" runat="server"></asp:TextBox>
             
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="notaTextBox" ErrorMessage="El campo nota del Alumno es requerido">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="notaTextBox" ErrorMessage="La nota es invalida" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="El legajo es inválido" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="condicionLabel" runat="server" Text="Condicion: "></asp:Label>
             <asp:DropDownList ID="condicionDropDownList" runat="server" >
