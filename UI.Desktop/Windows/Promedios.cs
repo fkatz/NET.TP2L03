@@ -27,13 +27,5 @@ namespace UI.Desktop.Windows
             this.Close();
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-            this.reportViewer1.Reset();
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promedios.promediosNotas.rdlc";
-            this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", alumnosCursos.GetAllAsDTO()));
-            this.reportViewer1.RefreshReport();
-        }
     }
 }
