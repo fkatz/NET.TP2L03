@@ -42,6 +42,14 @@ namespace Data.Database
             }
         }
 
+        protected bool isRepeated(DocenteCurso docente)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.DocenteCurso.Count(a => a.ID != docente.ID && a.Curso.ID == docente.Curso.ID && a.Docente.ID == docente.Docente.ID) > 0;
+            }
+        }
+
         public void Delete(int ID)
         {
             using (var context = new AcademiaContext())
@@ -55,6 +63,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(entity)) throw new Exception("Repeated entity");
                 entity = context.DocenteCurso.Attach(entity);
                 entity.Docente = context.Persona.Attach(entity.Docente);
                 entity.Curso = context.Curso.Attach(entity.Curso);
@@ -67,6 +76,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(entity)) throw new Exception("Repeated entity");
                 var Docente = context.Persona.Attach(entity.Docente);
                 entity.Docente = Docente;
                 var Curso = context.Curso.Attach(entity.Curso);

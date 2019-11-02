@@ -90,7 +90,14 @@ namespace UI.Web
 
         private void SaveEntity(Curso curso)
         {
-            cursos.Save(curso);
+            try
+            {
+                cursos.Save(curso);
+            }
+            catch(Exception e)
+            {
+                Response.Redirect("/Error.aspx?m=" + e.Message, true);
+            }
         }
         
         protected void AceptarForm_Click(object sender, EventArgs e)

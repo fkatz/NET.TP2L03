@@ -119,7 +119,14 @@ namespace UI.Web
 
         private void SaveEntity(AlumnoInscripto alumno)
         {
-            alumnos.Save(alumno);
+            try
+            {
+                alumnos.Save(alumno);
+            }
+            catch (Exception e)
+            {
+                Response.Redirect("/Error.aspx?m=" + e.Message, true);
+            }
         }
         
         protected void AceptarForm_Click(object sender, EventArgs e)

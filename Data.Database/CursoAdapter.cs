@@ -49,6 +49,14 @@ namespace Data.Database
             }
         }
 
+        protected bool isRepeated(Curso curso)
+        {
+            using (var context = new AcademiaContext())
+            {
+                return context.Curso.Count(a => a.ID != curso.ID && a.Materia.ID == curso.Materia.ID && a.Comision.ID == curso.Comision.ID && a.AñoCalendario == curso.AñoCalendario) > 0;
+            }
+        }
+
         public void Delete(int ID)
         {
             using (var context = new AcademiaContext())
@@ -62,6 +70,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(entity)) throw new Exception("Repeated entity");
                 entity.Materia.Plan = null;
                 var local = context.Set<Materia>()
                     .Local
@@ -83,6 +92,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+                if (isRepeated(entity)) throw new Exception("Repeated entity");
                 entity.Comision = context.Comision.Attach(entity.Comision);
                 entity.Materia.Plan = entity.Comision.Plan;
                 entity.Materia = context.Materia.Attach(entity.Materia);
