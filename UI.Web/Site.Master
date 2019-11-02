@@ -4,42 +4,95 @@
 
 <html>
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Academia</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        table {
+            border-color: transparent;
+        }
+
+        .h2, .h4 {
+            display: block;
+            margin-top: 0.2em !important;
+            margin-bottom: 0.5em !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="/">Home</asp:HyperLink>
-        <asp:Panel ID="invitadoMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="/Login.aspx">Iniciar Sesión</asp:HyperLink>
-        </asp:Panel>
-        <asp:Panel ID="administradorMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Usuarios.aspx">Administrar Usuarios</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="/Personas.aspx">Administrar Personas</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="/Especialidades.aspx">Administrar Especialidades</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="/Planes.aspx">Administrar Planes</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="/Materias.aspx">Administrar Materias</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="/Comisiones.aspx">Administrar Comisiones</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="/Cursos.aspx">Administrar Cursos</asp:HyperLink>
-        </asp:Panel>
-        <asp:Panel ID="alumnoMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="/EstadoAcademico.aspx">Estado Académico</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="/Inscripciones.aspx">Inscripciones</asp:HyperLink>
-        </asp:Panel>
-        <asp:Panel ID="docenteMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="/CargaNotasCursos.aspx">Carga de Notas</asp:HyperLink>
-
-        </asp:Panel>
-        <asp:Panel ID="bedelMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="/RegularidadesCursos.aspx">Regularidades</asp:HyperLink>
-        </asp:Panel>
-        <asp:Panel ID="logoutMenu" runat="server" Visible="false">
-            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="/Logout.aspx">Cerrar Sesión</asp:HyperLink>
-        </asp:Panel>
-        <div>
-            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Academia</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <asp:Panel ID="invitadoMenu" runat="server" Visible="false" CssClass="nav-item">
+                        <asp:HyperLink ID="HyperLink6" runat="server" CssClass="nav-link" NavigateUrl="/Login.aspx">Iniciar Sesión</asp:HyperLink>
+                    </asp:Panel>
+                    <asp:Panel ID="administradorMenu" CssClass="nav-item dropdown" runat="server" Visible="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="administrador-dd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administración
+                        </a>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown-menu" aria-labelledby="administrador-dd">
+                                <asp:HyperLink ID="HyperLink1" CssClass="dropdown-item" runat="server" NavigateUrl="/Usuarios.aspx">Administrar Usuarios</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink9" CssClass="dropdown-item" runat="server" NavigateUrl="/Personas.aspx">Administrar Personas</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink10" CssClass="dropdown-item" runat="server" NavigateUrl="/Especialidades.aspx">Administrar Especialidades</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink11" CssClass="dropdown-item" runat="server" NavigateUrl="/Planes.aspx">Administrar Planes</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink12" CssClass="dropdown-item" runat="server" NavigateUrl="/Materias.aspx">Administrar Materias</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink13" CssClass="dropdown-item" runat="server" NavigateUrl="/Comisiones.aspx">Administrar Comisiones</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink14" CssClass="dropdown-item" runat="server" NavigateUrl="/Cursos.aspx">Administrar Cursos</asp:HyperLink>
+                            </div>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="alumnoMenu" CssClass="nav-item dropdown" runat="server" Visible="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="alumno-dd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alumno
+                        </a>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown-menu" aria-labelledby="alumno-dd">
+                                <asp:HyperLink ID="HyperLink4" CssClass="dropdown-item" runat="server" NavigateUrl="/EstadoAcademico.aspx">Estado Académico</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" CssClass="dropdown-item" runat="server" NavigateUrl="/Inscripciones.aspx">Inscripciones</asp:HyperLink>
+                            </div>
+                        </li>
+                    </asp:Panel>
+                     <asp:Panel ID="docenteMenu" CssClass="nav-item dropdown" runat="server" Visible="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="docente-dd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docente
+                        </a>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown-menu" aria-labelledby="docente-dd">
+                                <asp:HyperLink ID="HyperLink3" CssClass="dropdown-item" runat="server" NavigateUrl="/CargaNotasCursos.aspx">Carga de Notas</asp:HyperLink>
+                            </div>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="bedelMenu" CssClass="nav-item dropdown" runat="server" Visible="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="bedel-dd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bedel
+                        </a>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown-menu" aria-labelledby="bedel-dd">
+                                <asp:HyperLink ID="HyperLink5" CssClass="dropdown-item" runat="server" NavigateUrl="/RegularidadesCursos.aspx">Regularidades</asp:HyperLink>
+                            </div>
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="logoutMenu" runat="server" Visible="false" CssClass="nav-item">
+                        <asp:HyperLink ID="HyperLink15" CssClass="nav-link" runat="server" NavigateUrl="/Logout.aspx">Cerrar Sesión</asp:HyperLink>
+                    </asp:Panel>
+                </ul>
+            </div>
+        </nav>
+        <div class="container mt-3" id="main">
+            <asp:Label ID="headerLabel" runat="server" CssClass="h2" OnPreRender="headerLabel_PreRender" Text="Título"></asp:Label>
+            <div>
+                <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </div>
     </form>
 </body>

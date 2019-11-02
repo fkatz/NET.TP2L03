@@ -8,6 +8,10 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["idCurso"] == null)
+            {
+                Response.Redirect("/error?m=" + "No hay curso seleccionado");
+            }
             Authorize(Persona.TipoPersona.Administrador, true);
 
             cargoDropDownList.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
@@ -26,6 +30,7 @@ namespace UI.Web
         {
             int idCurso = int.Parse(Request.QueryString["idCurso"]);
             CurrentCurso = cursos.GetOne(idCurso);
+            Page.Title = "Administrar Docentes - Comisión " + CurrentCurso.Comision.Descripcion;
             gridView.DataSource = docentes.ListByCurso(CurrentCurso);
             gridView.DataBind();
         }

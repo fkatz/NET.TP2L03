@@ -31,15 +31,6 @@ namespace UI.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
         
         /// <summary>
-        /// HyperLink8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
-        
-        /// <summary>
         /// invitadoMenu control.
         /// </summary>
         /// <remarks>
@@ -202,13 +193,22 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Panel logoutMenu;
         
         /// <summary>
-        /// HyperLink7 control.
+        /// HyperLink15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink15;
+        
+        /// <summary>
+        /// headerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label headerLabel;
         
         /// <summary>
         /// bodyContentPlaceHolder control.

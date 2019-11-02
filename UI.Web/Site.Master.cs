@@ -38,5 +38,9 @@ namespace UI.Web
                 }
             }
         }
+protected void headerLabel_PreRender(object sender, EventArgs e)
+        {
+            headerLabel.Text = Page.Title;
+        }
     }
 }

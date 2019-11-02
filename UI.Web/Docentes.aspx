@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Docentes.aspx.cs" Inherits="UI.Web.Docentes" %>
+﻿<%@ Page Title="Administrar Docentes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Docentes.aspx.cs" Inherits="UI.Web.Docentes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
 <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView ID="gridView" runat="server" 
+        <asp:GridView CssClass="table table-striped" ID="gridView" runat="server" 
             AutoGenerateColumns="False" DataKeyNames="ID" 
             OnSelectedIndexChanged="gridView_SelectedIndexChanged"
             SelectedRowStyle-BackColor="LightGray">
@@ -16,9 +16,9 @@
             <SelectedRowStyle BackColor="LightGray" />
         </asp:GridView>
         <asp:Panel ID="gridActionsPanel" runat="server">
-            <asp:Button ID="editarButton" runat="server" Text="Editar" OnClick="editarButton_Click" CausesValidation="false"/>
-            <asp:Button ID="eliminarButton" runat="server" Text="Eliminar" OnClick="eliminarButton_Click" CausesValidation="false"/>
-            <asp:Button ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" CausesValidation="false"/>
+            <asp:Button CssClass="btn btn-outline-primary" ID="editarButton" runat="server" Text="Editar" OnClick="editarButton_Click" CausesValidation="false"/>
+            <asp:Button CssClass="btn btn-outline-primary" ID="eliminarButton" runat="server" Text="Eliminar" OnClick="eliminarButton_Click" CausesValidation="false"/>
+            <asp:Button CssClass="btn btn-outline-primary" ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" CausesValidation="false"/>
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="legajoLabel" runat="server" Text="Legajo Docente: "></asp:Label>
@@ -33,14 +33,14 @@
             <br />
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />
             <br />
-            <asp:Button ID="CancelarForm" runat="server" Text="Cancelar" OnClick="CancelarForm_Click" CausesValidation="false"/>
-            <asp:Button ID="AceptarForm" runat="server" Text="Aceptar" OnClick="AceptarForm_Click" />
+            <asp:Button CssClass="btn btn-outline-primary" ID="CancelarForm" runat="server" Text="Cancelar" OnClick="CancelarForm_Click" CausesValidation="false"/>
+            <asp:Button CssClass="btn btn-outline-primary" ID="AceptarForm" runat="server" Text="Aceptar" OnClick="AceptarForm_Click" />
         </asp:Panel>
                 <asp:Panel ID="eliminarPanel" Visible="false" runat="server">
             <asp:Label ID="eliminarLabel" runat="server" Text="¿Está seguro de que desea eliminar este elemento?"></asp:Label>
             <br />
-            <asp:Button ID="CancelarEliminar" runat="server" Text="Cancelar" OnClick="CancelarEliminar_Click" />
-            <asp:Button ID="AceptarEliminar" runat="server" Text="Aceptar" OnClick="AceptarEliminar_Click" />
+            <asp:Button CssClass="btn btn-outline-primary" ID="CancelarEliminar" runat="server" Text="Cancelar" OnClick="CancelarEliminar_Click" />
+            <asp:Button CssClass="btn btn-outline-primary" ID="AceptarEliminar" runat="server" Text="Aceptar" OnClick="AceptarEliminar_Click" />
         </asp:Panel>
     </asp:Panel>
 </asp:Content>

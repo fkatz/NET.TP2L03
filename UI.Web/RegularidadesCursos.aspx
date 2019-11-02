@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegularidadesCursos.aspx.cs" Inherits="UI.Web.RegularidadesCursos" %>
+﻿<%@ Page Title="Cargar Regularidades" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegularidadesCursos.aspx.cs" Inherits="UI.Web.RegularidadesCursos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" OnRowCommand="gridView_RowCommand" OnRowDataBound="gridView_RowDataBound" DataKeyNames="ID">
+    <asp:GridView CssClass="table table-striped" ID="gridView" runat="server" AutoGenerateColumns="False" OnRowCommand="gridView_RowCommand" OnRowDataBound="gridView_RowDataBound" DataKeyNames="ID">
         <Columns>
             <asp:BoundField DataField="Materia" HeaderText="Materia" />
             <asp:BoundField DataField="Comision" HeaderText="Comisión" />

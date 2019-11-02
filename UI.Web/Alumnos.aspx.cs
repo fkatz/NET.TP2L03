@@ -13,11 +13,21 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-			Authorize(Persona.TipoPersona.Administrador, true);
+            if (Request.QueryString["idCurso"] == null)
+            {
+                Response.Redirect("/error?m=" + "No hay curso seleccionado");
+            }
+            Authorize(Persona.TipoPersona.Administrador, true);
 
             condicionDropDownList.DataSource = new string[]{ "Regular","Libre","Aprobado","Cursante"};
             condicionDropDownList.DataBind();
 
+            int idCurso = int.Parse(Request.QueryString["idCurso"]);
+            CurrentCurso = cursos.GetOne(idCurso);
+            Page.Title = "Administrar Alumnos - Comisión " + CurrentCurso.Comision.Descripcion;
+            int inscriptos = cursos.CantInscriptos(CurrentCurso);
+            cupoLabel.Text = "Cupo: " + inscriptos + "/" + CurrentCurso.Cupo;
+            if (inscriptos > CurrentCurso.Cupo) cupoLabel.CssClass += " error";
             LoadGrid();
         }
 
@@ -29,8 +39,7 @@ namespace UI.Web
         
         private void LoadGrid()
         {
-            int idCurso = int.Parse(Request.QueryString["idCurso"]);
-            CurrentCurso = cursos.GetOne(idCurso);
+
             gridView.DataSource = alumnos.ListByCurso(CurrentCurso);
             gridView.DataBind();
         }

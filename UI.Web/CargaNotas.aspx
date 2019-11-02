@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargaNotas.aspx.cs" Inherits="UI.Web.CargaNotas" %>
+﻿<%@ Page Title="Cargar Notas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargaNotas.aspx.cs" Inherits="UI.Web.CargaNotas" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand" DataKeyNames="ID">
+    <asp:GridView CssClass="table table-striped" ID="gridView" runat="server" AutoGenerateColumns="false" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand" DataKeyNames="ID">
         <Columns>
             <asp:TemplateField HeaderText="Apellido y Nombre">
                 <ItemTemplate>
@@ -35,7 +35,7 @@
         <br />
         <asp:Label ID="errorLabel" runat="server" Text="Error" Visible="false"></asp:Label>
         <br />
-        <asp:Button ID="cancelarButton" runat="server" Text="Cancelar" OnClick="cancelarButton_Click" />
-        <asp:Button ID="aceptarButton" runat="server" Text="Aceptar" OnClick="aceptarButton_Click" />
+        <asp:Button CssClass="btn btn-outline-primary" ID="cancelarButton" runat="server" Text="Cancelar" OnClick="cancelarButton_Click" />
+        <asp:Button CssClass="btn btn-outline-primary" ID="aceptarButton" runat="server" Text="Aceptar" OnClick="aceptarButton_Click" />
     </asp:Panel>
 </asp:Content>

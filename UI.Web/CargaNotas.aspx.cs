@@ -13,6 +13,7 @@ namespace UI.Web
     {
         AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
         CursoLogic cursos = new CursoLogic();
+        Curso currentCurso;
         int CurrentAlumnoID
         {
             get
@@ -34,13 +35,15 @@ namespace UI.Web
             }
             else if (!IsPostBack)
             {
+                int id = Convert.ToInt32(Request.QueryString["id"]);
+                currentCurso = cursos.GetOne(id);
+                Page.Title = "Cargar Notas - Comisión " + currentCurso.Comision.Descripcion;
                 LoadGrid();
             }
         }
         private void LoadGrid()
         {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            gridView.DataSource = alumnos.ListByCurso(cursos.GetOne(id));
+            gridView.DataSource = alumnos.ListByCurso(currentCurso);
             gridView.DataBind();
         }
 

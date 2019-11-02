@@ -13,6 +13,7 @@ namespace UI.Web
     {
         CursoLogic cursos = new CursoLogic();
         AlumnoInscriptoLogic alumnos = new AlumnoInscriptoLogic();
+        Curso currentCurso;
         int CurrentAlumnoID {
             get
             {
@@ -32,6 +33,9 @@ namespace UI.Web
             }
             else if (!IsPostBack)
             {
+                int id = Convert.ToInt32(Request.QueryString["id"]);
+                currentCurso = cursos.GetOne(id);
+                Page.Title = "Cargar Regularidades - Comisión " + currentCurso.Comision.Descripcion;
                 LoadGrid();
                 ListItem regular = new ListItem("Regular", "1");
                 ListItem libre = new ListItem("Libre", "2");
@@ -44,8 +48,7 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            gridView.DataSource = alumnos.ListByCurso(cursos.GetOne(id));
+            gridView.DataSource = alumnos.ListByCurso(currentCurso);
             gridView.DataBind();
         }
         private void LoadForm()

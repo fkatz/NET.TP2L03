@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inscripciones.aspx.cs" Inherits="UI.Web.Inscripciones" %>
+﻿<%@ Page Title="Inscripciones" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inscripciones.aspx.cs" Inherits="UI.Web.Inscripciones" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand" ViewStateMode="Enabled" DataKeyNames="ID">
+    <asp:GridView CssClass="table table-striped" ID="gridView" runat="server" AutoGenerateColumns="False" OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand" ViewStateMode="Enabled" DataKeyNames="ID">
         <Columns>
             <asp:TemplateField HeaderText="Materia">
                 <ItemTemplate>

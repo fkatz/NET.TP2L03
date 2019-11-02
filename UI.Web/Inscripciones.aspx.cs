@@ -34,14 +34,16 @@ namespace UI.Web
                 e.Row.RowState = DataControlRowState.Edit;
                 Curso curso = (Curso)e.Row.DataItem;
                 Usuario usuario = Authenticate(true);
-
-                if (curso.Cupo - cursos.CantInscriptos(curso) > 0 && !cursos.AlumnoIsInCurso(usuario.Persona,curso))
+                int cantInscriptos = cursos.CantInscriptos(curso);
+                if (curso.Cupo - cantInscriptos > 0 && !cursos.AlumnoIsInCurso(usuario.Persona,curso))
                 {
                     ((Label)e.Row.FindControl("materiaLabel")).Text = curso.Materia.Descripcion;
                     ((Label)e.Row.FindControl("comisionLabel")).Text = curso.Comision.Descripcion;
                     Materia materia = materias.GetOne(curso.Materia.ID);
                     Plan plan = planes.GetOne(materia.Plan.ID);
                     ((Label)e.Row.FindControl("especialidadLabel")).Text = plan.Especialidad.Descripcion;
+                    ((Label)e.Row.FindControl("cupoLabel")).Text = (curso.Cupo - cantInscriptos)>0? (curso.Cupo - cantInscriptos).ToString():"0";
+
                 }
                 else
                 {
