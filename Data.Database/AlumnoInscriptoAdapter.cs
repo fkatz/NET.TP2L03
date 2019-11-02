@@ -1,9 +1,7 @@
 using Business.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace Data.Database
@@ -23,7 +21,8 @@ namespace Data.Database
             {
                 List<AlumnoInscripto> alumnos = context.AlumnoInscripto.Include("Alumno").Include("Curso").ToList();
                 List<AlumnoInscriptoDTO> alumnosDTO = new List<AlumnoInscriptoDTO>();
-                foreach(AlumnoInscripto alumno in alumnos){
+                foreach (AlumnoInscripto alumno in alumnos)
+                {
                     int cursoID = alumno.Curso.ID;
                     alumno.Curso = context.Curso.Include("Comision").Include("Materia").Where(i => i.ID == cursoID).First();
                     alumnosDTO.Add(new AlumnoInscriptoDTO(alumno));
@@ -35,14 +34,29 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.AlumnoInscripto.Where(a=>a.Curso.ID == curso.ID).Include("Alumno").Include("Curso").ToList();
+                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID).Include("Alumno").Include("Curso").ToList();
+            }
+        }
+        public List<AlumnoInscriptoDTO> ListByCursoAsDTO(int curso)
+        {
+            using (var context = new AcademiaContext())
+            {
+                List<AlumnoInscripto> alumnos = context.AlumnoInscripto.Where(a => a.Curso.ID == curso).Include("Alumno").Include("Curso").ToList();
+                List<AlumnoInscriptoDTO> alumnosDTO = new List<AlumnoInscriptoDTO>();
+                foreach (AlumnoInscripto alumno in alumnos)
+                {
+                    int cursoID = alumno.Curso.ID;
+                    alumno.Curso = context.Curso.Include("Comision").Include("Materia").Where(i => i.ID == cursoID).First();
+                    alumnosDTO.Add(new AlumnoInscriptoDTO(alumno));
+                }
+                return alumnosDTO;
             }
         }
         public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso, AlumnoInscripto.Condiciones[] condiciones)
         {
             using (var context = new AcademiaContext())
             {
-                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && condiciones.Any(c=>a.Condicion == c)).Include("Alumno").Include("Curso").ToList();
+                return context.AlumnoInscripto.Where(a => a.Curso.ID == curso.ID && condiciones.Any(c => a.Condicion == c)).Include("Alumno").Include("Curso").ToList();
             }
         }
         public List<AlumnoInscripto> ListByAlumno(Persona alumno)
@@ -65,7 +79,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.AlumnoInscripto.Include("Alumno").Include("Curso").Where(i=>i.ID==ID).First();
+                return context.AlumnoInscripto.Include("Alumno").Include("Curso").Where(i => i.ID == ID).First();
             }
         }
 

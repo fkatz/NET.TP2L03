@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Business.Entities;
 using Business.Logic;
-using Business.Entities;
+using System;
+using System.Web.UI;
 
 namespace UI.Web
 {
@@ -39,7 +35,7 @@ namespace UI.Web
         private PersonaLogic personas = new PersonaLogic();
         private CursoLogic cursos = new CursoLogic();
         private Curso CurrentCurso = new Curso();
-        
+
         private void LoadGrid()
         {
 
@@ -97,7 +93,7 @@ namespace UI.Web
                 errorLabel.Text = "No ha seleccionado ningun alumno";
             }
 
-}
+        }
 
         protected void nuevoButton_Click(object sender, EventArgs e)
         {
@@ -106,7 +102,7 @@ namespace UI.Web
             FormMode = FormModes.Alta;
             ClearForm();
         }
-        
+
         private void LoadEntity(AlumnoInscripto alumno)
         {
             AlumnoInscripto.Condiciones condicion = new AlumnoInscripto.Condiciones();
@@ -126,11 +122,11 @@ namespace UI.Web
                     break;
             }
 
-            if (legajoTextBox.Text.Length > 0 && notaTextBox.Text.Length > 0 && condicionDropDownList.SelectedItem != null)
+            if (legajoTextBox.Text.Length > 0 && notaTextBox.Text.Length > 0 && notaTextBox.Text != "" && condicionDropDownList.SelectedItem != null)
                 alumno.Alumno = personas.FindByLegajo(int.Parse(legajoTextBox.Text));
-                alumno.Nota = int.Parse(notaTextBox.Text);
-                alumno.Condicion = condicion;
-                alumno.Curso = CurrentCurso; 
+            alumno.Nota = int.Parse(notaTextBox.Text);
+            alumno.Condicion = condicion;
+            alumno.Curso = CurrentCurso;
         }
 
         private void SaveEntity(AlumnoInscripto alumno)
@@ -144,7 +140,7 @@ namespace UI.Web
                 Response.Redirect("/Error.aspx?m=" + e.Message, true);
             }
         }
-        
+
         protected void AceptarForm_Click(object sender, EventArgs e)
         {
             Validate();

@@ -1,5 +1,4 @@
 ﻿using Business.Entities;
-using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
@@ -23,13 +22,17 @@ namespace Business.Logic
         {
             return AlumnoInscriptoData.GetAllAsDTO();
         }
+        public List<AlumnoInscriptoDTO> ListByCursoAsDTO(int curso)
+        {
+            return AlumnoInscriptoData.ListByCursoAsDTO(curso);
+        }
         public List<AlumnoInscripto> ListByCurso(Curso curso)
         {
             return AlumnoInscriptoData.ListByCurso(curso);
         }
-        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso,params AlumnoInscripto.Condiciones[] condiciones)
+        public List<AlumnoInscripto> ListByCursoAndCondicion(Curso curso, params AlumnoInscripto.Condiciones[] condiciones)
         {
-            return AlumnoInscriptoData.ListByCursoAndCondicion(curso,condiciones);
+            return AlumnoInscriptoData.ListByCursoAndCondicion(curso, condiciones);
         }
         public List<AlumnoInscripto> ListByAlumno(Persona alumno)
         {

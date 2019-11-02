@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Alumnos.aspx" />
+    <Content Include="Asistencia.aspx" />
     <Content Include="CargaNotasCursos.aspx" />
     <Content Include="CargaNotas.aspx" />
     <Content Include="Comisiones.aspx" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Asistencia.aspx.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Asistencia.aspx.designer.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Authenticator.cs" />
     <Compile Include="CargaNotasCursos.aspx.cs">
       <DependentUpon>CargaNotasCursos.aspx</DependentUpon>
@@ -385,6 +393,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlumnosByCursos.rdlc" />
     <EmbeddedResource Include="promediosNotas.rdlc" />
   </ItemGroup>
   <PropertyGroup>
