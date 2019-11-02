@@ -18,9 +18,11 @@ namespace UI.Web
                 Response.Redirect("/error?m=" + "No hay curso seleccionado");
             }
             Authorize(Persona.TipoPersona.Administrador, true);
-
-            condicionDropDownList.DataSource = new string[]{ "Regular","Libre","Aprobado","Cursante"};
-            condicionDropDownList.DataBind();
+            if (!IsPostBack)
+            {
+                condicionDropDownList.DataSource = new string[] { "Regular", "Libre", "Aprobado", "Cursante" };
+                condicionDropDownList.DataBind();
+            }
 
             int idCurso = int.Parse(Request.QueryString["idCurso"]);
             CurrentCurso = cursos.GetOne(idCurso);
