@@ -19,6 +19,10 @@ namespace Business.Logic
         {
             return AlumnoInscriptoData.GetAll();
         }
+        public List<AlumnoInscriptoDTO> GetAllAsDTO()
+        {
+            return AlumnoInscriptoData.GetAllAsDTO();
+        }
         public List<AlumnoInscripto> ListByCurso(Curso curso)
         {
             return AlumnoInscriptoData.ListByCurso(curso);

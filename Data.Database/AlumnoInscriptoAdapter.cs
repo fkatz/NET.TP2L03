@@ -17,6 +17,18 @@ namespace Data.Database
                 return context.AlumnoInscripto.Include("Alumno").Include("Curso").ToList();
             }
         }
+        public List<AlumnoInscriptoDTO> GetAllAsDTO()
+        {
+            using (var context = new AcademiaContext())
+            {
+                List<AlumnoInscripto> alumnos = context.AlumnoInscripto.Include("Alumno").Include("Curso").ToList();
+                List<AlumnoInscriptoDTO> alumnosDTO = new List<AlumnoInscriptoDTO>();
+                foreach(AlumnoInscripto alumno in alumnos){
+                    alumnosDTO.Add(new AlumnoInscriptoDTO(alumno));
+                }
+                return alumnosDTO;
+            }
+        }
         public List<AlumnoInscripto> ListByCurso(Curso curso)
         {
             using (var context = new AcademiaContext())
