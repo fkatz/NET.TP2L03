@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <asp:DropDownList ID="cursosDropDownList" runat="server" OnSelectedIndexChanged="cursosDropDownList_SelectedIndexChanged">
+    <asp:DropDownList ID="cursosDropDownList" runat="server" OnSelectedIndexChanged="cursosDropDownList_SelectedIndexChanged" AutoPostBack="True">
     </asp:DropDownList>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
