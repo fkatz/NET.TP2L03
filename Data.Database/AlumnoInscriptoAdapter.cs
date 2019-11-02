@@ -24,6 +24,8 @@ namespace Data.Database
                 List<AlumnoInscripto> alumnos = context.AlumnoInscripto.Include("Alumno").Include("Curso").ToList();
                 List<AlumnoInscriptoDTO> alumnosDTO = new List<AlumnoInscriptoDTO>();
                 foreach(AlumnoInscripto alumno in alumnos){
+                    int cursoID = alumno.Curso.ID;
+                    alumno.Curso = context.Curso.Include("Comision").Include("Materia").Where(i => i.ID == cursoID).First();
                     alumnosDTO.Add(new AlumnoInscriptoDTO(alumno));
                 }
                 return alumnosDTO;
