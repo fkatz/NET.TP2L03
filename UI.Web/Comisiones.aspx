@@ -23,17 +23,17 @@
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
-            <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="descripcionTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es inválida" ValidationExpression="[0-9]{3}">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es requerida">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="añoEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
-            <asp:TextBox ID="añoEspecialidadTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="añoEspecialidadTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="añoEspecialidadTextBox" ErrorMessage="El Año de Especialidad deben ser un número entero positivo menor o igual a 5" ValidationExpression="[12345]">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="añoEspecialidadTextBox" ErrorMessage="El campo Año de Especialidad de la Comision es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-            <asp:DropDownList ID="planDropDownList" runat="server" DataSourceID="PlanesDatasource" DataTextField="Descripcion" DataValueField="ID">
+            <asp:DropDownList CssClass="custom-select" ID="planDropDownList" runat="server" DataSourceID="PlanesDatasource" DataTextField="Descripcion" DataValueField="ID">
             </asp:DropDownList>
             <br />
             <asp:ObjectDataSource ID="PlanesDatasource" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>

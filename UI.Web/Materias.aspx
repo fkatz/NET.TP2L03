@@ -24,22 +24,22 @@
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
-            <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="descripcionTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es inválida" ValidationExpression="[a-zA-Z][a-zA-Z0-9]{2,}([ ][a-zA-Z0-9]*)*">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion es requerida">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="hsSemanalesLabel" runat="server" Text="Horas Semanales: "></asp:Label>
-            <asp:TextBox ID="hsSemanalesTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="hsSemanalesTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="hsSemanalesTextBox" ErrorMessage="Las Horas Semanales deben ser un número entero positivo" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="hsSemanalesTextBox" ErrorMessage="El campo Horas Semanales de la Materia es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="hsTotalesLabel" runat="server" Text="Horas Totales: "></asp:Label>
-            <asp:TextBox ID="hsTotalesTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="hsTotalesTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="hsTotalesTextBox" ErrorMessage="Las Horas Totales deben ser un número entero positivo" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="hsTotalesTextBox" ErrorMessage="El campo Horas Totales de la Materia es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-            <asp:DropDownList ID="planDropDownList" runat="server" DataSourceID="PlanesDatasource" DataTextField="Descripcion" DataValueField="ID">
+            <asp:DropDownList CssClass="custom-select" ID="planDropDownList" runat="server" DataSourceID="PlanesDatasource" DataTextField="Descripcion" DataValueField="ID">
             </asp:DropDownList>
             <asp:ObjectDataSource ID="PlanesDatasource" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />

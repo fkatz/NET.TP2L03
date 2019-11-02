@@ -22,13 +22,13 @@
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="legajoLabel" runat="server" Text="Legajo Docente: "></asp:Label>
-            <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="legajoTextBox" runat="server"></asp:TextBox>
             
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="El legajo es requerido">*</asp:RequiredFieldValidator>
             <br />
             <br />
             <asp:Label ID="cargoLabel" runat="server" Text="Cargo:"></asp:Label>
-            <asp:DropDownList ID="cargoDropDownList" runat="server">
+            <asp:DropDownList CssClass="custom-select" ID="cargoDropDownList" runat="server">
             </asp:DropDownList>
             <br />
             <asp:ValidationSummary ID="ValidationSummary" ShowSummary="true" runat="server" />

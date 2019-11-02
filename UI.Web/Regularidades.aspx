@@ -26,7 +26,7 @@
         <asp:Label ID="alumnoLabel" runat="server" Text="Alumno:"></asp:Label>
         <br />
         <asp:Label ID="condicionLabel" runat="server" Text="Condición:"></asp:Label>
-        <asp:DropDownList ID="condicionDropDownList" runat="server">
+        <asp:DropDownList CssClass="custom-select" ID="condicionDropDownList" runat="server">
         </asp:DropDownList>
         <br />
         <asp:Button CssClass="btn btn-outline-primary" ID="cancelarButton" runat="server" Text="Cancelar" OnClick="cancelarButton_Click" />

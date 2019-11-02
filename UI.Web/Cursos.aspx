@@ -26,22 +26,22 @@
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server">
             <asp:Label ID="ComisionLabel" runat="server" Text="Comision: "></asp:Label>
-            <asp:DropDownList ID="comisionDropDownList" runat="server" DataSourceID="comisionesDatasource" DataTextField="Descripcion" DataValueField="ID">
+            <asp:DropDownList CssClass="custom-select" ID="comisionDropDownList" runat="server" DataSourceID="comisionesDatasource" DataTextField="Descripcion" DataValueField="ID">
             </asp:DropDownList>
             <br />
             <asp:ObjectDataSource ID="comisionesDatasource" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.ComisionLogic"></asp:ObjectDataSource>
             <asp:Label ID="materiaLabel" runat="server" Text="Materia: "></asp:Label>
-            <asp:DropDownList ID="materiaDropDownList" runat="server" DataSourceID="materiasDatasource" DataTextField="Descripcion" DataValueField="ID">
+            <asp:DropDownList CssClass="custom-select" ID="materiaDropDownList" runat="server" DataSourceID="materiasDatasource" DataTextField="Descripcion" DataValueField="ID">
             </asp:DropDownList>
             <br />
             <asp:ObjectDataSource ID="materiasDatasource" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.MateriaLogic"></asp:ObjectDataSource>
             <asp:Label ID="cupoLabel" runat="server" Text="Cupo: "></asp:Label>
-            <asp:TextBox ID="cupoTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="cupoTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="cupoTextBox" ErrorMessage="El cupo es inválido" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="cupoTextBox" ErrorMessage="El cupo es requerido">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="añoCalendarioLabel" runat="server" Text="Año Calendario: "></asp:Label>
-            <asp:TextBox ID="añoCalendarioTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="form-control" ID="añoCalendarioTextBox" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="añoCalendarioTextBox" ErrorMessage="El Año Calendario deben ser un número entero positivo de 4 cifras" ValidationExpression="[12][0-9]{3}">*</asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="añoCalendarioTextBox" ErrorMessage="El campo Año Calendario del Curso es requerido">*</asp:RequiredFieldValidator>
             <br />

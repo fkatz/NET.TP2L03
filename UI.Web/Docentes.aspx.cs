@@ -14,8 +14,11 @@ namespace UI.Web
             }
             Authorize(Persona.TipoPersona.Administrador, true);
 
-            cargoDropDownList.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
-            cargoDropDownList.DataBind();
+            if (!IsPostBack)
+            {
+                cargoDropDownList.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
+                cargoDropDownList.DataBind();
+            }
 
             LoadGrid();
         }

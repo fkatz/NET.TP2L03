@@ -18,7 +18,7 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-			Authorize(Persona.TipoPersona.Administrador, true);
+			Authorize(Persona.TipoPersona.Alumno, true);
             LoadGrid();
         }
         public void LoadGrid()

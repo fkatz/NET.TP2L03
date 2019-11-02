@@ -31,7 +31,7 @@
         <asp:Label ID="alumnoLabel" runat="server" Text="Alumno:"></asp:Label>
         <br />
         <asp:Label ID="notaLabel" runat="server" Text="Nota:"></asp:Label>
-        <asp:TextBox ID="notaTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox CssClass="form-control" ID="notaTextBox" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="errorLabel" runat="server" Text="Error" Visible="false"></asp:Label>
         <br />
