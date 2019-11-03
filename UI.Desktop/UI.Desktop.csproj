@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windows\Asistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Asistencia.Designer.cs">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AlumnoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlumnosByCursos.rdlc" />
+    <EmbeddedResource Include="Windows\Asistencia.resx">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>

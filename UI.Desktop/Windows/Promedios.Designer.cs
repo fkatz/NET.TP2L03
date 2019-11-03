@@ -30,27 +30,33 @@ namespace UI.Desktop.Windows
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = null;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer2.LocalReport.ReportPath = "UI.Desktop/promediosNotas.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(5, 5);
             this.reportViewer2.Name = "ReportViewer";
             this.reportViewer2.ServerReport.BearerToken = null;
             this.reportViewer2.Size = new System.Drawing.Size(650, 454);
             this.reportViewer2.TabIndex = 0;
-            this.reportViewer2.Reset();
-            this.reportViewer2.ProcessingMode = ProcessingMode.Local;
-            LocalReport localReport = reportViewer2.LocalReport;
-            localReport.ReportPath = "promediosNotas.rdlc";
-            ReportDataSource datasource = new ReportDataSource();
-            datasource.Name = "DataSet1";
-            datasource.Value = alumnosCursos.GetAllAsDTO();
-            localReport.DataSources.Add(datasource);
-            this.reportViewer2.ZoomMode = ZoomMode.PageWidth;
-            this.reportViewer2.RefreshReport();
+            this.reportViewer2.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // Promedios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -66,6 +72,7 @@ namespace UI.Desktop.Windows
 
         #endregion
 
-        protected ReportViewer reportViewer2;
+        private ReportViewer reportViewer1;
+        private ReportViewer reportViewer2;
     }
 }
