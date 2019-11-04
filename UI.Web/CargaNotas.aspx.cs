@@ -27,7 +27,7 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {        
-			Authorize(Persona.TipoPersona.Bedel, true);
+			Authorize(Persona.TipoPersona.Docente, true);
             
             if (Request.QueryString["id"] == null)
             {

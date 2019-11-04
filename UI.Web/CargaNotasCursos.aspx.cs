@@ -17,7 +17,7 @@ namespace UI.Web
         PlanLogic planes = new PlanLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-			Authorize(Persona.TipoPersona.Bedel, true);
+			Authorize(Persona.TipoPersona.Docente, true);
             LoadGrid();
         }
 
