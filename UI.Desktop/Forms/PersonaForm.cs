@@ -105,8 +105,15 @@ namespace UI.Desktop.Forms
                         EntidadActual.State = BusinessEntity.States.Deleted;
                         break;
                 }
-                entities.Save(EntidadActual);
-                this.Close();
+                try
+                {
+                    entities.Save(EntidadActual);
+                    this.Close();
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         public bool Validar()

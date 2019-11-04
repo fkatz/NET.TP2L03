@@ -32,12 +32,12 @@
             this.gbxAlumnosCurso = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvAlumnosCurso = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condicion = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbxAlumnosCurso.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -110,6 +110,31 @@
             this.dgvAlumnosCurso.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnosCurso_CellEndEdit);
             this.dgvAlumnosCurso.SelectionChanged += new System.EventHandler(this.dgvAlumnosCurso_SelectionChanged);
             // 
+            // Alumno
+            // 
+            this.Alumno.HeaderText = "Apellido y Nombre";
+            this.Alumno.Name = "Alumno";
+            this.Alumno.ReadOnly = true;
+            // 
+            // Legajo
+            // 
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            // 
+            // Condicion
+            // 
+            this.Condicion.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Condicion.HeaderText = "Condicion";
+            this.Condicion.Items.AddRange(new object[] {
+            "Cursante",
+            "Regular",
+            "Libre",
+            "Aprobado"});
+            this.Condicion.Name = "Condicion";
+            this.Condicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Condicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnCancelar);
@@ -142,31 +167,6 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // Alumno
-            // 
-            this.Alumno.HeaderText = "Apellido y Nombre";
-            this.Alumno.Name = "Alumno";
-            this.Alumno.ReadOnly = true;
-            // 
-            // Legajo
-            // 
-            this.Legajo.HeaderText = "Legajo";
-            this.Legajo.Name = "Legajo";
-            this.Legajo.ReadOnly = true;
-            // 
-            // Condicion
-            // 
-            this.Condicion.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Condicion.HeaderText = "Condicion";
-            this.Condicion.Items.AddRange(new object[] {
-            "Cursante",
-            "Regular",
-            "Libre",
-            "Aprobado"});
-            this.Condicion.Name = "Condicion";
-            this.Condicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Condicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // CargaCondicionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +174,7 @@
             this.ClientSize = new System.Drawing.Size(660, 370);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CargaCondicionList";
-            this.Text = "Administrar notas";
+            this.Text = "Cargar Condiciones";
             this.Load += new System.EventHandler(this.AlumnosCursoList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gbxAlumnosCurso.ResumeLayout(false);
