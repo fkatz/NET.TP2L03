@@ -149,5 +149,11 @@ namespace UI.Desktop
             Windows.Promedios form = new Windows.Promedios();
             form.Show();
         }
+
+        private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Windows.ListadoAsistencia a = new Windows.ListadoAsistencia(loggedUser.Persona);
+            a.Show();
+        }
     }
 }

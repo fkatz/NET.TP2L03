@@ -38,6 +38,7 @@
             this.tsmAdmPer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdmCurr = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdmCurs = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarPromediosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.inscripcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,7 @@
             this.tsmPreceptor = new System.Windows.Forms.ToolStripMenuItem();
             this.regularidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.consultarPromediosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,27 +72,27 @@
             this.tsmCerrarSesion,
             this.tsmSalir});
             this.tsmArchivo.Name = "tsmArchivo";
-            this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
+            this.tsmArchivo.Size = new System.Drawing.Size(55, 20);
             this.tsmArchivo.Text = "Archivo";
             // 
             // tsmIniciarSesion
             // 
             this.tsmIniciarSesion.Name = "tsmIniciarSesion";
-            this.tsmIniciarSesion.Size = new System.Drawing.Size(143, 22);
+            this.tsmIniciarSesion.Size = new System.Drawing.Size(139, 22);
             this.tsmIniciarSesion.Text = "Iniciar Sesión";
             this.tsmIniciarSesion.Click += new System.EventHandler(this.tsmIniciarSesion_Click);
             // 
             // tsmCerrarSesion
             // 
             this.tsmCerrarSesion.Name = "tsmCerrarSesion";
-            this.tsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
+            this.tsmCerrarSesion.Size = new System.Drawing.Size(139, 22);
             this.tsmCerrarSesion.Text = "Cerrar Sesión";
             this.tsmCerrarSesion.Click += new System.EventHandler(this.tsmCerrarSesion_Click);
             // 
             // tsmSalir
             // 
             this.tsmSalir.Name = "tsmSalir";
-            this.tsmSalir.Size = new System.Drawing.Size(143, 22);
+            this.tsmSalir.Size = new System.Drawing.Size(139, 22);
             this.tsmSalir.Text = "Salir";
             this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
             // 
@@ -104,36 +105,43 @@
             this.tsmAdmCurs,
             this.consultarPromediosToolStripMenuItem});
             this.tsmAdministrar.Name = "tsmAdministrar";
-            this.tsmAdministrar.Size = new System.Drawing.Size(81, 20);
+            this.tsmAdministrar.Size = new System.Drawing.Size(73, 20);
             this.tsmAdministrar.Text = "Administrar";
             // 
             // tsmAdmUs
             // 
             this.tsmAdmUs.Name = "tsmAdmUs";
-            this.tsmAdmUs.Size = new System.Drawing.Size(187, 22);
+            this.tsmAdmUs.Size = new System.Drawing.Size(175, 22);
             this.tsmAdmUs.Text = "Administrar Usuarios";
             this.tsmAdmUs.Click += new System.EventHandler(this.administrarUsuariosToolStripMenuItem_Click);
             // 
             // tsmAdmPer
             // 
             this.tsmAdmPer.Name = "tsmAdmPer";
-            this.tsmAdmPer.Size = new System.Drawing.Size(187, 22);
+            this.tsmAdmPer.Size = new System.Drawing.Size(175, 22);
             this.tsmAdmPer.Text = "Administrar Personas";
             this.tsmAdmPer.Click += new System.EventHandler(this.administrarPersonasToolStripMenuItem_Click);
             // 
             // tsmAdmCurr
             // 
             this.tsmAdmCurr.Name = "tsmAdmCurr";
-            this.tsmAdmCurr.Size = new System.Drawing.Size(187, 22);
+            this.tsmAdmCurr.Size = new System.Drawing.Size(175, 22);
             this.tsmAdmCurr.Text = "Administrar Currícula";
             this.tsmAdmCurr.Click += new System.EventHandler(this.administrarCurrículaToolStripMenuItem_Click);
             // 
             // tsmAdmCurs
             // 
             this.tsmAdmCurs.Name = "tsmAdmCurs";
-            this.tsmAdmCurs.Size = new System.Drawing.Size(187, 22);
+            this.tsmAdmCurs.Size = new System.Drawing.Size(175, 22);
             this.tsmAdmCurs.Text = "Administrar Cursada";
             this.tsmAdmCurs.Click += new System.EventHandler(this.administrarCursadaToolStripMenuItem_Click);
+            // 
+            // consultarPromediosToolStripMenuItem
+            // 
+            this.consultarPromediosToolStripMenuItem.Name = "consultarPromediosToolStripMenuItem";
+            this.consultarPromediosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.consultarPromediosToolStripMenuItem.Text = "Consultar Promedios";
+            this.consultarPromediosToolStripMenuItem.Click += new System.EventHandler(this.consultarPromediosToolStripMenuItem_Click);
             // 
             // tsmAlumno
             // 
@@ -141,20 +149,20 @@
             this.inscripcionesToolStripMenuItem,
             this.notasToolStripMenuItem});
             this.tsmAlumno.Name = "tsmAlumno";
-            this.tsmAlumno.Size = new System.Drawing.Size(62, 20);
+            this.tsmAlumno.Size = new System.Drawing.Size(54, 20);
             this.tsmAlumno.Text = "Alumno";
             // 
             // inscripcionesToolStripMenuItem
             // 
             this.inscripcionesToolStripMenuItem.Name = "inscripcionesToolStripMenuItem";
-            this.inscripcionesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.inscripcionesToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.inscripcionesToolStripMenuItem.Text = "Inscripciones";
             this.inscripcionesToolStripMenuItem.Click += new System.EventHandler(this.inscripcionesToolStripMenuItem_Click);
             // 
             // notasToolStripMenuItem
             // 
             this.notasToolStripMenuItem.Name = "notasToolStripMenuItem";
-            this.notasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.notasToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.notasToolStripMenuItem.Text = "Estado Académico";
             this.notasToolStripMenuItem.Click += new System.EventHandler(this.notasToolStripMenuItem_Click);
             // 
@@ -163,28 +171,29 @@
             this.tsmDocente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarNotasToolStripMenuItem});
             this.tsmDocente.Name = "tsmDocente";
-            this.tsmDocente.Size = new System.Drawing.Size(63, 20);
+            this.tsmDocente.Size = new System.Drawing.Size(59, 20);
             this.tsmDocente.Text = "Docente";
             // 
             // administrarNotasToolStripMenuItem
             // 
             this.administrarNotasToolStripMenuItem.Name = "administrarNotasToolStripMenuItem";
-            this.administrarNotasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.administrarNotasToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.administrarNotasToolStripMenuItem.Text = "Administrar Notas";
             this.administrarNotasToolStripMenuItem.Click += new System.EventHandler(this.administrarNotasToolStripMenuItem_Click);
             // 
             // tsmPreceptor
             // 
             this.tsmPreceptor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regularidadesToolStripMenuItem});
+            this.regularidadesToolStripMenuItem,
+            this.asistenciaToolStripMenuItem});
             this.tsmPreceptor.Name = "tsmPreceptor";
-            this.tsmPreceptor.Size = new System.Drawing.Size(48, 20);
+            this.tsmPreceptor.Size = new System.Drawing.Size(45, 20);
             this.tsmPreceptor.Text = "Bedel";
             // 
             // regularidadesToolStripMenuItem
             // 
             this.regularidadesToolStripMenuItem.Name = "regularidadesToolStripMenuItem";
-            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.regularidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.regularidadesToolStripMenuItem.Text = "Regularidades";
             this.regularidadesToolStripMenuItem.Click += new System.EventHandler(this.regularidadesToolStripMenuItem_Click);
             // 
@@ -197,12 +206,12 @@
             this.panel1.Size = new System.Drawing.Size(800, 426);
             this.panel1.TabIndex = 4;
             // 
-            // consultarPromediosToolStripMenuItem
+            // asistenciaToolStripMenuItem
             // 
-            this.consultarPromediosToolStripMenuItem.Name = "consultarPromediosToolStripMenuItem";
-            this.consultarPromediosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.consultarPromediosToolStripMenuItem.Text = "Consultar Promedios";
-            this.consultarPromediosToolStripMenuItem.Click += new System.EventHandler(this.consultarPromediosToolStripMenuItem_Click);
+            this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
+            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asistenciaToolStripMenuItem.Text = "Asistencia";
+            this.asistenciaToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -242,5 +251,6 @@
         private System.Windows.Forms.ToolStripMenuItem regularidadesToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem consultarPromediosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
     }
 }

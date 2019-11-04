@@ -66,12 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Windows\Asistencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\Asistencia.Designer.cs">
-      <DependentUpon>Asistencia.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AlumnoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +145,12 @@
     <Compile Include="Windows\CursosDocenteList.designer.cs">
       <DependentUpon>CursosDocenteList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ListadoAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ListadoAsistencia.Designer.cs">
+      <DependentUpon>ListadoAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Promedios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,10 +219,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AlumnosByCursos.rdlc" />
-    <EmbeddedResource Include="Windows\Asistencia.resx">
-      <DependentUpon>Asistencia.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="AlumnosByCursos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Forms\AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +262,9 @@
     <EmbeddedResource Include="Windows\CursosDocenteList.resx">
       <DependentUpon>CursosDocenteList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ListadoAsistencia.resx">
+      <DependentUpon>ListadoAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\Promedios.resx">
       <DependentUpon>Promedios.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,9 +277,9 @@
     <EmbeddedResource Include="Windows\PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="promediosNotas.rdlc">
+    <Content Include="promediosNotas.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <EmbeddedResource Include="Windows\RegularidadesBedelList.resx">
       <DependentUpon>RegularidadesBedelList.cs</DependentUpon>
     </EmbeddedResource>

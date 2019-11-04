@@ -39,23 +39,16 @@ namespace UI.Desktop.Windows
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = null;
+            reportDataSource1.Value = alumnosCursos.GetAllAsDTO();
             this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer2.LocalReport.ReportPath = "UI.Desktop/promediosNotas.rdlc";
+            this.reportViewer2.LocalReport.ReportPath = "promediosNotas.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(5, 5);
             this.reportViewer2.Name = "ReportViewer";
             this.reportViewer2.ServerReport.BearerToken = null;
             this.reportViewer2.Size = new System.Drawing.Size(650, 454);
             this.reportViewer2.TabIndex = 0;
             this.reportViewer2.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "ReportViewer";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
-            this.reportViewer1.TabIndex = 0;
+            this.reportViewer2.RefreshReport();
             // 
             // Promedios
             // 
